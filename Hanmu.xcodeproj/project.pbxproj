@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50376525F9334B00E233F4 /* HanmuApp.swift */; };
+		EA50376825F9334B00E233F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50376725F9334B00E233F4 /* ContentView.swift */; };
+		EA50376A25F9335100E233F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA50376925F9335100E233F4 /* Assets.xcassets */; };
+		EA50376D25F9335100E233F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA50376C25F9335100E233F4 /* Preview Assets.xcassets */; };
+		EA50377825F9335200E233F4 /* HanmuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50377725F9335200E233F4 /* HanmuTests.swift */; };
+		EA50378325F9335200E233F4 /* HanmuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50378225F9335200E233F4 /* HanmuUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA50377425F9335200E233F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA50375A25F9334B00E233F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA50376125F9334B00E233F4;
+			remoteInfo = Hanmu;
+		};
+		EA50377F25F9335200E233F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA50375A25F9334B00E233F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA50376125F9334B00E233F4;
+			remoteInfo = Hanmu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EA50376225F9334B00E233F4 /* Hanmu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hanmu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA50376525F9334B00E233F4 /* HanmuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuApp.swift; sourceTree = "<group>"; };
+		EA50376725F9334B00E233F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EA50376925F9335100E233F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA50376C25F9335100E233F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EA50376E25F9335100E233F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA50377325F9335200E233F4 /* HanmuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HanmuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA50377725F9335200E233F4 /* HanmuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuTests.swift; sourceTree = "<group>"; };
+		EA50377925F9335200E233F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA50377E25F9335200E233F4 /* HanmuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HanmuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA50378225F9335200E233F4 /* HanmuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuUITests.swift; sourceTree = "<group>"; };
+		EA50378425F9335200E233F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA50375F25F9334B00E233F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA50377025F9335200E233F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA50377B25F9335200E233F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA50375925F9334B00E233F4 = {
+			isa = PBXGroup;
+			children = (
+				EA50376425F9334B00E233F4 /* Hanmu */,
+				EA50377625F9335200E233F4 /* HanmuTests */,
+				EA50378125F9335200E233F4 /* HanmuUITests */,
+				EA50376325F9334B00E233F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA50376325F9334B00E233F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA50376225F9334B00E233F4 /* Hanmu.app */,
+				EA50377325F9335200E233F4 /* HanmuTests.xctest */,
+				EA50377E25F9335200E233F4 /* HanmuUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA50376425F9334B00E233F4 /* Hanmu */ = {
+			isa = PBXGroup;
+			children = (
+				EA50376525F9334B00E233F4 /* HanmuApp.swift */,
+				EA50376725F9334B00E233F4 /* ContentView.swift */,
+				EA50376925F9335100E233F4 /* Assets.xcassets */,
+				EA50376E25F9335100E233F4 /* Info.plist */,
+				EA50376B25F9335100E233F4 /* Preview Content */,
+			);
+			path = Hanmu;
+			sourceTree = "<group>";
+		};
+		EA50376B25F9335100E233F4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EA50376C25F9335100E233F4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EA50377625F9335200E233F4 /* HanmuTests */ = {
+			isa = PBXGroup;
+			children = (
+				EA50377725F9335200E233F4 /* HanmuTests.swift */,
+				EA50377925F9335200E233F4 /* Info.plist */,
+			);
+			path = HanmuTests;
+			sourceTree = "<group>";
+		};
+		EA50378125F9335200E233F4 /* HanmuUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EA50378225F9335200E233F4 /* HanmuUITests.swift */,
+				EA50378425F9335200E233F4 /* Info.plist */,
+			);
+			path = HanmuUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EA50376125F9334B00E233F4 /* Hanmu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA50378725F9335200E233F4 /* Build configuration list for PBXNativeTarget "Hanmu" */;
+			buildPhases = (
+				EA50375E25F9334B00E233F4 /* Sources */,
+				EA50375F25F9334B00E233F4 /* Frameworks */,
+				EA50376025F9334B00E233F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Hanmu;
+			productName = Hanmu;
+			productReference = EA50376225F9334B00E233F4 /* Hanmu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EA50377225F9335200E233F4 /* HanmuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA50378A25F9335200E233F4 /* Build configuration list for PBXNativeTarget "HanmuTests" */;
+			buildPhases = (
+				EA50376F25F9335200E233F4 /* Sources */,
+				EA50377025F9335200E233F4 /* Frameworks */,
+				EA50377125F9335200E233F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA50377525F9335200E233F4 /* PBXTargetDependency */,
+			);
+			name = HanmuTests;
+			productName = HanmuTests;
+			productReference = EA50377325F9335200E233F4 /* HanmuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EA50377D25F9335200E233F4 /* HanmuUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA50378D25F9335200E233F4 /* Build configuration list for PBXNativeTarget "HanmuUITests" */;
+			buildPhases = (
+				EA50377A25F9335200E233F4 /* Sources */,
+				EA50377B25F9335200E233F4 /* Frameworks */,
+				EA50377C25F9335200E233F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA50378025F9335200E233F4 /* PBXTargetDependency */,
+			);
+			name = HanmuUITests;
+			productName = HanmuUITests;
+			productReference = EA50377E25F9335200E233F4 /* HanmuUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA50375A25F9334B00E233F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					EA50376125F9334B00E233F4 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					EA50377225F9335200E233F4 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = EA50376125F9334B00E233F4;
+					};
+					EA50377D25F9335200E233F4 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = EA50376125F9334B00E233F4;
+					};
+				};
+			};
+			buildConfigurationList = EA50375D25F9334B00E233F4 /* Build configuration list for PBXProject "Hanmu" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EA50375925F9334B00E233F4;
+			productRefGroup = EA50376325F9334B00E233F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA50376125F9334B00E233F4 /* Hanmu */,
+				EA50377225F9335200E233F4 /* HanmuTests */,
+				EA50377D25F9335200E233F4 /* HanmuUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA50376025F9334B00E233F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA50376D25F9335100E233F4 /* Preview Assets.xcassets in Resources */,
+				EA50376A25F9335100E233F4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA50377125F9335200E233F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA50377C25F9335200E233F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA50375E25F9334B00E233F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA50376825F9334B00E233F4 /* ContentView.swift in Sources */,
+				EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA50376F25F9335200E233F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA50377825F9335200E233F4 /* HanmuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA50377A25F9335200E233F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA50378325F9335200E233F4 /* HanmuUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA50377525F9335200E233F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA50376125F9334B00E233F4 /* Hanmu */;
+			targetProxy = EA50377425F9335200E233F4 /* PBXContainerItemProxy */;
+		};
+		EA50378025F9335200E233F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA50376125F9334B00E233F4 /* Hanmu */;
+			targetProxy = EA50377F25F9335200E233F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EA50378525F9335200E233F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EA50378625F9335200E233F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA50378825F9335200E233F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
+				DEVELOPMENT_TEAM = 97YACL9S6W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Hanmu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.Hanmu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA50378925F9335200E233F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
+				DEVELOPMENT_TEAM = 97YACL9S6W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Hanmu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.Hanmu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EA50378B25F9335200E233F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
+				INFOPLIST_FILE = HanmuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.HanmuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hanmu.app/Hanmu";
+			};
+			name = Debug;
+		};
+		EA50378C25F9335200E233F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
+				INFOPLIST_FILE = HanmuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.HanmuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hanmu.app/Hanmu";
+			};
+			name = Release;
+		};
+		EA50378E25F9335200E233F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
+				INFOPLIST_FILE = HanmuUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.HanmuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hanmu;
+			};
+			name = Debug;
+		};
+		EA50378F25F9335200E233F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
+				INFOPLIST_FILE = HanmuUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.HanmuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Hanmu;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA50375D25F9334B00E233F4 /* Build configuration list for PBXProject "Hanmu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA50378525F9335200E233F4 /* Debug */,
+				EA50378625F9335200E233F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA50378725F9335200E233F4 /* Build configuration list for PBXNativeTarget "Hanmu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA50378825F9335200E233F4 /* Debug */,
+				EA50378925F9335200E233F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA50378A25F9335200E233F4 /* Build configuration list for PBXNativeTarget "HanmuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA50378B25F9335200E233F4 /* Debug */,
+				EA50378C25F9335200E233F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA50378D25F9335200E233F4 /* Build configuration list for PBXNativeTarget "HanmuUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA50378E25F9335200E233F4 /* Debug */,
+				EA50378F25F9335200E233F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA50375A25F9334B00E233F4 /* Project object */;
+}
