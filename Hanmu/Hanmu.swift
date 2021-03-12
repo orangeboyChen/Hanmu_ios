@@ -19,7 +19,7 @@ struct Hanmu: View, SpiderDelegate {
 
     
 
-    @Binding var imeiCode : String
+    @AppStorage("imeiCode") var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
     @AppStorage("lastDate") var lastDate: String = "无"
@@ -41,7 +41,7 @@ struct Hanmu: View, SpiderDelegate {
                     }
                     Section{
                         Button(action: {
-                                spider.login(imeiCode: imeiCode)
+                                spider.login(imeiCode: savedImeiCode)
                             
                         }) {
                             Text("去跑步")
@@ -67,7 +67,7 @@ struct Hanmu: View, SpiderDelegate {
             spider.getUserInfo(token: user.token)
         }
         else{
-            self.alertInfo = AlertInfo(title: "失败", info: imeiCode + "似乎无效。请尝试重新获取IMEI")
+            self.alertInfo = AlertInfo(title: "失败", info: savedImeiCode + "似乎无效。请尝试重新获取IMEI")
         }
     }
     
@@ -118,12 +118,11 @@ struct Hanmu: View, SpiderDelegate {
             self.alertInfo = AlertInfo(title: "失败", info: "跑步失败")
         }
     }
-
 }
 
 struct Hanmu_Previews: PreviewProvider {
     static var previews: some View {
-        Hanmu(imeiCode: Binding.constant("122"))
+        Hanmu()
     }
 }
 

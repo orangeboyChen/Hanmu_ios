@@ -10,8 +10,8 @@ import SwiftUI
 
 struct My: View {
     
-    @Binding var imeiCode : String
-    @State var saveAlertShow: Bool = false
+    @State var imeiCode: String = ""
+    @State var saveAlertContent: AlertInfo?
     
     @AppStorage("imeiCode") var savedImeiCode: String = ""
 
@@ -22,9 +22,20 @@ struct My: View {
                 Form{
                     Section{
                         TextField("设备序列号", text: $imeiCode)
+                    
                         Button(action: {
+                            print(self.imeiCode.count)
+                            if(self.imeiCode.count != 32){
+                                self.saveAlertContent = AlertInfo(title: "失败", info: "序列号长度不正确")
+                                return
+                            }
+                            
+                            UIApplication.shared.windows
+                                        .first { $0.isKeyWindow }?
+                                        .endEditing(true)
+                            
                             self.savedImeiCode = imeiCode
-                            self.saveAlertShow.toggle()
+                            self.saveAlertContent = AlertInfo(title: "成功", info: "你可以愉快地跑步了")
                         }) {
                             Text("好")
                         }
@@ -34,9 +45,9 @@ struct My: View {
             }.navigationTitle("我的")
         }.onAppear(perform: {
             self.imeiCode = self.savedImeiCode
-        }).alert(isPresented: self.$saveAlertShow, content: {
-            Alert(title: Text("保存成功"))
-        })
+        }).alert(item: $saveAlertContent){info in
+            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
+        }
         
     }
     
@@ -47,7 +58,7 @@ struct My: View {
 
 struct My_Previews: PreviewProvider {
     static var previews: some View {
-        My(imeiCode: Binding.constant("123"))
+        My()
     }
 }
 
