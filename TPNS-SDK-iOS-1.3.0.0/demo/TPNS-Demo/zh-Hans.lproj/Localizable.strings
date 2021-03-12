@@ -1,0 +1,98 @@
+/* 
+  Localizable.strings
+  TPNS-Demo
+
+  Created by uwei on 2018/12/10.
+  Copyright © 2018 XG of Tencent. All rights reserved.
+*/
+
+// tip
+"cancel" = "取消";
+"ok" = "好的";
+"account_title" = "请输入一个账号";
+"tag_title" = "请输入一个标签";
+"attributes_title" = "请输入一对用户属性";
+"badge_title" = "请输入一个角标数字";
+"success" = "成功";
+"failed" = "失败";
+"token_error" = "无法获取设备推送标识(TPNS Token)";
+"token_info" = "当前应用的推送标识(TPNS Token)(已复制到剪切板)";
+"undefine" = "未定义";
+
+
+//  account Section
+"account_section" = "关于账号接口";
+"bind_account" = "绑定一个账号";
+"unbind_account" = "解绑一类账号";
+"update_account" = "更新账号";
+"clear_account" = "清除全部账号";
+
+// tag section
+"tag_section" = "关于标签接口";
+"bind_tag" = "绑定一个标签";
+"unbind_tag" = "解绑一个标签";
+"update_tag" = "更新标签";
+"clear_tag" = "清除所有标签";
+
+//attributes section
+"attributes_section" = "关于用户属性接口";
+"bind_attributes" = "绑定一对用户属性";
+"unbind_attributes" = "解绑一对用户属性";
+"update_attributes" = "更新用户属性";
+"clear_attributes" = "清除所有用户属性";
+
+// Device section
+"app_section" = "关于应用接口";
+"register_app" = "注册推送服务";
+"unregister_app" = "注销推送服务";
+"device_token" = "TPNS设备推送标识";
+"set_badge" = "上报当前应用角标数";
+"upload_log" = "上传SDK日志文件";
+
+// local notification section
+"local_notification_section" = "本地通知";
+"add_notification" = "新建本地通知";
+"search_notification" = "查询本地通知";
+"remove_notification" = "删除本地通知";
+
+// NotificationAction
+"click_1" = "点击了1";
+"click_2" = "点击了2";
+
+//account type
+"account_type_unknow" = "未知类型";
+"account_type_custom"="自定义";
+"account_type_idfa"="IDFA";
+"account_type_phone_number"="手机号码";
+"account_type_wechat"="微信";
+"account_type_qq"="QQ";
+"account_type_email"="邮箱";
+"account_type_sina_webo"="新浪微博";
+"account_type_alipay"="支付宝";
+"account_type_taobao"="淘宝";
+"account_type_douban"="豆瓣";
+"account_type_facebook"="脸书";
+"account_type_twitter"="推特";
+"account_type_google"="谷歌";
+"account_type_baidu"="百度";
+"account_type_jd"="京东";
+"account_type_linkin"="领英";
+
+"account_type_chose"="账号类型";
+"account_type_description"="选择以下账号类型";
+
+//tabbar
+"feature" = "功能";
+"message" = "消息";
+"more" = "更多";
+
+//more
+"about" = "关于TPNS";
+"change_environment" = "环境切换";
+"edit_environment" = "编辑环境配置文件";
+"send_remote_notification" = "发送远程通知";
+"exit_note" = "新环境启用，1s后关闭程序，请重新打开";
+"save" = "保存";
+"done" = "完成";
+"key" = "键";
+"value" = "值";

@@ -1,0 +1,926 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B39AB05239DEC00001DD757 /* AppDelegate+XGConfig.m */ = {isa = PBXBuildFile; fileRef = 1B39AB04239DEC00001DD757 /* AppDelegate+XGConfig.m */; };
+		48D5FBDD4A45006922F28A36 /* TPNSInAppMessage.framework */ = {isa = PBXBuildFile; fileRef = 8A4ECEB21EBBDBF35D50A0D3 /* TPNSInAppMessage.framework */; };
+		6812E5B71E14F4E700389FB9 /* UserNotifications.framework */ = {isa = PBXBuildFile; fileRef = 6812E5B61E14F4E700389FB9 /* UserNotifications.framework */; };
+		689C137D1DC34C26001D8E6C /* main.m */ = {isa = PBXBuildFile; fileRef = 689C137C1DC34C26001D8E6C /* main.m */; };
+		689C13801DC34C26001D8E6C /* AppDelegate.m */ = {isa = PBXBuildFile; fileRef = 689C137F1DC34C26001D8E6C /* AppDelegate.m */; };
+		689C13831DC34C27001D8E6C /* ViewController.m */ = {isa = PBXBuildFile; fileRef = 689C13821DC34C27001D8E6C /* ViewController.m */; };
+		689C13861DC34C27001D8E6C /* Main.storyboard */ = {isa = PBXBuildFile; fileRef = 689C13841DC34C27001D8E6C /* Main.storyboard */; };
+		689C13881DC34C27001D8E6C /* Assets.xcassets */ = {isa = PBXBuildFile; fileRef = 689C13871DC34C27001D8E6C /* Assets.xcassets */; };
+		689C138B1DC34C27001D8E6C /* LaunchScreen.storyboard */ = {isa = PBXBuildFile; fileRef = 689C13891DC34C27001D8E6C /* LaunchScreen.storyboard */; };
+		689C13A51DC34D5B001D8E6C /* SystemConfiguration.framework */ = {isa = PBXBuildFile; fileRef = 689C13A41DC34D5B001D8E6C /* SystemConfiguration.framework */; };
+		689C13A61DC34D63001D8E6C /* CoreTelephony.framework */ = {isa = PBXBuildFile; fileRef = 689C139E1DC34CF4001D8E6C /* CoreTelephony.framework */; };
+		7D6ED0463EA4DD9450AFA076 /* libXG-SDK-Cloud.a */ = {isa = PBXBuildFile; fileRef = EF0D1747023EA4E54F796E75 /* libXG-SDK-Cloud.a */; settings = {ATTRIBUTES = (CodeSignOnCopy,RemoveHeadersOnCopy,); }; };
+		8F24FCF60A65B7E5D497A796 /* libXG-SDK-Cloud.a */ = {isa = PBXBuildFile; fileRef = EF0D1747023EA4E54F796E75 /* libXG-SDK-Cloud.a */; };
+		C216B5ED2227D834001D648A /* CoreData.framework */ = {isa = PBXBuildFile; fileRef = C216B5EC2227D834001D648A /* CoreData.framework */; };
+		C231B2AC2519CE65004513FA /* TPNSInAppMessageResource.bundle */ = {isa = PBXBuildFile; fileRef = C231B2AB2519CE65004513FA /* TPNSInAppMessageResource.bundle */; };
+		C231B2BC2519D26C004513FA /* libXGExtension.a */ = {isa = PBXBuildFile; fileRef = C231B2BB2519D26C004513FA /* libXGExtension.a */; };
+		C24A70FF1F3AB710007F2360 /* NotificationService.m */ = {isa = PBXBuildFile; fileRef = C24A70FE1F3AB710007F2360 /* NotificationService.m */; };
+		C24A71031F3AB710007F2360 /* TPNSService-Cloud.appex */ = {isa = PBXBuildFile; fileRef = C24A70FB1F3AB710007F2360 /* TPNSService-Cloud.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy,); }; };
+		C24A710E1F3AB75D007F2360 /* UserNotifications.framework */ = {isa = PBXBuildFile; fileRef = 6812E5B61E14F4E700389FB9 /* UserNotifications.framework */; };
+		C24A71101F3AB75D007F2360 /* UserNotificationsUI.framework */ = {isa = PBXBuildFile; fileRef = C24A710F1F3AB75D007F2360 /* UserNotificationsUI.framework */; };
+		C24A71141F3AB75D007F2360 /* NotificationViewController.m */ = {isa = PBXBuildFile; fileRef = C24A71131F3AB75D007F2360 /* NotificationViewController.m */; };
+		C24A71171F3AB75D007F2360 /* MainInterface.storyboard */ = {isa = PBXBuildFile; fileRef = C24A71151F3AB75D007F2360 /* MainInterface.storyboard */; };
+		C24A711B1F3AB75D007F2360 /* TPNSContent-Cloud.appex */ = {isa = PBXBuildFile; fileRef = C24A710D1F3AB75D007F2360 /* TPNSContent-Cloud.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy,); }; };
+		C24EFAF9237172C500067BE7 /* mysound.wav */ = {isa = PBXBuildFile; fileRef = C24EFAF8237172C500067BE7 /* mysound.wav */; };
+		C25D4F8A21BE80060095D497 /* Localizable.strings */ = {isa = PBXBuildFile; fileRef = C25D4F8C21BE80060095D497 /* Localizable.strings */; };
+		C26B2A221FCEACED00935B03 /* libz.tbd */ = {isa = PBXBuildFile; fileRef = 689C13A21DC34D22001D8E6C /* libz.tbd */; };
+		C4609480248F2C7F00B1C863 /* XGMTACloud.framework */ = {isa = PBXBuildFile; fileRef = C460947A248F2C7F00B1C863 /* XGMTACloud.framework */; };
+		C4655EB92463CBE60013904F /* TabViewController.m */ = {isa = PBXBuildFile; fileRef = C4655EB82463CBE60013904F /* TabViewController.m */; };
+		C4893126248E1B8F00DD287B /* MessageViewController.m */ = {isa = PBXBuildFile; fileRef = C489311F248E1B8F00DD287B /* MessageViewController.m */; };
+		C4893127248E1B8F00DD287B /* TPNSCommonMethod.m */ = {isa = PBXBuildFile; fileRef = C4893121248E1B8F00DD287B /* TPNSCommonMethod.m */; };
+		C4893128248E1B8F00DD287B /* WebviewViewController.m */ = {isa = PBXBuildFile; fileRef = C4893123248E1B8F00DD287B /* WebviewViewController.m */; };
+		C4893129248E1B8F00DD287B /* MoreViewController.m */ = {isa = PBXBuildFile; fileRef = C4893125248E1B8F00DD287B /* MoreViewController.m */; };
+		DBB282771738F2CFF030AFBB /* TPNSInAppMessage.framework */ = {isa = PBXBuildFile; fileRef = 8A4ECEB21EBBDBF35D50A0D3 /* TPNSInAppMessage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy,RemoveHeadersOnCopy,); }; };
+		F08BE8F921B4D5C6007C2D93 /* CFNetwork.framework */ = {isa = PBXBuildFile; fileRef = 689C139C1DC34CEB001D8E6C /* CFNetwork.framework */; };
+		F08BE8FA21B4D652007C2D93 /* CoreTelephony.framework */ = {isa = PBXBuildFile; fileRef = 689C139E1DC34CF4001D8E6C /* CoreTelephony.framework */; };
+		F08BE8FB21B4D656007C2D93 /* CFNetwork.framework */ = {isa = PBXBuildFile; fileRef = 689C139C1DC34CEB001D8E6C /* CFNetwork.framework */; };
+		F08BE8FC21B4D65B007C2D93 /* SystemConfiguration.framework */ = {isa = PBXBuildFile; fileRef = 689C13A41DC34D5B001D8E6C /* SystemConfiguration.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4DD3AC3013F4E14EF3C678D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7D6ED0463EA4DD9450AFA076 /* libXG-SDK-Cloud.a */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FBAC29ED54D086EB33B3607 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DBB282771738F2CFF030AFBB /* TPNSInAppMessage.framework */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A71081F3AB710007F2360 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C24A71031F3AB710007F2360 /* TPNSService-Cloud.appex */,
+				C24A711B1F3AB75D007F2360 /* TPNSContent-Cloud.appex */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1B1C07CD23960FB2003FEBB3 /* AppDelegate+XGConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+XGConfig.h"; sourceTree = "<group>"; };
+		1B39AB04239DEC00001DD757 /* AppDelegate+XGConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+XGConfig.m"; sourceTree = "<group>"; };
+		1BC33B69255927C10037BDD5 /* XGLocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGLocalNotification.h; sourceTree = "<group>"; };
+		6812E5B61E14F4E700389FB9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		689C13781DC34C26001D8E6C /* TPNS-Demo-Cloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPNS-Demo-Cloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		689C137C1DC34C26001D8E6C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		689C137E1DC34C26001D8E6C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		689C137F1DC34C26001D8E6C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		689C13811DC34C26001D8E6C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		689C13821DC34C27001D8E6C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		689C13851DC34C27001D8E6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		689C13871DC34C27001D8E6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		689C138A1DC34C27001D8E6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		689C138C1DC34C27001D8E6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		689C13961DC34C48001D8E6C /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGPush.h; sourceTree = "<group>"; };
+		689C139A1DC34C54001D8E6C /* TPNS-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TPNS-Demo.entitlements; sourceTree = "<group>"; };
+		689C139C1DC34CEB001D8E6C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		689C139E1DC34CF4001D8E6C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		689C13A21DC34D22001D8E6C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.text-based-dylib-definition; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		689C13A41DC34D5B001D8E6C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A4ECEB21EBBDBF35D50A0D3 /* TPNSInAppMessage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TPNSInAppMessage.framework; path = sdk/InAppMessage/TPNSInAppMessage.framework; sourceTree = "<group>"; };
+		C216B5EC2227D834001D648A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C21E9B8E25130FD800A267A5 /* TPNSInAppMessage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPNSInAppMessage.framework; sourceTree = "<group>"; };
+		C22BCB9E236ACDBA00FD5D23 /* libXG-SDK-Cloud.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libXG-SDK-Cloud.a; sourceTree = "<group>"; };
+		C231B2AB2519CE65004513FA /* TPNSInAppMessageResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.plug-in; path = TPNSInAppMessageResource.bundle; sourceTree = "<group>"; };
+		C231B2BA2519D26C004513FA /* XGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGExtension.h; sourceTree = "<group>"; };
+		C231B2BB2519D26C004513FA /* libXGExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libXGExtension.a; sourceTree = "<group>"; };
+		C24A70FB1F3AB710007F2360 /* TPNSService-Cloud.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; includeInIndex = 0; path = TPNSService-Cloud.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24A70FD1F3AB710007F2360 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		C24A70FE1F3AB710007F2360 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		C24A71001F3AB710007F2360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C24A710D1F3AB75D007F2360 /* TPNSContent-Cloud.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; includeInIndex = 0; path = TPNSContent-Cloud.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24A710F1F3AB75D007F2360 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		C24A71121F3AB75D007F2360 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		C24A71131F3AB75D007F2360 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		C24A71161F3AB75D007F2360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		C24A71181F3AB75D007F2360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C24EFAF8237172C500067BE7 /* mysound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mysound.wav; sourceTree = "<group>"; };
+		C25D4F8B21BE80060095D497 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C25D4F8D21BE80170095D497 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh-Hans; path = zh-Hans.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2E15598237D06B8009DB924 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.text-based-dylib-definition; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C460947A248F2C7F00B1C863 /* XGMTACloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XGMTACloud.framework; sourceTree = "<group>"; };
+		C4655EB72463CBE60013904F /* TabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		C4655EB82463CBE60013904F /* TabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		C489311E248E1B8F00DD287B /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		C489311F248E1B8F00DD287B /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		C4893120248E1B8F00DD287B /* TPNSCommonMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPNSCommonMethod.h; sourceTree = "<group>"; };
+		C4893121248E1B8F00DD287B /* TPNSCommonMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNSCommonMethod.m; sourceTree = "<group>"; };
+		C4893122248E1B8F00DD287B /* WebviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebviewViewController.h; sourceTree = "<group>"; };
+		C4893123248E1B8F00DD287B /* WebviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebviewViewController.m; sourceTree = "<group>"; };
+		C4893124248E1B8F00DD287B /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		C4893125248E1B8F00DD287B /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		C49481252468F9020081FCCC /* XGPushPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGPushPrivate.h; sourceTree = "<group>"; };
+		EF0D1747023EA4E54F796E75 /* libXG-SDK-Cloud.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libXG-SDK-Cloud.a; path = sdk/libXG-SDK-Cloud.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		689C13751DC34C26001D8E6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C216B5ED2227D834001D648A /* CoreData.framework */,
+				C4609480248F2C7F00B1C863 /* XGMTACloud.framework */,
+				689C13A61DC34D63001D8E6C /* CoreTelephony.framework */,
+				F08BE8F921B4D5C6007C2D93 /* CFNetwork.framework */,
+				6812E5B71E14F4E700389FB9 /* UserNotifications.framework */,
+				689C13A51DC34D5B001D8E6C /* SystemConfiguration.framework */,
+				48D5FBDD4A45006922F28A36 /* TPNSInAppMessage.framework */,
+				8F24FCF60A65B7E5D497A796 /* libXG-SDK-Cloud.a */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A70F81F3AB710007F2360 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F08BE8FC21B4D65B007C2D93 /* SystemConfiguration.framework */,
+				F08BE8FB21B4D656007C2D93 /* CFNetwork.framework */,
+				F08BE8FA21B4D652007C2D93 /* CoreTelephony.framework */,
+				C231B2BC2519D26C004513FA /* libXGExtension.a */,
+				C26B2A221FCEACED00935B03 /* libz.tbd */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A710A1F3AB75D007F2360 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A71101F3AB75D007F2360 /* UserNotificationsUI.framework */,
+				C24A710E1F3AB75D007F2360 /* UserNotifications.framework */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1B2837B62481438D0019FF70 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C4893124248E1B8F00DD287B /* MessageViewController.h */,
+				C489311F248E1B8F00DD287B /* MessageViewController.m */,
+				C489311E248E1B8F00DD287B /* MoreViewController.h */,
+				C4893125248E1B8F00DD287B /* MoreViewController.m */,
+				C4893120248E1B8F00DD287B /* TPNSCommonMethod.h */,
+				C4893121248E1B8F00DD287B /* TPNSCommonMethod.m */,
+				C4893122248E1B8F00DD287B /* WebviewViewController.h */,
+				C4893123248E1B8F00DD287B /* WebviewViewController.m */,
+				C4655EB72463CBE60013904F /* TabViewController.h */,
+				C4655EB82463CBE60013904F /* TabViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		689C136F1DC34C26001D8E6C /*  */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC81DC2484928100F1AF3E,
+				689C13921DC34C48001D8E6C /* sdk */,
+				689C137A1DC34C26001D8E6C /* TPNS-Demo */,
+				C24A70FC1F3AB710007F2360 /* TPNSService */,
+				C24A71111F3AB75D007F2360 /* TPNSContent */,
+				C4948174246D6A4D0081FCCC,
+				C4948183246D758F0081FCCC,
+				689C13791DC34C26001D8E6C /* Products */,
+				689C139B1DC34CEB001D8E6C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		689C13791DC34C26001D8E6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				689C13781DC34C26001D8E6C /* TPNS-Demo-Cloud.app */,
+				C24A70FB1F3AB710007F2360 /* TPNSService-Cloud.appex */,
+				C24A710D1F3AB75D007F2360 /* TPNSContent-Cloud.appex */,
+			);
+			name = Products;
+			sourceTree = SOURCE_ROOT;
+		};
+		689C137A1DC34C26001D8E6C /* TPNS-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				689C139A1DC34C54001D8E6C /* TPNS-Demo.entitlements */,
+				689C137E1DC34C26001D8E6C /* AppDelegate.h */,
+				689C137F1DC34C26001D8E6C /* AppDelegate.m */,
+				1B1C07CD23960FB2003FEBB3 /* AppDelegate+XGConfig.h */,
+				1B39AB04239DEC00001DD757 /* AppDelegate+XGConfig.m */,
+				689C13811DC34C26001D8E6C /* ViewController.h */,
+				689C13821DC34C27001D8E6C /* ViewController.m */,
+				689C13841DC34C27001D8E6C /* Main.storyboard */,
+				1B2837B62481438D0019FF70 /* Other */,
+				689C13871DC34C27001D8E6C /* Assets.xcassets */,
+				689C13891DC34C27001D8E6C /* LaunchScreen.storyboard */,
+				689C138C1DC34C27001D8E6C /* Info.plist */,
+				689C137B1DC34C26001D8E6C /* Supporting Files */,
+			);
+			path = TPNS-Demo;
+			sourceTree = "<group>";
+		};
+		689C137B1DC34C26001D8E6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C24EFAF8237172C500067BE7 /* mysound.wav */,
+				689C137C1DC34C26001D8E6C /* main.m */,
+				C25D4F8C21BE80060095D497 /* Localizable.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		689C13921DC34C48001D8E6C /* sdk */ = {
+			isa = PBXGroup;
+			children = (
+				C21E9B8325130D0500A267A5 /* InAppMessage */,
+				C4609479248F2C7F00B1C863 /* XGPushStatistics */,
+				689C13961DC34C48001D8E6C /* XGPush.h */,
+				1BC33B69255927C10037BDD5 /* XGLocalNotification.h */,
+				C49481252468F9020081FCCC /* XGPushPrivate.h */,
+				C22BCB9E236ACDBA00FD5D23 /* libXG-SDK-Cloud.a */,
+			);
+			path = sdk;
+			sourceTree = "<group>";
+		};
+		689C139B1DC34CEB001D8E6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2E15598237D06B8009DB924 /* libc++.tbd */,
+				C216B5EC2227D834001D648A /* CoreData.framework */,
+				6812E5B61E14F4E700389FB9 /* UserNotifications.framework */,
+				689C13A41DC34D5B001D8E6C /* SystemConfiguration.framework */,
+				689C13A21DC34D22001D8E6C /* libz.tbd */,
+				689C139E1DC34CF4001D8E6C /* CoreTelephony.framework */,
+				689C139C1DC34CEB001D8E6C /* CFNetwork.framework */,
+				C24A710F1F3AB75D007F2360 /* UserNotificationsUI.framework */,
+				8A4ECEB21EBBDBF35D50A0D3 /* TPNSInAppMessage.framework */,
+				EF0D1747023EA4E54F796E75 /* libXG-SDK-Cloud.a */,
+			);
+			name = Frameworks;
+			sourceTree = SOURCE_ROOT;
+		};
+		C21E9B8325130D0500A267A5 /* InAppMessage */ = {
+			isa = PBXGroup;
+			children = (
+				C231B2AB2519CE65004513FA /* TPNSInAppMessageResource.bundle */,
+				C21E9B8E25130FD800A267A5 /* TPNSInAppMessage.framework */,
+			);
+			path = InAppMessage;
+			sourceTree = "<group>";
+		};
+		C231B2B92519D26C004513FA /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				C231B2BA2519D26C004513FA /* XGExtension.h */,
+				C231B2BB2519D26C004513FA /* libXGExtension.a */,
+			);
+			name = extension;
+			path = sdk/XGPushStatistics/extension;
+			sourceTree = SOURCE_ROOT;
+		};
+		C24A70FC1F3AB710007F2360 /* TPNSService */ = {
+			isa = PBXGroup;
+			children = (
+				C231B2B92519D26C004513FA /* extension */,
+				C24A70FD1F3AB710007F2360 /* NotificationService.h */,
+				C24A70FE1F3AB710007F2360 /* NotificationService.m */,
+				C24A71001F3AB710007F2360 /* Info.plist */,
+			);
+			path = TPNSService;
+			sourceTree = "<group>";
+		};
+		C24A71111F3AB75D007F2360 /* TPNSContent */ = {
+			isa = PBXGroup;
+			children = (
+				C24A71121F3AB75D007F2360 /* NotificationViewController.h */,
+				C24A71131F3AB75D007F2360 /* NotificationViewController.m */,
+				C24A71151F3AB75D007F2360 /* MainInterface.storyboard */,
+				C24A71181F3AB75D007F2360 /* Info.plist */,
+			);
+			path = TPNSContent;
+			sourceTree = "<group>";
+		};
+		C4609479248F2C7F00B1C863 /* XGPushStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				C460947A248F2C7F00B1C863 /* XGMTACloud.framework */,
+			);
+			path = XGPushStatistics;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		689C13771DC34C26001D8E6C /* TPNS-Demo-Cloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 689C138F1DC34C27001D8E6C /* Build configuration list for PBXNativeTarget "TPNS-Demo-Cloud" */;
+			buildPhases = (
+				689C13741DC34C26001D8E6C /* Sources */,
+				689C13751DC34C26001D8E6C /* Frameworks */,
+				689C13761DC34C26001D8E6C /* Resources */,
+				C24A71081F3AB710007F2360 /* Embed App Extensions */,
+				8FBAC29ED54D086EB33B3607 /* Embed Frameworks */,
+				4DD3AC3013F4E14EF3C678D7 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C24A71021F3AB710007F2360 /* Target */,
+				C24A711A1F3AB75D007F2360 /* Target */,
+			);
+			name = TPNS-Demo-Cloud;
+			productName = XG-Demo;
+			productReference = 689C13781DC34C26001D8E6C /* TPNS-Demo-Cloud.app */;
+			productType = com.apple.product-type.application;
+		};
+		C24A70FA1F3AB710007F2360 /* TPNSService-Cloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C24A71041F3AB710007F2360 /* Build configuration list for PBXNativeTarget "TPNSService-Cloud" */;
+			buildPhases = (
+				C24A70F71F3AB710007F2360 /* Sources */,
+				C24A70F81F3AB710007F2360 /* Frameworks */,
+				C24A70F91F3AB710007F2360 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TPNSService-Cloud;
+			productName = XGService;
+			productReference = C24A70FB1F3AB710007F2360 /* TPNSService-Cloud.appex */;
+			productType = com.apple.product-type.app-extension;
+		};
+		C24A710C1F3AB75D007F2360 /* TPNSContent-Cloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C24A711C1F3AB75D007F2360 /* Build configuration list for PBXNativeTarget "TPNSContent-Cloud" */;
+			buildPhases = (
+				C24A71091F3AB75D007F2360 /* Sources */,
+				C24A710A1F3AB75D007F2360 /* Frameworks */,
+				C24A710B1F3AB75D007F2360 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TPNSContent-Cloud;
+			productName = XGContent;
+			productReference = C24A710D1F3AB75D007F2360 /* TPNSContent-Cloud.appex */;
+			productType = com.apple.product-type.app-extension;
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		689C13701DC34C26001D8E6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = XG;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "XG of Tencent";
+				TargetAttributes = {
+					689C13771DC34C26001D8E6C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 299MFJ63GP;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+					C24A70FA1F3AB710007F2360 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 299MFJ63GP;
+						ProvisioningStyle = Manual;
+					};
+					C24A710C1F3AB75D007F2360 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 299MFJ63GP;
+						ProvisioningStyle = Manual;
+					};
+					C4948172246D6A4D0081FCCC = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = 299MFJ63GP;
+						ProvisioningStyle = Manual;
+						TestTargetID = 689C13771DC34C26001D8E6C /* TPNS-Demo-Cloud */;
+					};
+					C4948181246D758F0081FCCC = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = 299MFJ63GP;
+						ProvisioningStyle = Manual;
+						TestTargetID = 689C13771DC34C26001D8E6C /* TPNS-Demo-Cloud */;
+					};
+				};
+			};
+			buildConfigurationList = 689C13731DC34C26001D8E6C /* Build configuration list for PBXNativeTarget "TARGET_NAME" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				zh-Hans,
+			);
+			mainGroup = 689C136F1DC34C26001D8E6C /*  */;
+			productRefGroup = 689C13791DC34C26001D8E6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				689C13771DC34C26001D8E6C /* TPNS-Demo-Cloud */,
+				C24A70FA1F3AB710007F2360 /* TPNSService-Cloud */,
+				C24A710C1F3AB75D007F2360 /* TPNSContent-Cloud */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		689C13761DC34C26001D8E6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				689C138B1DC34C27001D8E6C /* LaunchScreen.storyboard */,
+				C231B2AC2519CE65004513FA /* TPNSInAppMessageResource.bundle */,
+				C25D4F8A21BE80060095D497 /* Localizable.strings */,
+				C24EFAF9237172C500067BE7 /* mysound.wav */,
+				C489311D248E1B3C00DD287B,
+				C4BC81E4248498CD00F1AF3E,
+				689C13881DC34C27001D8E6C /* Assets.xcassets */,
+				689C13861DC34C27001D8E6C /* Main.storyboard */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A70F91F3AB710007F2360 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A710B1F3AB75D007F2360 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A71171F3AB75D007F2360 /* MainInterface.storyboard */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		689C13741DC34C26001D8E6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4893127248E1B8F00DD287B /* TPNSCommonMethod.m */,
+				689C13831DC34C27001D8E6C /* ViewController.m */,
+				C4893126248E1B8F00DD287B /* MessageViewController.m */,
+				C489311B248E1B2D00DD287B,
+				C489311A248E1B2D00DD287B,
+				C4893129248E1B8F00DD287B /* MoreViewController.m */,
+				1B39AB05239DEC00001DD757 /* AppDelegate+XGConfig.m */,
+				C4BC81E22484939600F1AF3E,
+				C4893128248E1B8F00DD287B /* WebviewViewController.m */,
+				689C13801DC34C26001D8E6C /* AppDelegate.m */,
+				689C137D1DC34C26001D8E6C /* main.m */,
+				C4BC81DF2484935D00F1AF3E,
+				C4893119248E1B2D00DD287B,
+				C4655EB92463CBE60013904F /* TabViewController.m */,
+				C46094902498C90900B1C863,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A70F71F3AB710007F2360 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A70FF1F3AB710007F2360 /* NotificationService.m */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24A71091F3AB75D007F2360 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C24A71141F3AB75D007F2360 /* NotificationViewController.m */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		689C138D1DC34C27001D8E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		689C138E1DC34C27001D8E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf-with-dsym;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		689C13901DC34C27001D8E6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TPNS-Demo/TPNS-Demo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				DEVELOPMENT_TEAM = 299MFJ63GP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk",
+					"$(PROJECT_DIR)/sdk/XGPushStatistics",
+					"$(PROJECT_DIR)/sdk/InAppMessage",
+				);
+				INFOPLIST_FILE = TPNS-Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk",
+				);
+				MARKETING_VERSION = 1.3.0.0;
+				OTHER_LDFLAGS = -all_load;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tpns;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = 5b3bdba7-3360-4930-ac8e-29064294548a;
+				PROVISIONING_PROFILE_SPECIFIER = com.tencent.tpns_development;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Debug;
+		};
+		689C13911DC34C27001D8E6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TPNS-Demo/TPNS-Demo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				DEVELOPMENT_TEAM = 299MFJ63GP;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk",
+					"$(PROJECT_DIR)/sdk/XGPushStatistics",
+					"$(PROJECT_DIR)/sdk/InAppMessage",
+				);
+				INFOPLIST_FILE = TPNS-Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk",
+				);
+				MARKETING_VERSION = 1.3.0.0;
+				OTHER_LDFLAGS = -all_load;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tpns;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = 5b3bdba7-3360-4930-ac8e-29064294548a;
+				PROVISIONING_PROFILE_SPECIFIER = com.tencent.tpns_development;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Release;
+		};
+		C24A71051F3AB710007F2360 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				DEVELOPMENT_TEAM = 299MFJ63GP;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk/XGPushStatistics/extension/",
+				);
+				INFOPLIST_FILE = TPNSService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TPNSService",
+					"$(PROJECT_DIR)/sdk/XGPushStatistics/extension",
+				);
+				MARKETING_VERSION = 1.3.0.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = -ObjC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tpns.service;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = 4fa06929-99da-4177-a0bf-6d3b982be84a;
+				PROVISIONING_PROFILE_SPECIFIER = common_dev;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C24A71061F3AB710007F2360 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				DEVELOPMENT_TEAM = 299MFJ63GP;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/sdk/XGPushStatistics/extension/",
+				);
+				INFOPLIST_FILE = TPNSService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TPNSService",
+					"$(PROJECT_DIR)/sdk/XGPushStatistics/extension",
+				);
+				MARKETING_VERSION = 1.3.0.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = -ObjC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tpns.service;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = 4fa06929-99da-4177-a0bf-6d3b982be84a;
+				PROVISIONING_PROFILE_SPECIFIER = common_dev;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C24A711D1F3AB75D007F2360 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				DEVELOPMENT_TEAM = 299MFJ63GP;
+				INFOPLIST_FILE = TPNSContent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tpns.content;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = 4fa06929-99da-4177-a0bf-6d3b982be84a;
+				PROVISIONING_PROFILE_SPECIFIER = common_dev;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C24A711E1F3AB75D007F2360 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guo dong li (8JQ353ME6X)";
+				DEVELOPMENT_TEAM = 299MFJ63GP;
+				INFOPLIST_FILE = TPNSContent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.tpns.content;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = 4fa06929-99da-4177-a0bf-6d3b982be84a;
+				PROVISIONING_PROFILE_SPECIFIER = common_dev;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		689C13731DC34C26001D8E6C /* Build configuration list for PBXNativeTarget "TARGET_NAME" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689C138D1DC34C27001D8E6C /* Debug */,
+				689C138E1DC34C27001D8E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		689C138F1DC34C27001D8E6C /* Build configuration list for PBXNativeTarget "TPNS-Demo-Cloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				689C13901DC34C27001D8E6C /* Debug */,
+				689C13911DC34C27001D8E6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C24A71041F3AB710007F2360 /* Build configuration list for PBXNativeTarget "TPNSService-Cloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C24A71051F3AB710007F2360 /* Debug */,
+				C24A71061F3AB710007F2360 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C24A711C1F3AB75D007F2360 /* Build configuration list for PBXNativeTarget "TPNSContent-Cloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C24A711D1F3AB75D007F2360 /* Debug */,
+				C24A711E1F3AB75D007F2360 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin PBXTargetDependency section */
+		C24A71021F3AB710007F2360 /* Target */ = {
+			isa = PBXTargetDependency;
+			target = C24A70FA1F3AB710007F2360 /* TPNSService-Cloud */;
+			targetProxy = C24A71011F3AB710007F2360 /* Containe */;
+		};
+		C24A711A1F3AB75D007F2360 /* Target */ = {
+			isa = PBXTargetDependency;
+			target = C24A710C1F3AB75D007F2360 /* TPNSContent-Cloud */;
+			targetProxy = C24A71191F3AB75D007F2360 /* Containe */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		689C13841DC34C27001D8E6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689C13851DC34C27001D8E6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		689C13891DC34C27001D8E6C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				689C138A1DC34C27001D8E6C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C24A71151F3AB75D007F2360 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C24A71161F3AB75D007F2360 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		C25D4F8C21BE80060095D497 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C25D4F8B21BE80060095D497 /* en */,
+				C25D4F8D21BE80170095D497 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin PBXContainerItemProxy section */
+		C24A71011F3AB710007F2360 /* Containe */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 689C13701DC34C26001D8E6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C24A70FA1F3AB710007F2360 /* TPNSService-Cloud */;
+			remoteInfo = XGService;
+		};
+		C24A71191F3AB75D007F2360 /* Containe */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 689C13701DC34C26001D8E6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C24A710C1F3AB75D007F2360 /* TPNSContent-Cloud */;
+			remoteInfo = XGContent;
+		};
+/* End PBXContainerItemProxy section */
+	};
+	rootObject = 689C13701DC34C26001D8E6C /* Project object */;
+}

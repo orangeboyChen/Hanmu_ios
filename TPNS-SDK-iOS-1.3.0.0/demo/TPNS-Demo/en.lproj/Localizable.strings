@@ -1,0 +1,97 @@
+/*
+ Localizable.strings
+ TPNS-Demo
+ 
+ Created by uwei on 2018/12/10.
+ Copyright © 2018 XG of Tencent. All rights reserved.
+ */
+
+// tip
+"cancel" = "Cancel";
+"ok" = "OK";
+"account_title" = "Please input an account";
+"tag_title" = "Please input a tag";
+"attributes_title" = "Please input a pair of attributes";
+"badge_title" = "Please input a badge number";
+"success" = " successfully";
+"failed" = " failed";
+"token_error" = "Can not get the tpns token";
+"token_info" = "Current tpns token is copied to the clipboard";
+"undefine" = "undefine";
+
+//  account Section
+"account_section" = "About the account";
+"bind_account" = "Bind an account";
+"unbind_account" = "Unbind a type of account";
+"update_account" = "Update the accounts";
+"clear_account" = "Clear all accounts";
+
+// tag section
+"tag_section" = "About the tag";
+"bind_tag" = "Bind a tag";
+"unbind_tag" = "Unbind a tag";
+"update_tag" = "Update the tags";
+"clear_tag" = "Clear all tags";
+
+//attributes section
+"attributes_section" = "About the attributes";
+"bind_attributes" = "Bind a pair of attributes";
+"unbind_attributes" = "Unbind a pair of attributes";
+"update_attributes" = "Update the attributes";
+"clear_attributes" = "Clear all attributes";
+
+// Device section
+"app_section" = "About the device";
+"register_app" = "Register this application to TPNS server";
+"unregister_app" = "Unregister this application to TPNS server";
+"device_token" = "TPNS Device Token";
+"set_badge" = "Set a badge number for App to TPNS server";
+"upload_log" = "Upload SDK log to TPNS server";
+
+// local notification section
+"local_notification_section" = "Local Notification";
+"add_notification" = "Add Local Notification";
+"search_notification" = "Search Local Notification";
+"remove_notification" = "Remove Local Notification";
+
+// NotificationAction
+"click_1" = "click_1";
+"click_2" = "click_2";
+
+//account type
+"account_type_unknow" = "Unknow";
+"account_type_custom"="Custom";
+"account_type_idfa"="IDFA";
+"account_type_phone_number"="Phone Number";
+"account_type_wechat"="WeChat";
+"account_type_qq"="QQ";
+"account_type_email"="Email";
+"account_type_sina_webo"="SinaWeibo";
+"account_type_alipay"="Alipay";
+"account_type_taobao"="TaoBao";
+"account_type_douban"="DouBan";
+"account_type_facebook"="FaceBook";
+"account_type_twitter"="Twitter";
+"account_type_google"="Google";
+"account_type_baidu"="Baidu";
+"account_type_jd"="JD.com";
+"account_type_linkin"="Linkin";
+
+"account_type_chose"="AccountType";
+"account_type_description"="select the following account type";
+
+//tabbar
+"feature" = "Feature";
+"message" = "Message";
+"more" = "More";
+
+//more
+"about" = "About TPNS";
+"change_environment" = "Change Environment";
+"edit_environment" = "Edit Environment File";
+"send_remote_notification" = "Send Remote Notification";
+"exit_note" = "The new environment is enabled. Close the program after 1s. Please reopen it";
+"save" = "Save";
+"done" = "Done";
+"key" = "Key";
+"value" = "Value";

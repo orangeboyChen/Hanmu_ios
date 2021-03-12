@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.4.1)
+  - SwiftyJSON (5.0.0)
+  - TPNS-iOS (1.3.0.0)
+  - TPNS-iOS-Extension (1.3.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - SwiftyJSON
+  - TPNS-iOS
+  - TPNS-iOS-Extension
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SwiftyJSON
+    - TPNS-iOS
+    - TPNS-iOS-Extension
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TPNS-iOS: 4f61f76d71c8db1365763bb3a40b0c5ce9ce7b89
+  TPNS-iOS-Extension: 6e00f3ffbf8b85b23974c2ca3604d2770c8887af
+
+PODFILE CHECKSUM: e4f973bf815bfbeb1dd51b0bcd266f7c14479b4b
+
+COCOAPODS: 1.10.1
