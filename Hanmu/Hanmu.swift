@@ -10,12 +10,12 @@ import Alamofire
 import SwiftyJSON
 
 struct AlertInfo: Identifiable {
-    var id: String {title}
+    var id: String {title;}
     var title: String
     var info: String
 }
 
-struct Hanmu: View, SpiderDelegate {
+struct Hanmu: View, HanmuSpiderDelegate {
 
     
 
@@ -26,7 +26,7 @@ struct Hanmu: View, SpiderDelegate {
     @AppStorage("lastSpeed") var lastSpeed: String = "无"
     @AppStorage("lastCostTime") var lastCostTime: String = "无"
     
-    var spider : Spider = Spider.getInstance()
+    var spider : HanmuSpider = HanmuSpider.getInstance()
     var user: User = User()
     
     
@@ -41,6 +41,12 @@ struct Hanmu: View, SpiderDelegate {
                     }
                     Section{
                         Button(action: {
+                            if(self.savedImeiCode == ""){
+                                self.alertInfo = AlertInfo(
+                                    title: "似乎还没有IMEI",
+                                    info: "您还未输入IMEI，请前往”我的“输入。")
+                                return;
+                            }
                                 spider.login(imeiCode: savedImeiCode)
                             
                         }) {

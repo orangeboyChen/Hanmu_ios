@@ -37,7 +37,16 @@ struct My: View {
                             self.savedImeiCode = imeiCode
                             self.saveAlertContent = AlertInfo(title: "成功", info: "你可以愉快地跑步了")
                         }) {
-                            Text("好")
+                            Text("好").contextMenu(ContextMenu(menuItems: {
+                                Button(action: {
+                                    self.savedImeiCode = ""
+                                    self.imeiCode = ""
+                                    self.saveAlertContent = AlertInfo(title: "好的", info: "已为您清空所有序列号信息")
+                                }) {
+                                    Image(systemName: "person.fill.xmark")
+                                    Text("不好")
+                                }
+                            }))
                         }
                     }
                 }

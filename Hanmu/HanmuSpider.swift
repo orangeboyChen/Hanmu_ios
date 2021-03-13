@@ -8,17 +8,17 @@
 import Foundation
 import Alamofire
 
-protocol SpiderDelegate{
+protocol HanmuSpiderDelegate{
     mutating func loginDelegate(response: DataResponse<Any, AFError>)
     mutating func getUserInfoDelegate(response: DataResponse<Any, AFError>)
     mutating func getRunIdDelegate(response: DataResponse<Any, AFError>)
     mutating func postDataDelegate(response: DataResponse<Any, AFError>, speed: Double, distance: Double, costTime: Int)
 }
 
-class Spider {
-    static let instance = Spider()
+class HanmuSpider {
+    static let instance = HanmuSpider()
     
-    var delegate: SpiderDelegate?
+    var delegate: HanmuSpiderDelegate?
 
     let ENCRYPT_KEY = "xfvdmyirsg";
     let LOGIN_URL = "https://client4.aipao.me/api/token/QM_Users/LoginSchool?IMEICode=";
@@ -37,7 +37,7 @@ class Spider {
         self.session = Session(serverTrustManager: self.manager)
     }
     
-    static func getInstance() -> Spider {
+    static func getInstance() -> HanmuSpider {
         return instance
     }
     

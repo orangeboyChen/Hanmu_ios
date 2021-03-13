@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>Bundle display name App</key>
-	<string>我要跑汉姆</string>
+	<string>汉姆</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>我要跑汉姆</string>
+	<string>汉姆</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconName</key>
@@ -45,6 +45,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSSiriUsageDescription</key>
+	<string>使用siri进行跑步</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>RunIntent</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

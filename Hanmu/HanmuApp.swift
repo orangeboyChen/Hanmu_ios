@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
-
+import Intents
 
 
 class AppDelegate: NSObject, UIApplicationDelegate, XGPushDelegate, UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
+        
+        UIApplication.shared.registerForRemoteNotifications()
         
         XGPush.defaultManager().configureClusterDomainName("tpns.tencent.com")
         XGPush.defaultManager().startXG(withAccessID: 1600017845, accessKey: "I6132G9TK5U1", delegate: self)
@@ -22,6 +24,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, XGPushDelegate, UNUserNotifi
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
     }
     
     
@@ -46,9 +49,14 @@ struct HanmuApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+        }.onChange(of: scenePhase){parse in
+            INPreferences.requestSiriAuthorization(){_ in }
         }
     }
+    
 }

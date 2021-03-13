@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-
 struct ContentView: View {
     
     
@@ -21,8 +20,10 @@ struct ContentView: View {
                 }.tag(1)
             My().tabItem {
                 Image(systemName: "person")
-                Text("我的") }.tag(2)
+                Text("我的") }
+                .tag(2)
         }
+
     }
 }
 
