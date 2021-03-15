@@ -14,13 +14,14 @@ struct My: View {
     @State var saveAlertContent: AlertInfo?
     
     @AppStorage("imeiCode") var savedImeiCode: String = ""
-
+    @AppStorage("userId") var savedUserId: String = ""
+    @AppStorage("password") var savedPassword: String = ""
+    @AppStorage("libraryToken") var libraryToken: String = ""
     
     var body: some View {
-        NavigationView{
             VStack{
                 Form{
-                    Section{
+                    Section(header: Text("跑步")){
                         TextField("设备序列号", text: $imeiCode)
                     
                         Button(action: {
@@ -41,17 +42,34 @@ struct My: View {
                                 Button(action: {
                                     self.savedImeiCode = ""
                                     self.imeiCode = ""
-                                    self.saveAlertContent = AlertInfo(title: "好的", info: "已为您清空所有序列号信息")
+                                    self.saveAlertContent = AlertInfo(title: "完成", info: "已为您清空所有序列号信息")
                                 }) {
                                     Image(systemName: "person.fill.xmark")
-                                    Text("不好")
+                                    Text("清空序列号信息")
                                 }
                             }))
                         }
                     }
+                    
+                    Section(header: Text("图书馆")){
+                        NavigationLink(destination: MyLibraryInfoView()) {
+                            Text("个人信息")
+                        }
+                        NavigationLink(destination: AccountEditView()) {
+                            Text("\(libraryToken == "" ? "添加" : "编辑")登录信息")
+                        }.contextMenu(ContextMenu(menuItems: {
+                            Button(action: {
+                                self.savedUserId = ""
+                                self.savedPassword = ""
+                                self.libraryToken = "" 
+                                self.saveAlertContent = AlertInfo(title: "完成", info: "已为您清空登录信息")
+                            }) {
+                                Image(systemName: "person.fill.xmark")
+                                Text("清空登录信息")
+                            }
+                        }))
+                    }
                 }
-                
-            }.navigationTitle("我的")
         }.onAppear(perform: {
             self.imeiCode = self.savedImeiCode
         }).alert(item: $saveAlertContent){info in
@@ -70,6 +88,7 @@ struct My_Previews: PreviewProvider {
         My()
     }
 }
+
 
 
 

@@ -11,18 +11,34 @@ import SwiftUI
 struct ContentView: View {
     
     
+    @State var tabIndex: Int = 1
+    let titles = ["跑步", "图书馆", "我的"]
+    
     var body: some View {
-        TabView() {
-            Hanmu()
-                .tabItem {
-                    Image(systemName: "flame")
-                    Text("跑步")
-                }.tag(1)
-            My().tabItem {
-                Image(systemName: "person")
-                Text("我的") }
-                .tag(2)
+        
+        
+        
+        NavigationView{
+            TabView(selection: $tabIndex)
+            {
+                Hanmu()
+                    .tabItem {
+                        Image(systemName: "flame")
+                        Text("跑步")
+                    }.tag(1)
+                LibraryView()
+                    .tabItem {
+                        Image(systemName: "books.vertical")
+                        Text("图书馆")
+                    }.tag(2)
+                
+                My().tabItem {
+                    Image(systemName: "person")
+                    Text("我的") }
+                    .tag(3)
+            }.navigationTitle(titles[tabIndex - 1])
         }
+
 
     }
 }

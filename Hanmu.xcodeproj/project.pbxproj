@@ -29,6 +29,17 @@
 		EA685BB725FC59EE00D96223 /* SiriKitIntentDefinition.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EA685BB225FC59EE00D96223 /* SiriKitIntentDefinition.intentdefinition */; };
 		EA685BC325FC59FF00D96223 /* SiriKitIntentDefinition.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EA685BB225FC59EE00D96223 /* SiriKitIntentDefinition.intentdefinition */; };
 		EA685C2925FC65FC00D96223 /* LibrarySpider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C2825FC65FC00D96223 /* LibrarySpider.swift */; };
+		EA685C3C25FC81FF00D96223 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C3B25FC81FF00D96223 /* LibraryView.swift */; };
+		EA685C4A25FC868200D96223 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C4925FC868200D96223 /* AccountEditView.swift */; };
+		EA685C5125FC951D00D96223 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C5025FC951D00D96223 /* BookView.swift */; };
+		EA92EA7025FE6F2100567D95 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA6F25FE6F2100567D95 /* Seat.swift */; };
+		EA92EA7C25FE6F4200567D95 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA7B25FE6F4200567D95 /* Room.swift */; };
+		EA92EA8325FE6F5200567D95 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA8225FE6F5200567D95 /* Building.swift */; };
+		EA92EA9925FE6FF900567D95 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA92EAA225FEF1C100567D95 /* MyLibraryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */; };
+		EA92EAA925FF15E400567D95 /* LibraryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EAA825FF15E400567D95 /* LibraryTime.swift */; };
+		EA92EABD25FF4A5500567D95 /* LibraryHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */; };
+		EA9C27D125FCE3AE00B58FC8 /* HistoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */; };
 		EAD3F12725FB6D80005D5265 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD3F12625FB6D80005D5265 /* NotificationService.m */; };
 		EAD3F12B25FB6E07005D5265 /* libXGExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD3F11C25FB6CF2005D5265 /* libXGExtension.a */; };
 		EAF7760125FBDDEE00D746C1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF7750925FBD18100D746C1 /* Intents.framework */; };
@@ -180,6 +191,17 @@
 		EA5037C925FA55DF00E233F4 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
 		EA685BB225FC59EE00D96223 /* SiriKitIntentDefinition.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SiriKitIntentDefinition.intentdefinition; sourceTree = "<group>"; };
 		EA685C2825FC65FC00D96223 /* LibrarySpider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySpider.swift; sourceTree = "<group>"; };
+		EA685C3B25FC81FF00D96223 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		EA685C4925FC868200D96223 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		EA685C5025FC951D00D96223 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		EA92EA6F25FE6F2100567D95 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		EA92EA7B25FE6F4200567D95 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		EA92EA8225FE6F5200567D95 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		EA92EA9825FE6FF900567D95 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryInfoView.swift; sourceTree = "<group>"; };
+		EA92EAA825FF15E400567D95 /* LibraryTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTime.swift; sourceTree = "<group>"; };
+		EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHistory.swift; sourceTree = "<group>"; };
+		EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListItem.swift; sourceTree = "<group>"; };
 		EAB322DA25FB33D600DBECC9 /* Hanmu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hanmu-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAD3F11A25FB6C9E005D5265 /* TPNS-SDK-iOS-1.3.0.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "TPNS-SDK-iOS-1.3.0.0"; sourceTree = "<group>"; };
 		EAD3F11B25FB6CCF005D5265 /* libXGExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXGExtension.a; path = "TPNS-SDK-iOS-1.3.0.0/demo/sdk/XGPushStatistics/extension/libXGExtension.a"; sourceTree = "<group>"; };
@@ -294,6 +316,7 @@
 		EA50376425F9334B00E233F4 /* Hanmu */ = {
 			isa = PBXGroup;
 			children = (
+				EA92EA6C25FE6EF500567D95 /* Model */,
 				EA685C2225FC651900D96223 /* View */,
 				EA685C1C25FC650000D96223 /* Spider */,
 				EAD3F12F25FB77DF005D5265 /* Hanmu.entitlements */,
@@ -376,10 +399,44 @@
 		EA685C2225FC651900D96223 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA685C4325FC829700D96223 /* Library */,
 				EA50379325F9344800E233F4 /* Hanmu.swift */,
 				EA50379825F9A35100E233F4 /* My.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		EA685C4325FC829700D96223 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				EA685C3B25FC81FF00D96223 /* LibraryView.swift */,
+				EA685C4925FC868200D96223 /* AccountEditView.swift */,
+				EA685C5025FC951D00D96223 /* BookView.swift */,
+				EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */,
+				EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */,
+				EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		EA92EA6C25FE6EF500567D95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA92EA6D25FE6F0900567D95 /* Library */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EA92EA6D25FE6F0900567D95 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				EA92EA6F25FE6F2100567D95 /* Seat.swift */,
+				EA92EA7B25FE6F4200567D95 /* Room.swift */,
+				EA92EA8225FE6F5200567D95 /* Building.swift */,
+				EA92EA9825FE6FF900567D95 /* Book.swift */,
+				EA92EAA825FF15E400567D95 /* LibraryTime.swift */,
+			);
+			name = Library;
 			sourceTree = "<group>";
 		};
 		EAF7760225FBDDEE00D746C1 /* SiriIntent */ = {
@@ -762,13 +819,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA685C4A25FC868200D96223 /* AccountEditView.swift in Sources */,
 				EA5037C625FA3D2200E233F4 /* HanmuSpider.swift in Sources */,
+				EA92EA7025FE6F2100567D95 /* Seat.swift in Sources */,
 				EA685BB325FC59EE00D96223 /* SiriKitIntentDefinition.intentdefinition in Sources */,
+				EA92EAA225FEF1C100567D95 /* MyLibraryInfoView.swift in Sources */,
 				EA50379425F9344800E233F4 /* Hanmu.swift in Sources */,
+				EA92EABD25FF4A5500567D95 /* LibraryHistory.swift in Sources */,
 				EA50379925F9A35100E233F4 /* My.swift in Sources */,
+				EA92EA7C25FE6F4200567D95 /* Room.swift in Sources */,
+				EA9C27D125FCE3AE00B58FC8 /* HistoryListItem.swift in Sources */,
+				EA92EA9925FE6FF900567D95 /* Book.swift in Sources */,
 				EA685C2925FC65FC00D96223 /* LibrarySpider.swift in Sources */,
+				EA685C3C25FC81FF00D96223 /* LibraryView.swift in Sources */,
+				EA92EAA925FF15E400567D95 /* LibraryTime.swift in Sources */,
 				EA50376825F9334B00E233F4 /* ContentView.swift in Sources */,
+				EA685C5125FC951D00D96223 /* BookView.swift in Sources */,
 				EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */,
+				EA92EA8325FE6F5200567D95 /* Building.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,7 +923,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = XGExtensionService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -868,7 +936,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TPNSService/TPNSExtensionLib",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.XGExtensionService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -884,7 +952,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = XGExtensionService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -897,7 +965,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TPNSService/TPNSExtensionLib",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.XGExtensionService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1037,7 +1105,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hanmu/Hanmu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
@@ -1048,7 +1116,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hanmu/Hanmu-Bridging-Header.h";
@@ -1068,7 +1136,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hanmu/Hanmu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
@@ -1079,7 +1147,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hanmu/Hanmu-Bridging-Header.h";
@@ -1183,6 +1251,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.SiriIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1202,6 +1271,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.SiriIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1221,6 +1291,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.SiriIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1240,6 +1311,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.SiriIntent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

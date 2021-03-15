@@ -31,14 +31,23 @@ struct Hanmu: View, HanmuSpiderDelegate {
     
     
     var body: some View {
-        NavigationView {
+        
             VStack{
                 Form {
-                    Section {
-                        Text("上次记录：" + self.lastDate )
-                        Text("跑步速度：" + self.lastSpeed)
-                        Text("跑步时间：" + self.lastCostTime)
+                    if lastDate != "无" {
+                        Section(header: Text("上次记录")) {
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text(lastSpeed + " 米每秒").font(.headline)
+                                    Text(lastDate)
+                                }
+                                Spacer()
+                                Text(lastCostTime)
+                            }
+                            .padding(.vertical)
+                        }
                     }
+
                     Section{
                         Button(action: {
                             if(self.savedImeiCode == ""){
@@ -54,11 +63,8 @@ struct Hanmu: View, HanmuSpiderDelegate {
                             
                         }
                     }
-                }.navigationTitle("跑步")
-            }
-
-        
-        }.onAppear(perform: {
+                }.navigationBarTitle("跑步")
+            }.onAppear(perform: {
             self.spider.delegate = self
         }).alert(item: $alertInfo){info in
             Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
@@ -108,7 +114,7 @@ struct Hanmu: View, HanmuSpiderDelegate {
         let json = JSON(response.data as Any)
         print(json)
         if(json["Success"] == true){
-            self.alertInfo = AlertInfo(title: "成功", info: "跑步成功")
+            self.alertInfo = AlertInfo(title: "跑步成功", info: "")
             
             let dformatter = DateFormatter()
             dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -118,10 +124,10 @@ struct Hanmu: View, HanmuSpiderDelegate {
             func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int) {
               return ((seconds) / 60, (seconds % 3600) % 60)
             }
-            self.lastCostTime = String(secondsToHoursMinutesSeconds(seconds: costTime).0) + "分" + String(secondsToHoursMinutesSeconds(seconds: costTime).1) + "秒"
+            self.lastCostTime = String(secondsToHoursMinutesSeconds(seconds: costTime).0) + "' " + String(secondsToHoursMinutesSeconds(seconds: costTime).1) + "''"
         }
         else{
-            self.alertInfo = AlertInfo(title: "失败", info: "跑步失败")
+            self.alertInfo = AlertInfo(title: "跑步失败", info: "")
         }
     }
 }
