@@ -7,6 +7,8 @@
 
 import Foundation
 import Alamofire
+import SwiftUI
+import SwiftyJSON
 
 protocol HanmuSpiderDelegate{
     mutating func loginDelegate(response: DataResponse<Any, AFError>)
@@ -15,19 +17,27 @@ protocol HanmuSpiderDelegate{
     mutating func postDataDelegate(response: DataResponse<Any, AFError>, speed: Double, distance: Double, costTime: Int)
 }
 
+protocol HanmuUserInfoDelegate {
+    mutating func getValidResultDelegate(response: DataResponse<Any, AFError>)
+    mutating func getInvalidResultDelegate(response: DataResponse<Any, AFError>)
+}
+
 class HanmuSpider {
     static let instance = HanmuSpider()
     
     var delegate: HanmuSpiderDelegate?
 
     let ENCRYPT_KEY = "xfvdmyirsg";
-    let LOGIN_URL = "https://client4.aipao.me/api/token/QM_Users/LoginSchool?IMEICode=";
+    
+    let BASE_URL_4 = "https://client4.aipao.me/api"
+    let BASE_URL_3 = "http://client3.aipao.me/api"
+    
+    //登录用client4，其它用clinet3
+    let LOGIN_URI = "/token/QM_Users/LoginSchool?IMEICode="
+    
+    @State var token: String = ""
+    
 
-    let INFO_URL_PREFIX = "http://client3.aipao.me/api/";
-    let INFO_URL_SUFFIX = "/QM_Users/GS";
-
-    let RUN_ID_PREFIX = "http://client3.aipao.me/api/";
-    let RUN_ID_SUFFIX = "/QM_Runs/SRS?S1=40.62828&S2=120.79108&S3=";
 
     let manager: ServerTrustManager
     let session: Session
@@ -42,21 +52,28 @@ class HanmuSpider {
     }
     
     public func login(imeiCode : String) {
-        let url = URL(string: LOGIN_URL + imeiCode)!
+        let url = URL(string: "\(LOGIN_URI)/\(imeiCode)")!
         session.request(url, method: .get).responseJSON {response in
+            let json = JSON(response.data as Any)
+            print(json)
+            if(json["Success"] == true){
+                self.token = json["Data"]["Token"].string!
+            }
+            
             self.delegate?.loginDelegate(response: response)
         }
     }
     
     func getUserInfo(token : String){
-        let url = URL(string: INFO_URL_PREFIX + token + INFO_URL_SUFFIX)!
+        let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Users/GS")!
         session.request(url, method: .get).responseJSON {response in
+
             self.delegate?.getUserInfoDelegate(response: response)
         }
     }
     
     func getRunId(token : String, distance : Int32){
-        let url = URL(string: RUN_ID_PREFIX + token + RUN_ID_SUFFIX + String(distance))!
+        let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/SRS?S1=40.62828&S2=120.79108&S3=\(String(distance))")!
         session.request(url, method: .get).responseJSON {response in
             self.delegate?.getRunIdDelegate(response: response)
         }
@@ -91,21 +108,25 @@ class HanmuSpider {
         let postCostTime: Int = Int(postDistance / postSpeed)
         let postStep: Int = Int(arc4random_uniform(2222 - 1555) + 1555)
         
-        let url = URL(string:
-                        "http://client3.aipao.me/api/" +
-                                user.token +
-                                "/QM_Runs/ES?" +
-                                "S1=" +
-                                user.runId +
-                                "&S4=" +
-                        encryptNumber(number: postCostTime) +
-                                "&S5=" +
-                                encryptNumber(number: Int(postDistance)) +
-                                "&S6=A0A2A1A3A0&S7=1&S8=xfvdmyirsg&S9=" +
-                                encryptNumber(number: postStep))
+        
+        let url = URL(string: "\(BASE_URL_3)/\(user.token)/QM_Runs/ES?S1=\(user.runId)&S4=\(encryptNumber(number: postCostTime))&S5=\(encryptNumber(number: Int(postDistance)))&S6=A0A2A1A3A0&S7=1&S8=xfvdmyirsg&S9=\(encryptNumber(number: postStep))")
         session.request(url!, method: .get).responseJSON {response in
             print("RESPONSE: \(response)")
             self.delegate?.postDataDelegate(response: response, speed: postSpeed, distance: postDistance, costTime: postCostTime)
+        }
+    }
+    
+    func getValidResult(token: String, userId: String, pageNum: Int, pageSize: Int) {
+        let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/getResultsofValidByUser?UserId=\(userId)&pageIndex=\(pageNum)&pageSize=\(pageSize)")
+        session.request(url!, method: .get).responseJSON {response in
+            print("RESPONSE: \(response)")
+        }   
+    }
+    
+    func getInvalidResult(token: String, pageNum: Int, pageSize: Int) {
+        let url = URL(string: "\(BASE_URL_3)/10001e245ab14834b04fa70ca4d3773a/QM_Runs/getResultsofInValidByUser?UserId=688078&pageIndex=1&pageSize=10")
+        session.request(url!, method: .get).responseJSON {response in
+            print("RESPONSE: \(response)")
         }
     }
     

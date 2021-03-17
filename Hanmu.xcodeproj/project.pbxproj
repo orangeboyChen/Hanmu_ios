@@ -10,7 +10,6 @@
 		B1CE0CE01868090CBE723C88 /* Pods_Hanmu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9D34BE58AA85CE1CF54F52C /* Pods_Hanmu.framework */; };
 		EA2F3A2125FB688000C145BA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2F3A2025FB688000C145BA /* NotificationService.swift */; };
 		EA2F3A2525FB688000C145BA /* XGExtensionService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA2F3A1E25FB688000C145BA /* XGExtensionService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		EA2F3A3D25FB6A9E00C145BA /* Pods_Hanmu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA2F3A3C25FB6A9E00C145BA /* Pods_Hanmu.framework */; };
 		EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50376525F9334B00E233F4 /* HanmuApp.swift */; };
 		EA50376825F9334B00E233F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50376725F9334B00E233F4 /* ContentView.swift */; };
 		EA50376A25F9335100E233F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA50376925F9335100E233F4 /* Assets.xcassets */; };
@@ -171,7 +170,6 @@
 		EA2F3A2025FB688000C145BA /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		EA2F3A2225FB688000C145BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA2F3A2C25FB68AE00C145BA /* XGExtensionService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGExtensionService-Bridging-Header.h"; sourceTree = "<group>"; };
-		EA2F3A3C25FB6A9E00C145BA /* Pods_Hanmu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Hanmu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA2F3A4C25FB6C6100C145BA /* XGExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGExtension.h; sourceTree = "<group>"; };
 		EA50376225F9334B00E233F4 /* Hanmu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hanmu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50376525F9334B00E233F4 /* HanmuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuApp.swift; sourceTree = "<group>"; };
@@ -201,6 +199,7 @@
 		EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryInfoView.swift; sourceTree = "<group>"; };
 		EA92EAA825FF15E400567D95 /* LibraryTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTime.swift; sourceTree = "<group>"; };
 		EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHistory.swift; sourceTree = "<group>"; };
+		EA9BC3AD2600E6F200B71B53 /* URL.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = URL.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListItem.swift; sourceTree = "<group>"; };
 		EAB322DA25FB33D600DBECC9 /* Hanmu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hanmu-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAD3F11A25FB6C9E005D5265 /* TPNS-SDK-iOS-1.3.0.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "TPNS-SDK-iOS-1.3.0.0"; sourceTree = "<group>"; };
@@ -227,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAD3F12B25FB6E07005D5265 /* libXGExtension.a in Frameworks */,
-				EA2F3A3D25FB6A9E00C145BA /* Pods_Hanmu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +362,6 @@
 				EAD3F11D25FB6CF2005D5265 /* XGExtension.h */,
 				EAD3F11A25FB6C9E005D5265 /* TPNS-SDK-iOS-1.3.0.0 */,
 				EA2F3A4C25FB6C6100C145BA /* XGExtension.h */,
-				EA2F3A3C25FB6A9E00C145BA /* Pods_Hanmu.framework */,
 				EA5037C925FA55DF00E233F4 /* SwiftyJSON.xcodeproj */,
 				C9D34BE58AA85CE1CF54F52C /* Pods_Hanmu.framework */,
 				EAF7750925FBD18100D746C1 /* Intents.framework */,
@@ -392,6 +389,7 @@
 			children = (
 				EA5037C525FA3D2200E233F4 /* HanmuSpider.swift */,
 				EA685C2825FC65FC00D96223 /* LibrarySpider.swift */,
+				EA9BC3AD2600E6F200B71B53 /* URL.playground */,
 			);
 			name = Spider;
 			sourceTree = "<group>";
@@ -923,7 +921,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = XGExtensionService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -952,7 +950,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = XGExtensionService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1105,7 +1103,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hanmu/Hanmu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
@@ -1136,7 +1134,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Hanmu/Hanmu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
@@ -1244,6 +1242,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = SiriIntentUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1264,6 +1263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = SiriIntentUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1284,6 +1284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = SiriIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1304,6 +1305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = FVMV4JVH4T;
 				INFOPLIST_FILE = SiriIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

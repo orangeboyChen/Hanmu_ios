@@ -215,7 +215,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                         let hour = calendar.component(.hour, from: now)
                         let minute = calendar.component(.minute, from: now)
                         ForEach(libraryTimes, id: \.self.time) { time in
-                            if (time.time >= (16 * 30)) && (time.time <= (44 * 30)) && (time.time > hour * 60 + minute){
+                            if (time.time >= (16 * 30)) && (time.time <= (44 * 30)) && ((time.time > hour * 60 + minute) || isTomorrow ){
                                 Text(time.displayTime)
                                     .tag(time.time)
                             }
@@ -243,7 +243,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                         let hour = calendar.component(.hour, from: now)
                         let minute = calendar.component(.minute, from: now)
                         ForEach(libraryTimes, id: \.self.time) { time in
-                            if selectFromTime == -1 || (selectFromTime != -1 && time.time > selectFromTime) && (time.time >= (17 * 30)) &&  (time.time <= (45 * 30)) && (time.time > hour * 60 + minute){
+                            if selectFromTime == -1 || (selectFromTime != -1 && time.time > selectFromTime) && (time.time >= (17 * 30)) &&  (time.time <= (45 * 30)) && ((time.time > hour * 60 + minute) || isTomorrow){
                                 Text(time.displayTime)
                                     .tag(time.time)
                             }
@@ -315,7 +315,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                         let minute = calendar.component(.minute, from: now)
                         let currentTime = hour * 60 + minute
                         
-                        if selectFromTime > currentTime && selectToTime > currentTime {
+                        if (selectFromTime > currentTime && selectToTime > currentTime) || (isTomorrow && selectFromTime != -1 && selectToTime != -1) {
                             isBookLoading = true
                             spider.book(t: "1", t2: "2", startTime: String(selectFromTime), endTime: String(selectToTime), seat: String(selectSeatId), date: getDateString(), userId: userId, password: password)
                         }

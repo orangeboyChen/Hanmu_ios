@@ -11,6 +11,12 @@ import Intents
 
 class AppDelegate: NSObject, UIApplicationDelegate, XGPushDelegate, UNUserNotificationCenterDelegate {
     
+    /**
+     https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx668004190386482e&secret=28665697e6d04ac8c78332cfecbc91f5
+     */
+    
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
         
@@ -19,9 +25,17 @@ class AppDelegate: NSObject, UIApplicationDelegate, XGPushDelegate, UNUserNotifi
         XGPush.defaultManager().configureClusterDomainName("tpns.tencent.com")
         XGPush.defaultManager().startXG(withAccessID: 1600017845, accessKey: "I6132G9TK5U1", delegate: self)
         XGPush.defaultManager().isEnableDebug = true
+
+        
+        
         
         return true
     }
+    
+
+    
+    
+
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         

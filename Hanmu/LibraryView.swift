@@ -24,6 +24,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
 
     @AppStorage("libraryToken") var token: String = ""
     
+
     /**
      /**
       "id": 11196044,
@@ -36,6 +37,8 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
       "stat": "RESERVE"
       */
      */
+    
+    
     
     
     
@@ -168,6 +171,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
 
 
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear(perform: {
             spider.historyDelegate = self
             spider.bookControlDelegate = self

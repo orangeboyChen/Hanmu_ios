@@ -77,7 +77,6 @@ class LibrarySpider {
             if json["status"].string == "success" {
                 self.token = json["data"]["token"].string!
             }
-            
             self.loginDelegate?.loginDelegate(data: response)
         }
     }
@@ -156,7 +155,16 @@ class LibrarySpider {
 //
 //        }
         //访问预定接口
-        let header: HTTPHeaders = ["token": self.token]
+        URLCache.shared.removeAllCachedResponses()
+        Alamofire.Session.default.sessionConfiguration.requestCachePolicy = .reloadIgnoringCacheData
+        
+        let header: HTTPHeaders = [
+            "token": self.token,
+            "Cache-Control": "no-cache",
+            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "User-Agent": ""
+        ]
+        
         let parameters: Parameters = [
             "t": t,
             "startTime": startTime,
@@ -198,5 +206,8 @@ class LibrarySpider {
             self.userInfoDelegate?.getUserInfoDelegate(data: response)
         }
     }
+    
+    
+    
     
 }
