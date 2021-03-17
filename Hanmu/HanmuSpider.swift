@@ -25,7 +25,9 @@ protocol HanmuUserInfoDelegate {
 class HanmuSpider {
     static let instance = HanmuSpider()
     
-    var delegate: HanmuSpiderDelegate?
+    //委托
+    var spiderDelegate: HanmuSpiderDelegate?
+    var userInfoDelegate: HanmuUserInfoDelegate?
 
     let ENCRYPT_KEY = "xfvdmyirsg";
     
@@ -35,7 +37,9 @@ class HanmuSpider {
     //登录用client4，其它用clinet3
     let LOGIN_URI = "/token/QM_Users/LoginSchool?IMEICode="
     
-    @State var token: String = ""
+    var token: String = ""
+    var userId: String = ""
+    @AppStorage("imeiCode") var imeiCode: String = ""
     
 
 
@@ -51,8 +55,10 @@ class HanmuSpider {
         return instance
     }
     
+    
+    
     public func login(imeiCode : String) {
-        let url = URL(string: "\(LOGIN_URI)/\(imeiCode)")!
+        let url = URL(string: "\(BASE_URL_4)\(LOGIN_URI)\(imeiCode)")!
         session.request(url, method: .get).responseJSON {response in
             let json = JSON(response.data as Any)
             print(json)
@@ -60,22 +66,22 @@ class HanmuSpider {
                 self.token = json["Data"]["Token"].string!
             }
             
-            self.delegate?.loginDelegate(response: response)
+            self.spiderDelegate?.loginDelegate(response: response)
         }
     }
     
     func getUserInfo(token : String){
         let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Users/GS")!
         session.request(url, method: .get).responseJSON {response in
-
-            self.delegate?.getUserInfoDelegate(response: response)
+            
+            self.spiderDelegate?.getUserInfoDelegate(response: response)
         }
     }
     
     func getRunId(token : String, distance : Int32){
         let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/SRS?S1=40.62828&S2=120.79108&S3=\(String(distance))")!
         session.request(url, method: .get).responseJSON {response in
-            self.delegate?.getRunIdDelegate(response: response)
+            self.spiderDelegate?.getRunIdDelegate(response: response)
         }
     }
     
@@ -112,35 +118,97 @@ class HanmuSpider {
         let url = URL(string: "\(BASE_URL_3)/\(user.token)/QM_Runs/ES?S1=\(user.runId)&S4=\(encryptNumber(number: postCostTime))&S5=\(encryptNumber(number: Int(postDistance)))&S6=A0A2A1A3A0&S7=1&S8=xfvdmyirsg&S9=\(encryptNumber(number: postStep))")
         session.request(url!, method: .get).responseJSON {response in
             print("RESPONSE: \(response)")
-            self.delegate?.postDataDelegate(response: response, speed: postSpeed, distance: postDistance, costTime: postCostTime)
+            self.spiderDelegate?.postDataDelegate(response: response, speed: postSpeed, distance: postDistance, costTime: postCostTime)
         }
     }
     
-    func getValidResult(token: String, userId: String, pageNum: Int, pageSize: Int) {
-        let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/getResultsofValidByUser?UserId=\(userId)&pageIndex=\(pageNum)&pageSize=\(pageSize)")
-        session.request(url!, method: .get).responseJSON {response in
-            print("RESPONSE: \(response)")
-        }   
+    func getValidResult(pageNum: Int, pageSize: Int) {
+        if token == "" {
+            let url = URL(string: "\(BASE_URL_3)/\(LOGIN_URI)\(imeiCode)")!
+            session.request(url, method: .get).responseJSON {response in
+                let json = JSON(response.data as Any)
+                if(json["Success"] == true){
+                    self.token = json["Data"]["Token"].stringValue
+                    self.getValidResult(pageNum: pageNum, pageSize: pageSize)
+                }
+                else {
+                    print(json)
+                    self.userInfoDelegate?.getValidResultDelegate(response: response)
+                }
+                
+            }
+        }
+        else if userId == "" {
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Users/GS")!
+            session.request(url, method: .get).responseJSON {response in
+                print(response)
+                let json = JSON(response.data as Any)
+                if(json["Success"].intValue == 1){
+                    self.userId = json["Data"]["User"]["UserID"].stringValue
+                    self.getValidResult(pageNum: pageNum, pageSize: pageSize)
+                }
+                else {
+                    print(json)
+                    self.userInfoDelegate?.getValidResultDelegate(response: response)
+                }
+                
+            }
+        }
+        else {
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/getResultsofValidByUser?UserId=\(userId)&pageIndex=\(pageNum)&pageSize=\(pageSize)")
+            session.request(url!, method: .get).responseJSON {response in
+                print("RESPONSE: \(response)")
+                self.userInfoDelegate?.getValidResultDelegate(response: response)
+            }
+        }
+        
+        
+ 
     }
     
-    func getInvalidResult(token: String, pageNum: Int, pageSize: Int) {
-        let url = URL(string: "\(BASE_URL_3)/10001e245ab14834b04fa70ca4d3773a/QM_Runs/getResultsofInValidByUser?UserId=688078&pageIndex=1&pageSize=10")
-        session.request(url!, method: .get).responseJSON {response in
-            print("RESPONSE: \(response)")
+    func getInvalidResult(pageNum: Int, pageSize: Int) {
+        if token == "" {
+            let url = URL(string: "\(BASE_URL_3)/\(LOGIN_URI)\(imeiCode)")!
+            session.request(url, method: .get).responseJSON {response in
+                let json = JSON(response.data as Any)
+                if(json["Success"] == true){
+                    self.token = json["Data"]["Token"].stringValue
+                    self.getInvalidResult(pageNum: pageNum, pageSize: pageSize)
+                }
+                else {
+                    print(json)
+                    self.userInfoDelegate?.getInvalidResultDelegate(response: response)
+                }
+                
+            }
         }
+        else if userId == "" {
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Users/GS")!
+            session.request(url, method: .get).responseJSON {response in
+                print(response)
+                let json = JSON(response.data as Any)
+                if(json["Success"].intValue == 1){
+                    self.userId = json["Data"]["User"]["UserID"].stringValue
+                    self.getInvalidResult(pageNum: pageNum, pageSize: pageSize)
+                }
+                else {
+                    print(json)
+                    self.userInfoDelegate?.getInvalidResultDelegate(response: response)
+                }
+            }
+        }
+        else {
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/getResultsofInValidByUser?UserId=\(userId)&pageIndex=\(pageNum)&pageSize=\(pageSize)")
+            session.request(url!, method: .get).responseJSON {response in
+                self.userInfoDelegate?.getInvalidResultDelegate(response: response)
+            }
+        }
+        
+        
+
     }
     
 }
 
 
-struct User{
-    var schoolName : String = ""
-    var minSpeed : Double = 0
-    var maxSpeed : Double = 0
-    var imeiCode : String = ""
-    var token : String = ""
-    var runId : String = ""
-    var costTime : Int64 = 0
-    var distance : Int32 = 0
-    var step : Int64 = 0
-}
+

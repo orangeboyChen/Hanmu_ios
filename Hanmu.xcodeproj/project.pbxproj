@@ -31,6 +31,8 @@
 		EA685C3C25FC81FF00D96223 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C3B25FC81FF00D96223 /* LibraryView.swift */; };
 		EA685C4A25FC868200D96223 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C4925FC868200D96223 /* AccountEditView.swift */; };
 		EA685C5125FC951D00D96223 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C5025FC951D00D96223 /* BookView.swift */; };
+		EA8D41902601877A0083B087 /* HanmuUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D418F2601877A0083B087 /* HanmuUser.swift */; };
+		EA8D4198260196B10083B087 /* HanmuResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D4197260196B10083B087 /* HanmuResult.swift */; };
 		EA92EA7025FE6F2100567D95 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA6F25FE6F2100567D95 /* Seat.swift */; };
 		EA92EA7C25FE6F4200567D95 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA7B25FE6F4200567D95 /* Room.swift */; };
 		EA92EA8325FE6F5200567D95 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA8225FE6F5200567D95 /* Building.swift */; };
@@ -41,6 +43,7 @@
 		EA9C27D125FCE3AE00B58FC8 /* HistoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */; };
 		EAD3F12725FB6D80005D5265 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD3F12625FB6D80005D5265 /* NotificationService.m */; };
 		EAD3F12B25FB6E07005D5265 /* libXGExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD3F11C25FB6CF2005D5265 /* libXGExtension.a */; };
+		EAD50F182601C5E000B8614E /* HanmuInvalidHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD50F172601C5E000B8614E /* HanmuInvalidHistory.swift */; };
 		EAF7760125FBDDEE00D746C1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF7750925FBD18100D746C1 /* Intents.framework */; };
 		EAF7760425FBDDEE00D746C1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7760325FBDDEE00D746C1 /* IntentHandler.swift */; };
 		EAF7760B25FBDDEE00D746C1 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF7751425FBD18100D746C1 /* IntentsUI.framework */; };
@@ -192,6 +195,8 @@
 		EA685C3B25FC81FF00D96223 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		EA685C4925FC868200D96223 /* AccountEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
 		EA685C5025FC951D00D96223 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		EA8D418F2601877A0083B087 /* HanmuUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuUser.swift; sourceTree = "<group>"; };
+		EA8D4197260196B10083B087 /* HanmuResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuResult.swift; sourceTree = "<group>"; };
 		EA92EA6F25FE6F2100567D95 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		EA92EA7B25FE6F4200567D95 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		EA92EA8225FE6F5200567D95 /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
@@ -208,6 +213,7 @@
 		EAD3F11D25FB6CF2005D5265 /* XGExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XGExtension.h; path = TPNSService/TPNSExtensionLib/XGExtension.h; sourceTree = "<group>"; };
 		EAD3F12625FB6D80005D5265 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NotificationService.m; path = TPNSService/NotificationService.m; sourceTree = "<group>"; };
 		EAD3F12F25FB77DF005D5265 /* Hanmu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hanmu.entitlements; sourceTree = "<group>"; };
+		EAD50F172601C5E000B8614E /* HanmuInvalidHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuInvalidHistory.swift; sourceTree = "<group>"; };
 		EAF7750925FBD18100D746C1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		EAF7751425FBD18100D746C1 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		EAF7760025FBDDEE00D746C1 /* SiriIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,9 +403,9 @@
 		EA685C2225FC651900D96223 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA8D41872601821A0083B087 /* My */,
+				EA8D4186260182100083B087 /* Hanmu */,
 				EA685C4325FC829700D96223 /* Library */,
-				EA50379325F9344800E233F4 /* Hanmu.swift */,
-				EA50379825F9A35100E233F4 /* My.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -417,9 +423,36 @@
 			name = Library;
 			sourceTree = "<group>";
 		};
+		EA8D4186260182100083B087 /* Hanmu */ = {
+			isa = PBXGroup;
+			children = (
+				EA50379325F9344800E233F4 /* Hanmu.swift */,
+				EAD50F172601C5E000B8614E /* HanmuInvalidHistory.swift */,
+			);
+			name = Hanmu;
+			sourceTree = "<group>";
+		};
+		EA8D41872601821A0083B087 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				EA50379825F9A35100E233F4 /* My.swift */,
+			);
+			name = My;
+			sourceTree = "<group>";
+		};
+		EA8D418E2601875F0083B087 /* Hanmu */ = {
+			isa = PBXGroup;
+			children = (
+				EA8D418F2601877A0083B087 /* HanmuUser.swift */,
+				EA8D4197260196B10083B087 /* HanmuResult.swift */,
+			);
+			name = Hanmu;
+			sourceTree = "<group>";
+		};
 		EA92EA6C25FE6EF500567D95 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EA8D418E2601875F0083B087 /* Hanmu */,
 				EA92EA6D25FE6F0900567D95 /* Library */,
 			);
 			name = Model;
@@ -831,10 +864,13 @@
 				EA685C2925FC65FC00D96223 /* LibrarySpider.swift in Sources */,
 				EA685C3C25FC81FF00D96223 /* LibraryView.swift in Sources */,
 				EA92EAA925FF15E400567D95 /* LibraryTime.swift in Sources */,
+				EA8D41902601877A0083B087 /* HanmuUser.swift in Sources */,
 				EA50376825F9334B00E233F4 /* ContentView.swift in Sources */,
+				EA8D4198260196B10083B087 /* HanmuResult.swift in Sources */,
 				EA685C5125FC951D00D96223 /* BookView.swift in Sources */,
 				EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */,
 				EA92EA8325FE6F5200567D95 /* Building.swift in Sources */,
+				EAD50F182601C5E000B8614E /* HanmuInvalidHistory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

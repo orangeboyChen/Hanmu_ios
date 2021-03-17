@@ -16,6 +16,7 @@
  */
 import Foundation
 class Book: ObservableObject {
+    var index: Int = -1
     @Published var id: Int = -1
     @Published var date: String?
     @Published var begin: String?

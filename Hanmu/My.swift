@@ -52,9 +52,9 @@ struct My: View {
                     }
                     
                     Section(header: Text("图书馆")){
-                        NavigationLink(destination: MyLibraryInfoView()) {
-                            Text("个人信息")
-                        }
+//                        NavigationLink(destination: MyLibraryInfoView()) {
+//                            Text("个人信息")
+//                        }
                         NavigationLink(destination: AccountEditView()) {
                             Text("\(libraryToken == "" ? "添加" : "编辑")登录信息")
                         }.contextMenu(ContextMenu(menuItems: {

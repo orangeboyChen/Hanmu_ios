@@ -17,6 +17,10 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
     //展示的信息
     @State var userName: String = ""
     @State var isCheckedIn: Bool = false
+    @State var lastIn: String = "无"
+    @State var lastOut: String = "无"
+    @State var violationCount: Int = 1
+    @State var lastInBuildingName: String = "无"
     
     //必要的存储信息
     @AppStorage("userId") var userId: String = ""
@@ -41,16 +45,34 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
 
                 if userName != "" {
                     Group {
-                        HStack{
+                        HStack {
                             Text("学号")
                             Spacer()
                             Text(self.userId)
                         }
                         
-                        HStack{
+                        HStack {
                             Text("姓名")
                             Spacer()
                             Text(self.userName)
+                        }
+                        
+                        HStack {
+                            Text("最近入馆时间")
+                            Spacer()
+                            Text(self.lastIn)
+                        }
+                        
+                        HStack {
+                            Text("最近出馆时间")
+                            Spacer()
+                            Text(self.lastOut)
+                        }
+                        
+                        HStack {
+                            Text("最近入馆")
+                            Spacer()
+                            Text(self.lastInBuildingName)
                         }
                         
                         HStack{
@@ -84,15 +106,65 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
         }
     }
     
+    /**
+     {
+     "data" : {
+     "lastInBuildingName" : null,
+     "checkedIn" : false,
+     "lastLogin" : "2021-03-16T23:37:14.000",
+     "reservationStatus" : null,
+     "lastIn" : null,
+     "status" : "NORMAL",
+     "username" : "2019302110194",
+     "name" : "陈恩瀚",
+     "violationCount" : 1,
+     "username2" : null,
+     "enabled" : true,
+     "lastOut" : null,
+     "id" : 175925,
+     "lastInBuildingId" : null
+     },
+     "code" : "0",
+     "status" : "success",
+     "message" : ""
+     }
+     */
+    
     mutating func getUserInfoDelegate(data: AFDataResponse<Any>) {
         let json = JSON(data.data)
         self.isUserInfoLoading = false
         
+        print(json)
+        
         if json["status"] == "success" {
             withAnimation {
-                self.userName = json["data"]["name"].string!
-                self.isCheckedIn = json["data"]["checkedIn"].bool!
-                self.userId = json["data"]["username"].string!
+                self.userName = json["data"]["name"].stringValue
+                self.isCheckedIn = json["data"]["checkedIn"].boolValue
+                self.userId = json["data"]["username"].stringValue
+                
+                self.lastInBuildingName = json["data"]["lastInBuildingName"].string ?? "无"
+                
+                let dformatter = DateFormatter()
+                dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                
+                
+                if json["data"]["lastIn"] != JSON.null {
+                    let lastInDate = Formatter.iso8601.date(from: json["data"]["lastIn"].stringValue)
+                    lastIn = dformatter.string(from: lastInDate!)
+                }
+                else {
+                    lastIn = "无"
+                }
+                
+                if json["data"]["lastOut"] != JSON.null {
+                    let lastInDate = Formatter.iso8601.date(from: json["data"]["lastOut"].stringValue)
+                    lastOut = dformatter.string(from: lastInDate!)
+                }
+                else {
+                    lastOut = "无"
+                }
+                
+
             }
         }
         else{
@@ -105,4 +177,12 @@ struct MyLibraryInfoView_Previews: PreviewProvider {
     static var previews: some View {
         MyLibraryInfoView()
     }
+}
+
+extension Formatter {
+    static let iso8601: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter
+    }()
 }

@@ -62,7 +62,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         Form{
             if spider.token != "" {
                 Section(header: HStack {
-                    Text("预定地点")
+                    Text("预约地点")
                     
                 })
                 {
@@ -325,7 +325,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
 
                     }, label: {
                         HStack {
-                            Text("预定")
+                            Text("预约")
                             if isBookLoading {
                                 Spacer()
                                 ProgressView()
@@ -340,7 +340,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                     Text("添加登录信息")
                 }
             }
-        }.navigationBarTitle("预定", displayMode: .inline)
+        }.navigationBarTitle("预约", displayMode: .inline)
         .onAppear(perform: {
             initLibraryTime(from: 0, to: 48, interval: 30)
             spider.delegate = self

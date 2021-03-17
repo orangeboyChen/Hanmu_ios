@@ -36,6 +36,10 @@ protocol HistoryDelegate {
     mutating func getHistoryDelegate(data: AFDataResponse<Any>)
 }
 
+protocol HistoryPageDelegate {
+    mutating func getHistoryDelegate(data: AFDataResponse<Any>)
+}
+
 class LibrarySpider {
     //固定的URL与URI
     private let BASE_URL = "https://seat.lib.whu.edu.cn:8443"
@@ -64,6 +68,7 @@ class LibrarySpider {
     var historyDelegate: HistoryDelegate?
     var userInfoDelegate: UserInfoDelegate?
     var loginDelegate: LoginDelegate?
+    var historyPageDelegate: HistoryPageDelegate?
     
     //爬取需要的信息
     @AppStorage("libraryToken") var token: String = ""
@@ -188,8 +193,17 @@ class LibrarySpider {
     
     public func history(pageNum: Int, pageSize: Int){
         let header: HTTPHeaders = ["token": token]
+        
         AF.request(BASE_URL + HISTORY_URI + String(pageNum) + "/" + String(pageSize), method: .get, headers: header).responseJSON { (response) in
             self.historyDelegate?.getHistoryDelegate(data: response)
+        }
+    }
+    
+    public func historyPage(pageNum: Int, pageSize: Int){
+        let header: HTTPHeaders = ["token": token]
+        print(BASE_URL + HISTORY_URI + String(pageNum) + "/" + String(pageSize))
+        AF.request(BASE_URL + HISTORY_URI + String(pageNum) + "/" + String(pageSize), method: .get, headers: header).responseJSON { (response) in
+            self.historyPageDelegate?.getHistoryDelegate(data: response)
         }
     }
     

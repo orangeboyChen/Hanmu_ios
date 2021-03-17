@@ -15,10 +15,8 @@ struct AlertInfo: Identifiable {
     var info: String
 }
 
-struct Hanmu: View, HanmuSpiderDelegate {
-
+struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
     
-
     @AppStorage("imeiCode") var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
@@ -29,43 +27,95 @@ struct Hanmu: View, HanmuSpiderDelegate {
     var spider : HanmuSpider = HanmuSpider.getInstance()
     var user: User = User()
     
+    @State var validResult: [HanmuResult] = []
+    @State var isMoreValidResult: Bool = true
+    @State var validResultPageNum: Int = 1
+    @State var validResultPageSize: Int = 5
+    
     
     var body: some View {
         
-            VStack{
-                Form {
-                    if lastDate != "无" {
-                        Section(header: Text("上次记录")) {
-                            HStack{
-                                VStack(alignment: .leading){
-                                    Text(lastSpeed + " 米每秒").font(.headline)
-                                    Text(lastDate)
+        VStack{
+            Form {
+                if lastDate != "无" {
+                    Section(header: Text("上次记录")) {
+                        HStack{
+                            VStack(alignment: .leading){
+                                Text(lastSpeed + " 米每秒").font(.headline)
+                                Text(lastDate)
+                            }
+                            Spacer()
+                            Text(lastCostTime)
+                        }
+                        .padding(.vertical)
+                    }
+                }
+                
+                Section{
+                    Button(action: {
+                        if(self.savedImeiCode == ""){
+                            self.alertInfo = AlertInfo(
+                                title: "似乎还没有IMEI",
+                                info: "您还未输入IMEI，请前往”我的“输入。")
+                            return
+                        }
+                        spider.login(imeiCode: savedImeiCode)
+                        
+                    }) {
+                        Text("去跑步")
+                        
+                    }
+                }
+                
+                if savedImeiCode != "" {
+                    Section(header: Text("有效记录")) {
+                        ForEach(validResult, id: \.self) {result in
+                            
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("\(result.distance, specifier: "%g") km").font(.headline)
+                                    Text("\(result.date)").foregroundColor(.gray)
                                 }
                                 Spacer()
-                                Text(lastCostTime)
-                            }
-                            .padding(.vertical)
+                                Text(result.costTime)
+                            }.padding(.vertical, 2.0)
+                        }
+                        if isMoreValidResult {
+                            Button(action: {
+                                withAnimation {
+                                    validResultPageNum += 1
+                                    spider.getValidResult(pageNum: validResultPageNum, pageSize: validResultPageSize)
+                                }
+                                
+                            }, label: {
+                                Text("更多")
+                            })
+                        }
+                        
+                        
+                        //                    .popover(isPresented: .constant(true)) {
+                        //
+                        //                    }
+                        
+                    }
+                    
+                    Section {
+                        NavigationLink(destination: HanmuInvalidHistory()) {
+                            Text("无效记录")
                         }
                     }
+                }
+                
+                
+                
+            }.navigationBarTitle("跑步")
+        }.onAppear(perform: {
+            self.spider.spiderDelegate = self
+            self.spider.userInfoDelegate = self
+            
 
-                    Section{
-                        Button(action: {
-                            if(self.savedImeiCode == ""){
-                                self.alertInfo = AlertInfo(
-                                    title: "似乎还没有IMEI",
-                                    info: "您还未输入IMEI，请前往”我的“输入。")
-                                return;
-                            }
-                                spider.login(imeiCode: savedImeiCode)
-                            
-                        }) {
-                            Text("去跑步")
-                            
-                        }
-                    }
-                }.navigationBarTitle("跑步")
-            }.onAppear(perform: {
-            self.spider.delegate = self
+            initValidResult()
+            
         }).alert(item: $alertInfo){info in
             Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
         }
@@ -122,13 +172,66 @@ struct Hanmu: View, HanmuSpiderDelegate {
             self.lastSpeed = String(speed)
             
             func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int) {
-              return ((seconds) / 60, (seconds % 3600) % 60)
+                return ((seconds) / 60, (seconds % 3600) % 60)
             }
             self.lastCostTime = String(secondsToHoursMinutesSeconds(seconds: costTime).0) + "' " + String(secondsToHoursMinutesSeconds(seconds: costTime).1) + "''"
+            
+            initValidResult()
         }
         else{
             self.alertInfo = AlertInfo(title: "跑步失败", info: "")
         }
+    }
+    
+    mutating func getValidResultDelegate(response: DataResponse<Any, AFError>) {
+        let json = JSON(response.data)
+        print(json)
+        if json["Success"].boolValue {
+            withAnimation {
+                isMoreValidResult = !json["LastPage"].boolValue
+            }
+            
+            json["listValue"].forEach { (str: String, subJson: JSON) in
+                var currentResult = HanmuResult()
+                currentResult.costTime =
+                    subJson["CostTime"].stringValue
+                    .replacingOccurrences(of: "00时", with: "")
+                    .replacingOccurrences(of: "分", with: "'")
+                    .replacingOccurrences(of: "秒", with: "''")
+                currentResult.distance = subJson["CostDistance"].doubleValue / 1000
+                currentResult.date = subJson["ResultDate"].stringValue
+                    .replacingOccurrences(of: "年", with: "-")
+                    .replacingOccurrences(of: "月", with: "-")
+                    .replacingOccurrences(of: "日", with: "")
+                currentResult.speed = subJson["Speed"].doubleValue
+                
+                withAnimation {
+                    validResult.append(currentResult)
+                }
+                
+            }
+            validResultPageNum += 1
+        }
+        else {
+            var message = json["ErrMsg"].stringValue
+            if message.contains("验证码") {
+                message = "请重新登录"
+            }
+            alertInfo = AlertInfo(title: "获取信息失败", info: message)
+        }
+    }
+    
+    mutating func getInvalidResultDelegate(response: DataResponse<Any, AFError>) {
+        
+    }
+    
+    func initValidResult() {
+
+            validResultPageNum = 1
+            validResult = []
+            isMoreValidResult = false
+            spider.getValidResult(pageNum: validResultPageNum, pageSize: validResultPageSize)
+
     }
 }
 
@@ -137,4 +240,15 @@ struct Hanmu_Previews: PreviewProvider {
         Hanmu()
     }
 }
+
+
+extension Double {
+    func roundTo(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
+
+
+
 

@@ -144,18 +144,25 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
                 }
                 
                 
-                Section{
+                Section {
                     NavigationLink(
                         destination: BookView(isBookViewActive: self.$isBookViewActive),
                         isActive: self.$isBookViewActive) {
-                        Text("预定")
+                        Text("预约")
                     }
                     .isDetailLink(false)
                 }
                 
-                Section{
+                Section {
                     NavigationLink(destination: LibraryHistory()) {
-                        Text("历史记录")
+                        Text("历史预约记录")
+                    }
+                }
+                
+                Section {
+                    NavigationLink(
+                        destination: MyLibraryInfoView()) {
+                        Text("个人信息")
                     }
                 }
             }
@@ -192,13 +199,13 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
     }
     
     mutating func getHistoryDelegate(data: AFDataResponse<Any>) {
+
         withAnimation {
             isDisplayBookLoading = false
-        }
-        
-        let json = JSON(data.data)
-        print(json)
-        withAnimation {
+            
+            
+            let json = JSON(data.data)
+            print(json)
             if json["status"] == "success" {
                 displayBook.clear()
                 
@@ -216,7 +223,9 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
                     }
                 }
             }
+
         }
+
 
     }
     
