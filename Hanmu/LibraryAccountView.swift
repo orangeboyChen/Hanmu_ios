@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 
-struct AccountEditView: View, LoginDelegate {
+struct LibraryAccountView: View, LoginDelegate {
     //存储的信息
     @AppStorage("userId") var savedUserId: String = ""
     @AppStorage("password") var savedPassword: String = ""
@@ -110,7 +110,7 @@ struct AccountEditView: View, LoginDelegate {
 
 struct AccountEdit_Previews: PreviewProvider {
     static var previews: some View {
-        AccountEditView()
+        LibraryAccountView()
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 
-struct HanmuInvalidHistory: View, HanmuUserInfoDelegate {
+struct HanmuInvalidHistoryView: View, HanmuUserInfoDelegate {
     
     var spider: HanmuSpider = HanmuSpider.getInstance()
     
@@ -233,7 +233,7 @@ struct HanmuInvalidHistory: View, HanmuUserInfoDelegate {
 
 struct HanmuInvalidHistory_Previews: PreviewProvider {
     static var previews: some View {
-        HanmuInvalidHistory()
+        HanmuInvalidHistoryView()
     }
 }
 

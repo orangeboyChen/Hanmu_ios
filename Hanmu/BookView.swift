@@ -336,7 +336,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                 }
             }
             else {
-                NavigationLink(destination: AccountEditView()) {
+                NavigationLink(destination: LibraryAccountView()) {
                     Text("添加登录信息")
                 }
             }

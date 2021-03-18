@@ -48,7 +48,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
             if token != "" {
                 if isDisplayBookLoading || displayBook.id != -1 {
                     Section(header: HStack {
-                        Text("当前预定")
+                        Text("当前预约")
                         if isDisplayBookLoading {
                             ProgressView()
                                 .padding(.leading, 2.0)
@@ -167,7 +167,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate {
                 }
             }
             else {
-                NavigationLink(destination: AccountEditView()) {
+                NavigationLink(destination: LibraryAccountView()) {
                     Text("添加登录信息")
                 }
             }

@@ -9,14 +9,9 @@ import SwiftUI
 import Alamofire
 import SwiftyJSON
 
-struct AlertInfo: Identifiable {
-    var id: String {title;}
-    var title: String
-    var info: String
-}
 
-struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
-    
+
+struct HanmuView: View, HanmuUserInfoDelegate {
     @AppStorage("imeiCode") var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
@@ -30,7 +25,7 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
     @State var validResult: [HanmuResult] = []
     @State var isMoreValidResult: Bool = true
     @State var validResultPageNum: Int = 1
-    @State var validResultPageSize: Int = 5
+    @State var validResultPageSize: Int = 3
     
     
     var body: some View {
@@ -50,23 +45,11 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
                         .padding(.vertical)
                     }
                 }
-                
                 Section{
-                    Button(action: {
-                        if(self.savedImeiCode == ""){
-                            self.alertInfo = AlertInfo(
-                                title: "似乎还没有IMEI",
-                                info: "您还未输入IMEI，请前往”我的“输入。")
-                            return
-                        }
-                        spider.login(imeiCode: savedImeiCode)
-                        
-                    }) {
+                    NavigationLink(destination: HanmuRunView()) {
                         Text("去跑步")
-                        
                     }
                 }
-                
                 if savedImeiCode != "" {
                     Section(header: Text("有效记录")) {
                         ForEach(validResult, id: \.self) {result in
@@ -74,7 +57,7 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text("\(result.distance, specifier: "%g") km").font(.headline)
-                                    Text("\(result.date)").foregroundColor(.gray)
+                                    Text("\(result.date) \(result.hour)时").foregroundColor(.gray)
                                 }
                                 Spacer()
                                 Text(result.costTime)
@@ -91,16 +74,10 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
                                 Text("更多")
                             })
                         }
-                        
-                        
-                        //                    .popover(isPresented: .constant(true)) {
-                        //
-                        //                    }
-                        
                     }
                     
                     Section {
-                        NavigationLink(destination: HanmuInvalidHistory()) {
+                        NavigationLink(destination: HanmuInvalidHistoryView()) {
                             Text("无效记录")
                         }
                     }
@@ -110,10 +87,8 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
                 
             }.navigationBarTitle("跑步")
         }.onAppear(perform: {
-            self.spider.spiderDelegate = self
             self.spider.userInfoDelegate = self
             
-
             initValidResult()
             
         }).alert(item: $alertInfo){info in
@@ -121,67 +96,7 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
         }
     }
     
-    mutating func loginDelegate(response: DataResponse<Any, AFError>) {
-        let json = JSON(response.data as Any)
-        print(json)
-        if(json["Success"] == true){
-            self.user.token = json["Data"]["Token"].string!
-            spider.getUserInfo(token: user.token)
-        }
-        else{
-            self.alertInfo = AlertInfo(title: "失败", info: savedImeiCode + "似乎无效。请尝试重新获取IMEI")
-        }
-    }
-    
-    mutating func getUserInfoDelegate(response: DataResponse<Any, AFError>) {
-        let json = JSON(response.data as Any)
-        print(json)
-        if(json["Success"] == true){
-            self.user.minSpeed = json["Data"]["SchoolRun"]["MinSpeed"].doubleValue
-            self.user.maxSpeed = json["Data"]["SchoolRun"]["MaxSpeed"].doubleValue
-            self.user.distance = Int32(json["Data"]["SchoolRun"]["Lengths"].intValue)
-            spider.getRunId(token: user.token, distance: user.distance)
-        }
-        else{
-            self.alertInfo = AlertInfo(title: "失败", info: "获取用户信息失败")
-        }
-        
-    }
-    
-    mutating func getRunIdDelegate(response: DataResponse<Any, AFError>) {
-        let json = JSON(response.data as Any)
-        print(json)
-        if(json["Success"] == true){
-            self.user.runId = json["Data"]["RunId"].string!
-            spider.postFinishRunning(user: user)
-        }
-        else{
-            self.alertInfo = AlertInfo(title: "失败", info: "获取RunId失败")
-        }
-    }
-    
-    func postDataDelegate(response: DataResponse<Any, AFError>, speed: Double, distance: Double, costTime: Int) {
-        let json = JSON(response.data as Any)
-        print(json)
-        if(json["Success"] == true){
-            self.alertInfo = AlertInfo(title: "跑步成功", info: "")
-            
-            let dformatter = DateFormatter()
-            dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            self.lastDate = dformatter.string(from: Date())
-            self.lastSpeed = String(speed)
-            
-            func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int) {
-                return ((seconds) / 60, (seconds % 3600) % 60)
-            }
-            self.lastCostTime = String(secondsToHoursMinutesSeconds(seconds: costTime).0) + "' " + String(secondsToHoursMinutesSeconds(seconds: costTime).1) + "''"
-            
-            initValidResult()
-        }
-        else{
-            self.alertInfo = AlertInfo(title: "跑步失败", info: "")
-        }
-    }
+
     
     mutating func getValidResultDelegate(response: DataResponse<Any, AFError>) {
         let json = JSON(response.data)
@@ -204,6 +119,7 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
                     .replacingOccurrences(of: "月", with: "-")
                     .replacingOccurrences(of: "日", with: "")
                 currentResult.speed = subJson["Speed"].doubleValue
+                currentResult.hour = subJson["ResultHour"].intValue
                 
                 withAnimation {
                     validResult.append(currentResult)
@@ -227,17 +143,19 @@ struct Hanmu: View, HanmuSpiderDelegate, HanmuUserInfoDelegate {
     
     func initValidResult() {
 
-            validResultPageNum = 1
-            validResult = []
-            isMoreValidResult = false
+        validResultPageNum = 1
+        validResult = []
+        isMoreValidResult = false
+        
+        if savedImeiCode != "" {
             spider.getValidResult(pageNum: validResultPageNum, pageSize: validResultPageSize)
-
+        }
     }
 }
 
 struct Hanmu_Previews: PreviewProvider {
     static var previews: some View {
-        Hanmu()
+        HanmuView()
     }
 }
 

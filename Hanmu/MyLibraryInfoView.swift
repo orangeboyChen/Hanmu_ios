@@ -85,7 +85,7 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
                 
                 if token == "" {
                     NavigationLink(destination:
-                                    AccountEditView()
+                                    LibraryAccountView()
                     ) {
                         Text("添加登录信息")
                     }

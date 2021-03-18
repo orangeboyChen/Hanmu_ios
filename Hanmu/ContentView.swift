@@ -21,7 +21,7 @@ struct ContentView: View {
          NavigationView{
             TabView(selection: $tabIndex)
             {
-                Hanmu()
+                HanmuView()
                     .tabItem {
                         Image(systemName: "flame")
                         Text("跑步")

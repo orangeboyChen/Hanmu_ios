@@ -17,6 +17,16 @@ protocol HanmuSpiderDelegate{
     mutating func postDataDelegate(response: DataResponse<Any, AFError>, speed: Double, distance: Double, costTime: Int)
 }
 
+protocol HanmuLoginDelegate {
+    mutating func onSuccess()
+    mutating func onError(message: String)
+}
+
+protocol HanmuRunDelegate {
+    mutating func onError(message: String)
+    mutating func onSuccess(speed: Double, distance: Double, costTime: Int)
+}
+
 protocol HanmuUserInfoDelegate {
     mutating func getValidResultDelegate(response: DataResponse<Any, AFError>)
     mutating func getInvalidResultDelegate(response: DataResponse<Any, AFError>)
@@ -28,6 +38,8 @@ class HanmuSpider {
     //委托
     var spiderDelegate: HanmuSpiderDelegate?
     var userInfoDelegate: HanmuUserInfoDelegate?
+    var runDelegate: HanmuRunDelegate?
+    var loginDelegate: HanmuLoginDelegate?
 
     let ENCRYPT_KEY = "xfvdmyirsg";
     
@@ -40,6 +52,8 @@ class HanmuSpider {
     var token: String = ""
     var userId: String = ""
     @AppStorage("imeiCode") var imeiCode: String = ""
+    
+    var user: User = User()
     
 
 
@@ -55,7 +69,97 @@ class HanmuSpider {
         return instance
     }
     
+    public func run(){
+        run(speed: -1)
+    }
     
+    public func run(speed: Double){
+        if imeiCode == "" {
+            runDelegate?.onError(message: "设备序列号未填写")
+        }
+        else if token == "" {
+            let url = URL(string: "\(BASE_URL_4)\(LOGIN_URI)\(imeiCode)")!
+            session.request(url, method: .get).responseJSON {response in
+                let json = JSON(response.data as Any)
+                if(json["Success"] == true){
+                    self.token = json["Data"]["Token"].stringValue
+                    self.run(speed: speed)
+                }
+                else {
+                    self.runDelegate?.onError(message: "登录失败")
+                }
+                
+            }
+        }
+        else if user.minSpeed == 0 || self.user.maxSpeed == 0 || self.user.distance == 0 {
+            //获取用户信息
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Users/GS")!
+            session.request(url, method: .get).responseJSON {response in
+                let json = JSON(response.data as Any)
+                if(json["Success"] == true){
+                    self.user.minSpeed = json["Data"]["SchoolRun"]["MinSpeed"].doubleValue
+                    self.user.maxSpeed = json["Data"]["SchoolRun"]["MaxSpeed"].doubleValue
+                    self.user.distance = Int32(json["Data"]["SchoolRun"]["Lengths"].intValue)
+                    
+                    if speed > self.user.maxSpeed {
+                        self.runDelegate?.onError(message: "设置的速度过快，超过了为\(self.user.maxSpeed)m/s的上限")
+                        self.user = User()
+                    }
+                    else if speed < self.user.minSpeed && speed != -1 {
+                        self.runDelegate?.onError(message: "设置的速度过慢，超过了为\(self.user.minSpeed)m/s的下限")
+                        self.user = User()
+                    }
+                    else {
+                        self.run(speed: speed)
+                    }
+                    
+                }
+                else{
+                    self.runDelegate?.onError(message: "获取用户信息失败")
+                }
+            }
+        }
+        else if user.runId == "" {
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/SRS?S1=40.62828&S2=120.79108&S3=\(String(user.distance))")!
+            session.request(url, method: .get).responseJSON {response in
+                let json = JSON(response.data as Any)
+                if(json["Success"] == true){
+                    self.user.runId = json["Data"]["RunId"].string!
+                    self.run(speed: speed)
+                }
+                else{
+                    self.runDelegate?.onError(message: "获取RunId失败")
+                }
+            }
+        }
+        else {
+            print(user)
+            let lowerBound: Int = Int(user.minSpeed * 100 - 50)
+            let upperBound: Int = Int(user.maxSpeed * 100 + 30)
+            
+            let postSpeed: Double = speed == -1 ? (Double(arc4random_uniform(UInt32(upperBound - lowerBound))) + Double(lowerBound)) / 100 : speed
+            let postDistance: Double = Double(user.distance) + Double(arc4random_uniform(5))
+            let postCostTime: Int = Int(postDistance / postSpeed)
+            let postStep: Int = Int(arc4random_uniform(2222 - 1555) + 1555)
+            
+            
+            let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/ES?S1=\(user.runId)&S4=\(encryptNumber(number: postCostTime))&S5=\(encryptNumber(number: Int(postDistance)))&S6=A0A2A1A3A0&S7=1&S8=xfvdmyirsg&S9=\(encryptNumber(number: postStep))")
+            session.request(url!, method: .get).responseJSON {response in
+                let json = JSON(response.data as Any)
+                if(json["Success"] == true){
+                    self.runDelegate?.onSuccess(speed: postSpeed, distance: postDistance, costTime: postCostTime)
+                    
+                    //初始化用户数据
+                    self.user = User()
+                }
+                else{
+                    self.runDelegate?.onError(message: "提交跑步数据失败")
+                }
+            }
+        }
+        
+        
+    }
     
     public func login(imeiCode : String) {
         let url = URL(string: "\(BASE_URL_4)\(LOGIN_URI)\(imeiCode)")!
@@ -64,6 +168,10 @@ class HanmuSpider {
             print(json)
             if(json["Success"] == true){
                 self.token = json["Data"]["Token"].string!
+                self.loginDelegate?.onSuccess()
+            }
+            else {
+                self.loginDelegate?.onError(message: json["ErrMsg"].stringValue)
             }
             
             self.spiderDelegate?.loginDelegate(response: response)
