@@ -340,7 +340,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                     Text("添加登录信息")
                 }
             }
-        }.navigationBarTitle("预约", displayMode: .inline)
+        }
+        .navigationBarTitle("预约", displayMode: .inline)
         .onAppear(perform: {
             initLibraryTime(from: 0, to: 48, interval: 30)
             spider.delegate = self
@@ -371,8 +372,23 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         }).alert(item: $alertInfo){item in
             Alert(title: Text(item.title), message: Text(item.info), dismissButton: .none)
         }
-        
-        
+        .navigationBarItems(trailing:
+                                HStack {
+                                    if spider.token != "" {
+                                        if !isRoomDetailLoading {
+                                            Button(action: {
+                                                updateSeatInfo()
+                                            }, label: {
+                                                Text("更新")
+                                            }
+                                            ).disabled(selectBuildingId == -1)
+                                        }
+                                        else {
+                                            ProgressView()
+                                        }
+
+                                    }
+                                })
     }
     
     func getDateString(isTomorrow: Bool) -> String{
@@ -573,6 +589,21 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     
     func stopDelegate(data: AFDataResponse<Any>) {
         
+    }
+    
+    func updateSeatInfo() {
+        withAnimation {
+            //                            isSeatDetailLoading = true
+            isRoomDetailLoading = true
+        }
+        spider.getRoomDetail(libraryId: String(selectBuildingId))
+        if selectFromTime != -1 && selectToTime != -1 {
+            spider.searchSeatByTime(buildingId: String(selectBuildingId), roomId: String(selectRoomId), dateStr: getDateString(isTomorrow: isTomorrow), startTime: String(selectFromTime), endTime: String(selectToTime)
+            )
+        }
+        else {
+            spider.getSeatDetail(roomId: String(selectRoomId), dateStr: getDateString(isTomorrow: isTomorrow))
+        }
     }
     
     func initLibraryTime(from: Int, to: Int, interval: Int) {

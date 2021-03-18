@@ -12,8 +12,8 @@ import SwiftUI
 struct ContentView: View {
     
     
-    @State var tabIndex: Int = 1
-    let titles = ["跑步", "图书馆", "我的"]
+    @State var tabIndex: Int = UIDevice.current.userInterfaceIdiom == .pad ? 3 : 0
+    let titles = ["跑步", "图书馆", "我的", "汉姆"]
 
     
     
@@ -26,29 +26,45 @@ struct ContentView: View {
                         Image(systemName: "flame")
                         Text("跑步")
                     }
-                    .tag(1)
+                    .tag(0)
                 LibraryView()
                     .tabItem {
                         Image(systemName: "books.vertical")
                         Text("图书馆")
-                    }.tag(2)
+                    }.tag(1)
                 
                 My().tabItem {
                     Image(systemName: "person")
                     Text("我的") }
-                    .tag(3)
+                    .tag(2)
             }
-            .navigationTitle(titles[tabIndex - 1])
-            .padding(.leading, 0.25)
+            .navigationTitle(titles[tabIndex])
+            .padding(.leading, UIDevice.current.userInterfaceIdiom == .pad ? 0.25 : 0)
+            
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                VStack {
+                    Image("FirstPage")
+                        .frame(width: 150)
+                        .padding()
+                    Text("请于左侧选择功能")
+                        .padding()
+                }
+            }
+
+           
          }
+        
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        
     }
 }
+
 
 
 
