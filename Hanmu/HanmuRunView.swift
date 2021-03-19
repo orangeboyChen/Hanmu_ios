@@ -15,12 +15,12 @@ struct HanmuRunView: View, HanmuRunDelegate {
     
     @State var customSpeed = ""
     
-    @AppStorage("imeiCode") var savedImeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
-    @AppStorage("lastDate") var lastDate: String = "无"
-    @AppStorage("lastSpeed") var lastSpeed: String = "无"
-    @AppStorage("lastCostTime") var lastCostTime: String = "无"
+    @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastDate: String = "无"
+    @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastSpeed: String = "无"
+    @AppStorage("lastCostTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastCostTime: String = "无"
     
     let spider: HanmuSpider = HanmuSpider.getInstance()
     

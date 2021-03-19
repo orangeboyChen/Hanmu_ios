@@ -12,7 +12,11 @@ struct HanmuAccountView: View, HanmuLoginDelegate {
     
     
     @State var imeiCode: String = ""
-    @AppStorage("imeiCode") var savedImeiCode: String = ""
+//    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
+    
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
+    
+
     
     @State var isLoginLoading: Bool = false
     

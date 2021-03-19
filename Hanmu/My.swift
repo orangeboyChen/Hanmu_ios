@@ -12,7 +12,7 @@ struct My: View {
     
     @State var saveAlertContent: AlertInfo?
     
-    @AppStorage("imeiCode") var imeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var imeiCode: String = ""
     @AppStorage("userId") var savedUserId: String = ""
     @AppStorage("password") var savedPassword: String = ""
     @AppStorage("libraryToken") var libraryToken: String = ""
@@ -20,11 +20,21 @@ struct My: View {
     var body: some View {
         VStack{
             Form{
-                Section(header: Text("跑步")){
+                Section(header:
+                            Text("跑步"), footer:
+                                HStack {
+                                    SiriButtonView(shortcut: ShortcutManager.Shortcut.yourIntent)
+                                        .frame(height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                }
+
+                                
+                ){
                     
                     NavigationLink(destination: HanmuAccountView()) {
                         Text("\(imeiCode == "" ? "添加" : "编辑")跑步账号")
                     }
+                    
+
                 }
                 
                 Section(header: Text("图书馆")){

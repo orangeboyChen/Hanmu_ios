@@ -12,12 +12,12 @@ import SwiftyJSON
 
 
 struct HanmuView: View, HanmuUserInfoDelegate {
-    @AppStorage("imeiCode") var savedImeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
-    @AppStorage("lastDate") var lastDate: String = "无"
-    @AppStorage("lastSpeed") var lastSpeed: String = "无"
-    @AppStorage("lastCostTime") var lastCostTime: String = "无"
+    @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastDate: String = "无"
+    @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastSpeed: String = "无"
+    @AppStorage("lastCostTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastCostTime: String = "无"
     
     var spider : HanmuSpider = HanmuSpider.getInstance()
     var user: User = User()
@@ -111,7 +111,7 @@ struct HanmuView: View, HanmuUserInfoDelegate {
                 currentResult.costTime =
                     subJson["CostTime"].stringValue
                     .replacingOccurrences(of: "00时", with: "")
-                    .replacingOccurrences(of: "分", with: "'")
+                    .replacingOccurrences(of: "分", with: "' ")
                     .replacingOccurrences(of: "秒", with: "''")
                 currentResult.distance = subJson["CostDistance"].doubleValue / 1000
                 currentResult.date = subJson["ResultDate"].stringValue

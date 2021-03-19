@@ -51,7 +51,7 @@ class HanmuSpider {
     
     var token: String = ""
     var userId: String = ""
-    @AppStorage("imeiCode") var imeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var imeiCode: String = ""
     
     var user: User = User()
     
@@ -144,11 +144,12 @@ class HanmuSpider {
             
             
             let url = URL(string: "\(BASE_URL_3)/\(token)/QM_Runs/ES?S1=\(user.runId)&S4=\(encryptNumber(number: postCostTime))&S5=\(encryptNumber(number: Int(postDistance)))&S6=A0A2A1A3A0&S7=1&S8=xfvdmyirsg&S9=\(encryptNumber(number: postStep))")
+            
             session.request(url!, method: .get).responseJSON {response in
                 let json = JSON(response.data as Any)
                 if(json["Success"] == true){
                     self.runDelegate?.onSuccess(speed: postSpeed, distance: postDistance, costTime: postCostTime)
-                    
+
                     //初始化用户数据
                     self.user = User()
                 }

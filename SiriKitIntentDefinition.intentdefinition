@@ -7,7 +7,7 @@
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.2</string>
 	<key>INIntentDefinitionNamespace</key>
-	<string>NywrGT</string>
+	<string>tLi3SO</string>
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>20D91</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
@@ -21,26 +21,22 @@
 			<string>generic</string>
 			<key>INIntentConfigurable</key>
 			<true/>
-			<key>INIntentDefaultImageName</key>
-			<string>close</string>
+			<key>INIntentDescription</key>
+			<string>通过Siri帮你跑步</string>
 			<key>INIntentDescriptionID</key>
-			<string>qUlbHZ</string>
-			<key>INIntentInput</key>
-			<string>Run</string>
-			<key>INIntentKeyParameter</key>
-			<string>Run</string>
+			<string>ilyVVp</string>
 			<key>INIntentLastParameterTag</key>
 			<integer>1</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>Run</key>
+				<key>关键词</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>跑汉姆</string>
+					<string> ${关键词}</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>99dwS5</string>
+					<string>L1F0oa</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
 					<true/>
 				</dict>
@@ -49,16 +45,25 @@
 			<string>Run</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>Run</key>
+				<key></key>
 				<dict>
-					<key>INIntentParameterCombinationIsLinked</key>
+					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
+				</dict>
+				<key>关键词</key>
+				<dict>
+					<key>INIntentParameterCombinationSubtitle</key>
+					<string>可以帮助您制定跑步计划</string>
+					<key>INIntentParameterCombinationSubtitleID</key>
+					<string>pY33R5</string>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>跑汉姆</string>
+					<string> ${关键词}</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>9C9SAQ</string>
+					<string>YrGBoS</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -67,9 +72,9 @@
 					<key>INIntentParameterConfigurable</key>
 					<true/>
 					<key>INIntentParameterDisplayName</key>
-					<string>跑汉姆</string>
+					<string>帮我跑汉姆</string>
 					<key>INIntentParameterDisplayNameID</key>
-					<string>wC6ohM</string>
+					<string>2HbBDf</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
 					<key>INIntentParameterMetadata</key>
@@ -77,10 +82,10 @@
 						<key>INIntentParameterMetadataCapitalization</key>
 						<string>Sentences</string>
 						<key>INIntentParameterMetadataDefaultValueID</key>
-						<string>DNZi72</string>
+						<string>dMy1dg</string>
 					</dict>
 					<key>INIntentParameterName</key>
-					<string>Run</string>
+					<string>关键词</string>
 					<key>INIntentParameterPromptDialogs</key>
 					<array>
 						<dict>
@@ -92,16 +97,10 @@
 						<dict>
 							<key>INIntentParameterPromptDialogCustom</key>
 							<true/>
-							<key>INIntentParameterPromptDialogFormatString</key>
-							<string>跑汉姆</string>
-							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>dHAlhj</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Primary</string>
 						</dict>
 					</array>
-					<key>INIntentParameterSupportsResolution</key>
-					<true/>
 					<key>INIntentParameterTag</key>
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
@@ -113,14 +112,10 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>我已经帮你跑完汉姆了，不要偷懒哦。</string>
-						<key>INIntentResponseCodeConciseFormatStringID</key>
-						<string>J7pwCi</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>我已经帮你跑完汉姆了，不要偷懒哦。</string>
+						<string>跑步完成</string>
 						<key>INIntentResponseCodeFormatStringID</key>
-						<string>ZljJpj</string>
+						<string>KRSYZ5</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
@@ -128,22 +123,41 @@
 					</dict>
 					<dict>
 						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>我不想帮你跑了，你自己去跑吧。</string>
+						<string>跑步失败，${failMessage}</string>
 						<key>INIntentResponseCodeConciseFormatStringID</key>
-						<string>jIlpwf</string>
+						<string>Nv6uxS</string>
 						<key>INIntentResponseCodeFormatString</key>
-						<string>我不想帮你跑了，你自己去跑吧。</string>
+						<string>跑步失败，${failMessage}</string>
 						<key>INIntentResponseCodeFormatStringID</key>
-						<string>GrRwA4</string>
+						<string>MTa5xK</string>
 						<key>INIntentResponseCodeName</key>
 						<string>failure</string>
+					</dict>
+				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>1</integer>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>Fail Message</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>WEcwgB</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>failMessage</string>
+						<key>INIntentResponseParameterTag</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>String</string>
 					</dict>
 				</array>
 			</dict>
 			<key>INIntentTitle</key>
 			<string>跑汉姆</string>
 			<key>INIntentTitleID</key>
-			<string>khnmII</string>
+			<string>jFwynk</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>

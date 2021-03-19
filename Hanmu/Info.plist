@@ -66,7 +66,7 @@
 		</dict>
 	</dict>
 	<key>NSSiriUsageDescription</key>
-	<string>使用siri进行跑步</string>
+	<string>让Siri帮助你预约图书馆、锻炼身体</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>RunIntent</string>

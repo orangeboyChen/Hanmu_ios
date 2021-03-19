@@ -126,7 +126,8 @@ struct HanmuInvalidHistoryView: View, HanmuUserInfoDelegate {
                 currentResult.costTime =
                     subJson["CostTime"].stringValue
                     .replacingOccurrences(of: "00时", with: "")
-                    .replacingOccurrences(of: "分", with: "'")
+                    .replacingOccurrences(of: "时", with: "° ")
+                    .replacingOccurrences(of: "分", with: "' ")
                     .replacingOccurrences(of: "秒", with: "''")
                 currentResult.distance = subJson["CostDistance"].doubleValue / 1000
                 currentResult.date = subJson["ResultDate"].stringValue

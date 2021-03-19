@@ -7,4 +7,13 @@ target 'Hanmu' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'TPNS-iOS-Extension'
+end
+
+target 'SiriIntent' do
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+end
+
+target 'XGExtensionService' do
+  pod 'TPNS-iOS-Extension'
 end 
