@@ -44,8 +44,6 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
     }
     
     mutating func getHistoryDelegate(data: AFDataResponse<String>) {
-        let json = JSON(data.value)
-        print(json)
         
         if data.value == "ERROR: Abnormal using detected!!!" {
             spider.token = ""
@@ -53,7 +51,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
             return
         }
         
-        
+        let json = JSON(parseJSON: data.value ?? "")
         if json["status"] == "success" {
             Provider.displayBook = CurrentBookEntry()
             json["data"]["reservations"].forEach { (str: String, subJson: JSON) in
@@ -99,7 +97,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
     }
     
     func placeholder(in context: Context) -> CurrentBookEntry {
-        CurrentBookEntry()
+        return CurrentBookEntry(id: 0, seatNum: "---", loc: "-------------", stat: "CHECK_IN", begin: "--:--", end: "--:--")
     }
 
     func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (CurrentBookEntry) -> ()) {
@@ -110,6 +108,10 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
 //        entry.stat = "CHECK_IN"
 //        entry.begin = "14:00"
 //        entry.end = "22:30"
+        
+        //设置爬虫委托
+        spider.historyDelegate = self
+        spider.loginDelegate = self
         
         group.enter()
         dispatchQueue.async {
@@ -125,6 +127,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
         
         //设置爬虫委托
         spider.historyDelegate = self
+        spider.loginDelegate = self
         
         //这次后的更新日期
         
@@ -204,7 +207,7 @@ struct LibraryWidgetEntryView : View {
     var body: some View {
         Group {
             if widgetFamily == .systemSmall {
-                if entry.id != -1 {
+                if entry.id != -1 && entry.id != -2 {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(entry.seatNum)
@@ -248,7 +251,7 @@ struct LibraryWidgetEntryView : View {
                 }
             }
             else if widgetFamily == .systemMedium {
-                if entry.id != -1 {
+                if entry.id != -1 && entry.id != -2 {
                     GeometryReader { geometry in
                         HStack(spacing: 0) {
                             VStack {
@@ -298,8 +301,6 @@ struct LibraryWidgetEntryView : View {
                         .font(.caption2)
                         .foregroundColor(.secondary)
                 }
-                
-                
             }
         }
         .widgetURL(URL(string: "hanmu://library"))

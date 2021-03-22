@@ -240,9 +240,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                 return
             }
             
-            
-            let json = JSON(data.value)
-            print(json)
+            let json = JSON(parseJSON: data.value ?? "")
             if json["status"] == "success" {
                 displayBook.clear()
                 
