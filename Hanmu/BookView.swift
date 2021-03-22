@@ -8,12 +8,13 @@
 import SwiftUI
 import SwiftyJSON
 import Alamofire
+import WidgetKit
 
 
 
 struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
-    @AppStorage("userId") var userId = ""
-    @AppStorage("password") var password = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var userId = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var password = ""
     
     var spider: LibrarySpider = LibrarySpider.getInstance()
     
@@ -30,8 +31,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @State var selectBuildingId: Int = -1
     @State var selectRoomId: Int = -1
     @State var selectSeatId: Int = -1
-    @AppStorage("librarySelectFromTime") var selectFromTime: Int = -1
-    @AppStorage("librarySelectToTime") var selectToTime: Int = -1
+    @AppStorage("librarySelectFromTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var selectFromTime: Int = -1
+    @AppStorage("librarySelectToTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var selectToTime: Int = -1
     
     
     //显示的座位
@@ -42,8 +43,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @State var displaySeatTotal = 0
     
     //附加条件
-    @AppStorage("libraryIsPower") var isPower: Bool = false
-    @AppStorage("libraryIsWindow") var isWindow: Bool = false
+    @AppStorage("libraryIsPower", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var isPower: Bool = false
+    @AppStorage("libraryIsWindow", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var isWindow: Bool = false
     @State var isTomorrow: Bool = false
     
     
@@ -309,6 +310,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                 
                 Section{
                     Button(action: {
+                        WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
+                        
                         let calendar:Calendar = Calendar.current;
                         let now = Date()
                         let hour = calendar.component(.hour, from: now)
@@ -343,6 +346,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         }
         .navigationBarTitle("预约", displayMode: .inline)
         .onAppear(perform: {
+            WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
             initLibraryTime(from: 0, to: 48, interval: 30)
             spider.delegate = self
             

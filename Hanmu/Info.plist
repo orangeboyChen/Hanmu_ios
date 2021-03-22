@@ -40,7 +40,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>8</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
@@ -69,6 +69,7 @@
 	<string>让Siri帮助你预约图书馆、锻炼身体</string>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>ConfigurationIntent</string>
 		<string>RunIntent</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

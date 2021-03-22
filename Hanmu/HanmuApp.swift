@@ -7,10 +7,7 @@
 
 import SwiftUI
 import Intents
-
-
-
-
+import WidgetKit
 
 @main
 struct HanmuApp: App {
@@ -27,6 +24,7 @@ struct HanmuApp: App {
         WindowGroup {
             ContentView()
                 .onAppear(perform: {
+                    WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
                     if desperateImeiCode != "" {
                         savedImeiCode = desperateImeiCode
                         desperateImeiCode = ""

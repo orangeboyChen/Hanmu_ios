@@ -158,8 +158,6 @@ class HanmuSpider {
                 }
             }
         }
-        
-        
     }
     
     public func login(imeiCode : String) {
@@ -215,8 +213,8 @@ class HanmuSpider {
     }
     
     func postFinishRunning(user : User){
-        let lowerBound: Int = Int(user.minSpeed * 100 - 50)
-        let upperBound: Int = Int(user.maxSpeed * 100 + 30)
+        let lowerBound: Int = Int(user.minSpeed * 100 + 50)
+        let upperBound: Int = Int(user.maxSpeed * 100 - 50)
         
         let postSpeed: Double = (Double(arc4random_uniform(UInt32(upperBound - lowerBound))) + Double(lowerBound)) / 100
         let postDistance: Double = Double(user.distance) + Double(arc4random_uniform(5))
@@ -312,9 +310,6 @@ class HanmuSpider {
                 self.userInfoDelegate?.getInvalidResultDelegate(response: response)
             }
         }
-        
-        
-
     }
     
 }

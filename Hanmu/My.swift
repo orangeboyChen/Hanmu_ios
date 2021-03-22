@@ -13,9 +13,9 @@ struct My: View {
     @State var saveAlertContent: AlertInfo?
     
     @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var imeiCode: String = ""
-    @AppStorage("userId") var savedUserId: String = ""
-    @AppStorage("password") var savedPassword: String = ""
-    @AppStorage("libraryToken") var libraryToken: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedUserId: String = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedPassword: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var libraryToken: String = ""
     
     var body: some View {
         VStack{

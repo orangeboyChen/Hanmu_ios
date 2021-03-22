@@ -8,7 +8,7 @@
 import SwiftUI
 import Alamofire
 import SwiftyJSON
-
+import WidgetKit
 
 
 struct HanmuView: View, HanmuUserInfoDelegate {
@@ -87,6 +87,8 @@ struct HanmuView: View, HanmuUserInfoDelegate {
                 
             }.navigationBarTitle("跑步")
         }.onAppear(perform: {
+            WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
+            
             self.spider.userInfoDelegate = self
             
             initValidResult()

@@ -23,8 +23,8 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
     @State var lastInBuildingName: String = "无"
     
     //必要的存储信息
-    @AppStorage("userId") var userId: String = ""
-    @AppStorage("libraryToken") var token: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var userId: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var token: String = ""
     
     ///爬虫
     private var spider: LibrarySpider = LibrarySpider.getInstance()

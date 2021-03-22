@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-
 struct ContentView: View {
     
     
@@ -40,7 +39,6 @@ struct ContentView: View {
             }
             .navigationTitle(titles[tabIndex])
             .padding(.leading, UIDevice.current.userInterfaceIdiom == .pad ? 0.25 : 0)
-            
             if UIDevice.current.userInterfaceIdiom == .pad {
                 VStack {
                     Image("FirstPage")
@@ -53,6 +51,11 @@ struct ContentView: View {
 
            
          }
+         .onOpenURL(perform: { url in
+            if url == URL(string: "hanmu://library") {
+                
+            }
+         })
         
         
     }

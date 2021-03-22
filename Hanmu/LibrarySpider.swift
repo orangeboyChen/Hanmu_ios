@@ -33,7 +33,7 @@ protocol BookControlDelegate {
 }
 
 protocol HistoryDelegate {
-    mutating func getHistoryDelegate(data: AFDataResponse<Any>)
+    mutating func getHistoryDelegate(data: AFDataResponse<String>)
 }
 
 protocol HistoryPageDelegate {
@@ -71,10 +71,24 @@ class LibrarySpider {
     var historyPageDelegate: HistoryPageDelegate?
     
     //爬取需要的信息
-    @AppStorage("libraryToken") var token: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var token: String = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var password: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var userId: String = ""
     
     
     public func login(userId: String, password: String) {
+        let parameters = ["username": userId, "password": password]
+        AF.request(BASE_URL + LOGIN_URI, method: .get, parameters: parameters).responseJSON { (response) in
+            let json = JSON(response.data)
+            
+            if json["status"].string == "success" {
+                self.token = json["data"]["token"].string!
+            }
+            self.loginDelegate?.loginDelegate(data: response)
+        }
+    }
+    
+    public func login() {
         let parameters = ["username": userId, "password": password]
         AF.request(BASE_URL + LOGIN_URI, method: .get, parameters: parameters).responseJSON { (response) in
             let json = JSON(response.data)
@@ -194,7 +208,7 @@ class LibrarySpider {
     public func history(pageNum: Int, pageSize: Int){
         let header: HTTPHeaders = ["token": token]
         
-        AF.request(BASE_URL + HISTORY_URI + String(pageNum) + "/" + String(pageSize), method: .get, headers: header).responseJSON { (response) in
+        AF.request(BASE_URL + HISTORY_URI + String(pageNum) + "/" + String(pageSize), method: .get, headers: header).responseString { (response) in
             self.historyDelegate?.getHistoryDelegate(data: response)
         }
     }

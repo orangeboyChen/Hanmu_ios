@@ -68,11 +68,11 @@ struct LibraryHistory: View, HistoryPageDelegate {
                                 }
                                 else if book.stat == "CHECK_IN" {
                                     Text("已入馆")
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.green)
                                 }
                                 else if book.stat == "AWAY" {
                                     Text("已暂离")
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.orange)
                                 }
                                 else if book.stat == "CANCEL" {
                                     Text("已取消")

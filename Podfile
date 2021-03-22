@@ -17,3 +17,8 @@ end
 target 'XGExtensionService' do
   pod 'TPNS-iOS-Extension'
 end 
+
+target 'LibraryWidgetExtension' do
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
+end
