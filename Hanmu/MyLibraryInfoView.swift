@@ -144,25 +144,29 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
                 
                 self.lastInBuildingName = json["data"]["lastInBuildingName"].string ?? "无"
                 
-                let dformatter = DateFormatter()
-                dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                self.lastIn = json["data"]["lastIn"] != JSON.null ? json["data"]["lastIn"].stringValue : "无"
+                self.lastOut = json["data"]["lastOut"] != JSON.null ? json["data"]["lastOut"].stringValue : "无"
                 
                 
-                if json["data"]["lastIn"] != JSON.null {
-                    let lastInDate = Formatter.iso8601.date(from: json["data"]["lastIn"].stringValue)
-                    lastIn = dformatter.string(from: lastInDate!)
-                }
-                else {
-                    lastIn = "无"
-                }
-                
-                if json["data"]["lastOut"] != JSON.null {
-                    let lastInDate = Formatter.iso8601.date(from: json["data"]["lastOut"].stringValue)
-                    lastOut = dformatter.string(from: lastInDate!)
-                }
-                else {
-                    lastOut = "无"
-                }
+//                let dformatter = DateFormatter()
+//                dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//
+//
+//                if json["data"]["lastIn"] != JSON.null {
+//                    let lastInDate = Formatter.iso8601.date(from: json["data"]["lastIn"].stringValue)
+//                    lastIn = dformatter.string(from: lastInDate!)
+//                }
+//                else {
+//                    lastIn = "无"
+//                }
+//
+//                if json["data"]["lastOut"] != JSON.null {
+//                    let lastInDate = Formatter.iso8601.date(from: json["data"]["lastOut"].stringValue)
+//                    lastOut = dformatter.string(from: lastInDate!)
+//                }
+//                else {
+//                    lastOut = "无"
+//                }
                 
 
             }
