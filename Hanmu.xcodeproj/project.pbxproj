@@ -67,6 +67,7 @@
 		EABA232A260499BA005EA26A /* LibraryWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = EABA2325260499B9005EA26A /* LibraryWidget.intentdefinition */; };
 		EABA232D260499BA005EA26A /* LibraryWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EABA231D260499B9005EA26A /* LibraryWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EABA233E2604A373005EA26A /* LibrarySpider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C2825FC65FC00D96223 /* LibrarySpider.swift */; };
+		EAC2D16E266F8FA9001C74DA /* HanmuAccountHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D16D266F8FA9001C74DA /* HanmuAccountHelpView.swift */; };
 		EAD50F182601C5E000B8614E /* HanmuInvalidHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD50F172601C5E000B8614E /* HanmuInvalidHistoryView.swift */; };
 		F1C72298973B980BD0BC130F /* Pods_LibraryWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5B55E76A7D4C7E836BCBF /* Pods_LibraryWidgetExtension.framework */; };
 /* End PBXBuildFile section */
@@ -306,6 +307,7 @@
 		EABA2328260499BA005EA26A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EABA2337260499CF005EA26A /* LibraryWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LibraryWidgetExtension.entitlements; sourceTree = "<group>"; };
 		EABA237C2604E73E005EA26A /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EAC2D16D266F8FA9001C74DA /* HanmuAccountHelpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HanmuAccountHelpView.swift; sourceTree = "<group>"; };
 		EAD3F11A25FB6C9E005D5265 /* TPNS-SDK-iOS-1.3.0.0 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "TPNS-SDK-iOS-1.3.0.0"; sourceTree = "<group>"; };
 		EAD3F11B25FB6CCF005D5265 /* libXGExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXGExtension.a; path = "TPNS-SDK-iOS-1.3.0.0/demo/sdk/XGPushStatistics/extension/libXGExtension.a"; sourceTree = "<group>"; };
 		EAD3F11C25FB6CF2005D5265 /* libXGExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXGExtension.a; path = TPNSService/TPNSExtensionLib/libXGExtension.a; sourceTree = "<group>"; };
@@ -620,6 +622,7 @@
 				EAD50F172601C5E000B8614E /* HanmuInvalidHistoryView.swift */,
 				EA917C552602EC1400CFDCEB /* HanmuRunView.swift */,
 				EA917C812603157100CFDCEB /* HanmuAccountView.swift */,
+				EAC2D16D266F8FA9001C74DA /* HanmuAccountHelpView.swift */,
 			);
 			name = Hanmu;
 			sourceTree = "<group>";
@@ -1233,6 +1236,7 @@
 				EA685C4A25FC868200D96223 /* LibraryAccountView.swift in Sources */,
 				EA5037C625FA3D2200E233F4 /* HanmuSpider.swift in Sources */,
 				EA92EA7025FE6F2100567D95 /* Seat.swift in Sources */,
+				EAC2D16E266F8FA9001C74DA /* HanmuAccountHelpView.swift in Sources */,
 				EA92EAA225FEF1C100567D95 /* MyLibraryInfoView.swift in Sources */,
 				EA50379425F9344800E233F4 /* HanmuView.swift in Sources */,
 				EA92EABD25FF4A5500567D95 /* LibraryHistory.swift in Sources */,
@@ -1362,7 +1366,7 @@
 				CODE_SIGN_ENTITLEMENTS = XGExtensionService/XGExtensionService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = XGExtensionService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1375,7 +1379,7 @@
 					"$(PROJECT_DIR)/TPNSService/TPNSExtensionLib",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.XGExtensionService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.XGExtensionService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "XGExtensionService/XGExtensionService-Bridging-Header.h";
@@ -1393,7 +1397,7 @@
 				CODE_SIGN_ENTITLEMENTS = XGExtensionService/XGExtensionService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = XGExtensionService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1406,7 +1410,7 @@
 					"$(PROJECT_DIR)/TPNSService/TPNSExtensionLib",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.XGExtensionService;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.XGExtensionService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "XGExtensionService/XGExtensionService-Bridging-Header.h";
@@ -1548,7 +1552,7 @@
 				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Hanmu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1557,7 +1561,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hanmu/Hanmu-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1579,7 +1583,7 @@
 				CURRENT_PROJECT_VERSION = 5;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Hanmu/Preview Content\"";
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Hanmu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1588,7 +1592,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hanmu/Hanmu-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1687,7 +1691,7 @@
 				CODE_SIGN_ENTITLEMENTS = SIriIntent/SIriIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = SIriIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1695,7 +1699,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.siriRun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.siriRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1710,7 +1714,7 @@
 				CODE_SIGN_ENTITLEMENTS = SIriIntent/SIriIntent.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = SIriIntent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1718,7 +1722,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.siriRun;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.siriRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1732,7 +1736,7 @@
 				CODE_SIGN_ENTITLEMENTS = SiriIntentUI/SiriIntentUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = SiriIntentUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1740,7 +1744,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.SiriIntentUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.SiriIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1754,7 +1758,7 @@
 				CODE_SIGN_ENTITLEMENTS = SiriIntentUI/SiriIntentUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = SiriIntentUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1762,7 +1766,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.SiriIntentUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.SiriIntentUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1779,7 +1783,7 @@
 				CODE_SIGN_ENTITLEMENTS = LibraryWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = LibraryWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1787,7 +1791,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.LibraryWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.LibraryWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1804,7 +1808,7 @@
 				CODE_SIGN_ENTITLEMENTS = LibraryWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = FVMV4JVH4T;
+				DEVELOPMENT_TEAM = 97YACL9S6W;
 				INFOPLIST_FILE = LibraryWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1812,7 +1816,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.xiaoqing.LibraryWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nowcent.hanmu.orangeboy.LibraryWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

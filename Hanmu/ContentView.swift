@@ -11,7 +11,9 @@ import SwiftUI
 struct ContentView: View {
     
     
-    @State var tabIndex: Int = UIDevice.current.userInterfaceIdiom == .pad ? 3 : 0
+    @State
+    var tabIndex: Int = UIDevice.current.userInterfaceIdiom == .pad ? 3 : 0
+    
     let titles = ["跑步", "图书馆", "我的", "汉姆"]
 
     
@@ -37,9 +39,10 @@ struct ContentView: View {
                     Text("我的") }
                     .tag(2)
             }
-            .navigationTitle(titles[tabIndex])
             .padding(.leading, UIDevice.current.userInterfaceIdiom == .pad ? 0.25 : 0)
-            if UIDevice.current.userInterfaceIdiom == .pad {
+            .navigationTitle(titles[tabIndex])
+             
+             if UIDevice.current.userInterfaceIdiom == .pad {
                 VStack {
                     Image("FirstPage")
                         .frame(width: 150)

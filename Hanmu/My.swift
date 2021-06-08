@@ -12,10 +12,10 @@ struct My: View {
     
     @State var saveAlertContent: AlertInfo?
     
-    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var imeiCode: String = ""
-    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedUserId: String = ""
-    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedPassword: String = ""
-    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var libraryToken: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var imeiCode: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedUserId: String = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedPassword: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var libraryToken: String = ""
     
     var body: some View {
         VStack{
@@ -24,7 +24,7 @@ struct My: View {
                             Text("跑步"), footer:
                                 HStack {
                                     SiriButtonView(shortcut: ShortcutManager.Shortcut.yourIntent)
-                                        .frame(height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .frame(height: 60, alignment: .center)
                                 }
 
                                 

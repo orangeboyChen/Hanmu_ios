@@ -1,0 +1,6 @@
+framework module Pods_XGExtensionService {
+  umbrella header "Pods-XGExtensionService-umbrella.h"
+
+  export *
+  module * { export * }
+}

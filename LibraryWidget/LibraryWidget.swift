@@ -52,6 +52,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
         }
         
         let json = JSON(parseJSON: data.value ?? "")
+        print(json)
         if json["status"] == "success" {
             Provider.displayBook = CurrentBookEntry()
             json["data"]["reservations"].forEach { (str: String, subJson: JSON) in

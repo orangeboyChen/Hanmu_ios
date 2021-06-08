@@ -18,7 +18,7 @@ struct HanmuApp: App {
     
     @AppStorage("imeiCode") var desperateImeiCode: String = ""
     
-    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedImeiCode: String = ""
     
     var body: some Scene {
         WindowGroup {

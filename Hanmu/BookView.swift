@@ -13,8 +13,8 @@ import WidgetKit
 
 
 struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
-    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var userId = ""
-    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var password = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var userId = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var password = ""
     
     var spider: LibrarySpider = LibrarySpider.getInstance()
     
@@ -31,8 +31,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @State var selectBuildingId: Int = -1
     @State var selectRoomId: Int = -1
     @State var selectSeatId: Int = -1
-    @AppStorage("librarySelectFromTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var selectFromTime: Int = -1
-    @AppStorage("librarySelectToTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var selectToTime: Int = -1
+    @AppStorage("librarySelectFromTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var selectFromTime: Int = -1
+    @AppStorage("librarySelectToTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var selectToTime: Int = -1
     
     
     //显示的座位
@@ -43,8 +43,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @State var displaySeatTotal = 0
     
     //附加条件
-    @AppStorage("libraryIsPower", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var isPower: Bool = false
-    @AppStorage("libraryIsWindow", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var isWindow: Bool = false
+    @AppStorage("libraryIsPower", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var isPower: Bool = false
+    @AppStorage("libraryIsWindow", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var isWindow: Bool = false
     @State var isTomorrow: Bool = false
     
     

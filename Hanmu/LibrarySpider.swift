@@ -71,9 +71,9 @@ class LibrarySpider {
     var historyPageDelegate: HistoryPageDelegate?
     
     //爬取需要的信息
-    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var token: String = ""
-    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var password: String = ""
-    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var userId: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var password: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var userId: String = ""
     
     
     public func login(userId: String, password: String) {

@@ -12,12 +12,12 @@ import WidgetKit
 
 
 struct HanmuView: View, HanmuUserInfoDelegate {
-    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
-    @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastDate: String = "无"
-    @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastSpeed: String = "无"
-    @AppStorage("lastCostTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastCostTime: String = "无"
+    @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastDate: String = "无"
+    @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastSpeed: String = "无"
+    @AppStorage("lastCostTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastCostTime: String = "无"
     
     var spider : HanmuSpider = HanmuSpider.getInstance()
     var user: User = User()
@@ -85,8 +85,9 @@ struct HanmuView: View, HanmuUserInfoDelegate {
                 
                 
                 
-            }.navigationBarTitle("跑步")
+            }
         }.onAppear(perform: {
+//            WidgetCenter.shared.reloadAllTimelines()
             WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
             
             self.spider.userInfoDelegate = self

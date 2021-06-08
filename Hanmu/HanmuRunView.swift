@@ -15,12 +15,12 @@ struct HanmuRunView: View, HanmuRunDelegate {
     
     @State var customSpeed = ""
     
-    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedImeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedImeiCode: String = ""
     @State private var alertInfo: AlertInfo?
     
-    @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastDate: String = "无"
-    @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastSpeed: String = "无"
-    @AppStorage("lastCostTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var lastCostTime: String = "无"
+    @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastDate: String = "无"
+    @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastSpeed: String = "无"
+    @AppStorage("lastCostTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastCostTime: String = "无"
     
     let spider: HanmuSpider = HanmuSpider.getInstance()
     
@@ -72,9 +72,10 @@ struct HanmuRunView: View, HanmuRunDelegate {
                 }
             }
             else {
-                Section {
+                Section(header: VStack{}) {
                     NavigationLink("添加跑步账号", destination: HanmuAccountView())
                 }
+
             }
 
         }

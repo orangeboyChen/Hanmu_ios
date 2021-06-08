@@ -51,7 +51,7 @@ class HanmuSpider {
     
     var token: String = ""
     var userId: String = ""
-    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var imeiCode: String = ""
+    @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var imeiCode: String = ""
     
     var user: User = User()
     

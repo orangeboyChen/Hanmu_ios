@@ -26,7 +26,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
     
     @State var isBookViewActive: Bool = false
 
-    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var token: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
     
 
     /**
@@ -172,9 +172,12 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                 }
             }
             else {
-                NavigationLink(destination: LibraryAccountView()) {
-                    Text("添加登录信息")
+                Section {
+                    NavigationLink(destination: LibraryAccountView()) {
+                        Text("添加登录信息")
+                    }
                 }
+
             }
             
 

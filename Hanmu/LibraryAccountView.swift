@@ -11,9 +11,9 @@ import SwiftyJSON
 
 struct LibraryAccountView: View, LoginDelegate {
     //存储的信息
-    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedUserId: String = ""
-    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var savedPassword: String = ""
-    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var token: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedUserId: String = ""
+    @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedPassword: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
     
     //用户信息
     @State var userId: String = ""

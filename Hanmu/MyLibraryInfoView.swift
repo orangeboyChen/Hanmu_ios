@@ -23,8 +23,8 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
     @State var lastInBuildingName: String = "无"
     
     //必要的存储信息
-    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var userId: String = ""
-    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.xiaoqing")) var token: String = ""
+    @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var userId: String = ""
+    @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
     
     ///爬虫
     private var spider: LibrarySpider = LibrarySpider.getInstance()
@@ -145,7 +145,7 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
                 self.lastInBuildingName = json["data"]["lastInBuildingName"].string ?? "无"
                 
                 self.lastIn = json["data"]["lastIn"] != JSON.null ? json["data"]["lastIn"].stringValue : "无"
-                self.lastOut = json["data"]["lastOut"] != JSON.null ? json["data"]["lastOut"].stringValue : "无"
+                self.lastOut = json["data"]["lastOut"] != JSON.null ? json["data"]["lastOut"].stringValue : "无 "
                 
                 
 //                let dformatter = DateFormatter()
