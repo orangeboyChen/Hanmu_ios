@@ -19,8 +19,7 @@ struct HanmuAccountView: View, HanmuLoginDelegate {
 
     
     @State var isLoginLoading: Bool = false
-    
-    @State var alertInfo: AlertInfo?
+
     
     let spider: HanmuSpider = HanmuSpider.getInstance()
     
@@ -64,13 +63,14 @@ struct HanmuAccountView: View, HanmuLoginDelegate {
             }
 
         }
-        .navigationBarTitle("\(savedImeiCode == "" ? "添加" : "编辑")跑步账号", displayMode: .inline)
+        .navigationTitle("\(savedImeiCode == "" ? "添加" : "编辑")跑步账号")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing:
                                 Group {
                                     if !isLoginLoading {
                                         Button(action: {
                                             if(self.imeiCode.count != 32){
-                                                self.alertInfo = AlertInfo(title: "验证失败", info: "序列号长度不正确")
+                                                BannerService.getInstance().showBanner(title: "验证失败", content: "序列号长度不正确", type: .Error)
                                                 return
                                             }
                                             
@@ -88,9 +88,6 @@ struct HanmuAccountView: View, HanmuLoginDelegate {
                                         ProgressView()
                                     }
                                 })
-        .alert(item: $alertInfo) { info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
         .onAppear(perform: {
             spider.loginDelegate = self
             imeiCode = savedImeiCode
@@ -102,7 +99,7 @@ struct HanmuAccountView: View, HanmuLoginDelegate {
         withAnimation {
             isLoginLoading = false
             savedImeiCode = imeiCode
-            alertInfo = AlertInfo(title: "验证成功", info: "")
+            BannerService.getInstance().showBanner(title: "验证成功", content: "", type: .Success)
         }
  
     }
@@ -110,7 +107,7 @@ struct HanmuAccountView: View, HanmuLoginDelegate {
     mutating func onError(message: String) {
         withAnimation {
             isLoginLoading = false
-            alertInfo = AlertInfo(title: "验证失败", info: "请尝试重新获取序列号")
+            BannerService.getInstance().showBanner(title: "验证失败", content: "请尝试重新获取序列号", type: .Error)
         }
 
     }

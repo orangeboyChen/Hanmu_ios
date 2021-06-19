@@ -9,8 +9,7 @@ import SwiftUI
 
 
 struct My: View {
-    
-    @State var saveAlertContent: AlertInfo?
+
     
     @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var imeiCode: String = ""
     @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedUserId: String = ""
@@ -45,7 +44,7 @@ struct My: View {
                             self.savedUserId = ""
                             self.savedPassword = ""
                             self.libraryToken = ""
-                            self.saveAlertContent = AlertInfo(title: "完成", info: "已为您清空登录信息")
+                            BannerService.getInstance().showBanner(title: "完成", content: "登录信息已清空", type: .Success)
                         }) {
                             Image(systemName: "person.fill.xmark")
                             Text("清空登录信息")
@@ -53,9 +52,6 @@ struct My: View {
                     }))
                 }
             }
-        }
-        .alert(item: $saveAlertContent){info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
         }
         
     }

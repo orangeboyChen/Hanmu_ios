@@ -16,7 +16,6 @@ struct HanmuRunView: View, HanmuRunDelegate {
     @State var customSpeed = ""
     
     @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedImeiCode: String = ""
-    @State private var alertInfo: AlertInfo?
     
     @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastDate: String = "无"
     @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastSpeed: String = "无"
@@ -49,16 +48,14 @@ struct HanmuRunView: View, HanmuRunDelegate {
                 Section {
                     Button(action: {
                         if(self.savedImeiCode == ""){
-                            self.alertInfo = AlertInfo(
-                                title: "似乎还没有有效的设备序列号",
-                                info: "没有已保存的设备序列号，请前往”我的“输入。")
+                            BannerService.getInstance().showBanner(title: "似乎还没有有效的设备序列号", content: "没有已保存的设备序列号，请前往”我的“输入。", type: .Error)
                             return
                         }
                         
                         if !isSuggestData {
                             let number = Double(customSpeed)
                             if number == nil {
-                                alertInfo = AlertInfo(title: "这似乎不是有效的速度", info: "请重新输入")
+                                BannerService.getInstance().showBanner(title: "这似乎不是有效的速度", content: "请重新输入", type: .Error)
                                 return
                             }
                             spider.run(speed: number!)
@@ -79,21 +76,19 @@ struct HanmuRunView: View, HanmuRunDelegate {
             }
 
         }
-        .navigationBarTitle("准备跑步", displayMode: .inline)
-        .alert(item: $alertInfo){info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
+        .navigationTitle("准备跑步")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             self.spider.runDelegate = self
         })
     }
     
     mutating func onError(message: String) {
-        alertInfo = AlertInfo(title: "发生了错误", info: message)
+        BannerService.getInstance().showBanner(title: "发生了错误", content: message, type: .Error)
     }
     
     mutating func onSuccess(speed: Double, distance: Double, costTime: Int) {
-        self.alertInfo = AlertInfo(title: "跑步成功", info: "")
+        BannerService.getInstance().showBanner(title: "完成跑步", content: "", type: .Success)
         
         let dformatter = DateFormatter()
         dformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

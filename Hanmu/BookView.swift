@@ -16,9 +16,18 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var userId = ""
     @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var password = ""
     
-    var spider: LibrarySpider = LibrarySpider.getInstance()
+    @AppStorage("lastBookSeatId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastBookSeatId: Int = -1
     
-    @State var alertInfo: AlertInfo?
+    
+    @AppStorage("libraryInfoCache", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var libraryInfoCache = ""
+    
+    @AppStorage("roomInfoCache", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var roomInfoCache = ""
+    
+    @State var isNewRefresh: Bool = false
+
+    
+    
+    var spider: LibrarySpider = LibrarySpider.getInstance()
     
     @State var userName: String = ""
     @State var isCheckedIn: Bool = false
@@ -28,9 +37,15 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @State var buildingCount: Int = 0
     
     //预约需要的信息
+    @AppStorage("lastSelectedBuildingId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedBuildingId: Int = -1
+    @AppStorage("lastSelectedRoomId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedRoomId: Int = -1
+
+    
     @State var selectBuildingId: Int = -1
+    
     @State var selectRoomId: Int = -1
     @State var selectSeatId: Int = -1
+    
     @AppStorage("librarySelectFromTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var selectFromTime: Int = -1
     @AppStorage("librarySelectToTime", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var selectToTime: Int = -1
     
@@ -46,6 +61,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
     @AppStorage("libraryIsPower", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var isPower: Bool = false
     @AppStorage("libraryIsWindow", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var isWindow: Bool = false
     @State var isTomorrow: Bool = false
+    @State var isTomorrowSet: Bool = false
     
     
     //加载绑定
@@ -83,14 +99,22 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                         }
                         .disabled(isRoomDetailLoading || isBuildingInfoLoading)
                         .onChange(of: selectBuildingId, perform: { value in
-                            selectRoomId = -1
-                            selectSeatId = -1
-                            seats = []
-                            displaySeatTotal = 0
-                            
-                            isRoomDetailLoading = true
-                            spider.getRoomDetail(libraryId: String(selectBuildingId))
+                            if(savedBuildingId != selectBuildingId) {
+                                selectRoomId = -1
+                                selectSeatId = -1
+                                seats = []
+                                displaySeatTotal = 0
+                                
+                                isRoomDetailLoading = true
+                                
+                                savedBuildingId = selectBuildingId
+                                savedRoomId = -1
+                                
+                                spider.getRoomDetail(libraryId: String(selectBuildingId))
+                            }
+
                         })
+                        
                     }
                     
                     
@@ -117,7 +141,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                                         HStack {
                                             Text(String(room.floor) + "F")
                                                 .foregroundColor(.gray)
-                                            if room.free != -1 {
+                                            if room.free != -1 && isNewRefresh {
                                                 Group {
                                                     let color = room.free < 15 && room.free > 5 ? Color.orange : (room.free >= 15 ? Color.green : Color.red)
                                                     
@@ -137,6 +161,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                         }
                         .disabled(selectBuildingId == -1)
                         .onChange(of: selectRoomId, perform: { value in
+                            savedRoomId = selectRoomId
                             selectSeatId = -1
                             isSeatDetailLoading = true
                             
@@ -195,19 +220,24 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                         Text("预约明天")
                     }
                     .onChange(of: isTomorrow, perform: { newValue in
-                        print(newValue)
-                        withAnimation {
-//                            isSeatDetailLoading = true
-                            isRoomDetailLoading = true
+                        if(isTomorrowSet) {
+                            
+                            print(newValue)
+                            withAnimation {
+    //                            isSeatDetailLoading = true
+                                isRoomDetailLoading = true
+                            }
+                            spider.getRoomDetail(libraryId: String(selectBuildingId))
+                            if selectFromTime != -1 && selectToTime != -1 {
+                                spider.searchSeatByTime(buildingId: String(selectBuildingId), roomId: String(selectRoomId), dateStr: getDateString(isTomorrow: newValue), startTime: String(selectFromTime), endTime: String(selectToTime)
+                                )
+                            }
+                            else {
+                                spider.getSeatDetail(roomId: String(selectRoomId), dateStr: getDateString(isTomorrow: newValue))
+                            }
                         }
-                        spider.getRoomDetail(libraryId: String(selectBuildingId))
-                        if selectFromTime != -1 && selectToTime != -1 {
-                            spider.searchSeatByTime(buildingId: String(selectBuildingId), roomId: String(selectRoomId), dateStr: getDateString(isTomorrow: newValue), startTime: String(selectFromTime), endTime: String(selectToTime)
-                            )
-                        }
-                        else {
-                            spider.getSeatDetail(roomId: String(selectRoomId), dateStr: getDateString(isTomorrow: newValue))
-                        }
+                        isTomorrowSet = true
+
                     })
                     
                     Picker(selection: $selectFromTime, label: Text("开始时间")) {
@@ -323,7 +353,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                             spider.book(t: "1", t2: "2", startTime: String(selectFromTime), endTime: String(selectToTime), seat: String(selectSeatId), date: getDateString(), userId: userId, password: password)
                         }
                         else {
-                            alertInfo = AlertInfo(title: "预约失败", info: "请重新选择时间")
+                            BannerService.getInstance().showBanner(title: "预约失败", content: "请重新选择时间", type: .Error)
                         }
 
                     }, label: {
@@ -344,48 +374,115 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
                 }
             }
         }
-        .navigationBarTitle("预约", displayMode: .inline)
+        .navigationTitle("预约")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
             initLibraryTime(from: 0, to: 48, interval: 30)
             spider.delegate = self
+            
+            let calendar = Calendar.current
+            let now = Date()
+            let hour = calendar.component(.hour, from: now)
+            
+            if(!isTomorrowSet) {
+                isTomorrow = hour < 8 || hour >= 22
+            }
+            
+            
             
             if userId != "" && password != "" && spider.token == "" {
                 spider.login(userId: userId, password: password)
             }
             
             if selectBuildingId == -1 {
-                withAnimation {
-                    isBuildingInfoLoading = true
+                selectBuildingId = savedBuildingId
+                if libraryInfoCache != "" {
+                    let json = JSON.init(parseJSON: libraryInfoCache)
+                    if json["status"] == "success" {
+
+                        buildings = [:]
+                        buildingCount = 0
+                        withAnimation {
+                            
+                            
+                            json["data"]["buildings"].forEach { (str: String, subJson: JSON) in
+                                let building = Building(id: subJson[0].intValue, name: subJson[1].stringValue)
+                                buildings[subJson[0].int!] = building
+                            }
+                            
+                            json["data"]["rooms"].forEach { (str: String, subJson: JSON) in
+                                let room = Room(id: subJson[0].intValue, buildingId: subJson[2].intValue, name: subJson[1].stringValue, floor: subJson[3].intValue)
+                                buildings[subJson[2].intValue]?.rooms[subJson[0].intValue] = room
+                                rooms[subJson[0].int!] = room
+                            }
+                            
+                            buildingCount = buildings.count
+                            print(buildingCount)
+                        }
+                        
+                    }
                 }
-                spider.getFreeRoom()
+                else {
+                    withAnimation {
+                        isBuildingInfoLoading = true
+                    }
+                    spider.getLibraryInfo()
+                }
+
             }
             
-            if selectRoomId == -1 && selectBuildingId != -1 {
-                withAnimation {
-                    isRoomDetailLoading = true
+            if selectRoomId == -1 && (selectBuildingId != -1 || savedBuildingId != -1) {
+                selectRoomId = savedRoomId
+                
+                if roomInfoCache != "" {
+                    let json = JSON.init(parseJSON: roomInfoCache)
+                    if json["status"] == "success" {
+                        roomInfoCache = json.rawString()!
+                        print("appear room \(roomInfoCache)")
+                        json["data"].forEach { (str: String, subJson: JSON) in
+                            let roomId: Int = subJson["roomId"].intValue
+                            if !rooms.keys.contains(subJson["roomId"].intValue){
+                                rooms[roomId] = Room(id: roomId, buildingId: selectBuildingId, name: subJson["room"].stringValue, floor: subJson["floor"].intValue)
+                                buildings[selectBuildingId]?.rooms[roomId] = rooms[roomId]
+                            }
+                            rooms[roomId]?.free = subJson["free"].intValue
+                            rooms[roomId]?.total = subJson["totalSeats"].intValue
+                        }
+                    }
                 }
-                spider.getRoomDetail(libraryId: String(selectBuildingId))
+                else {
+                    withAnimation {
+                        isRoomDetailLoading = true
+                    }
+                    spider.getRoomDetail(libraryId: String(selectBuildingId))
+                }
+
             }
+            
+            
+            
             
             print(spider.token)
             
             
             
             
-        }).alert(item: $alertInfo){item in
-            Alert(title: Text(item.title), message: Text(item.info), dismissButton: .none)
-        }
+        })
         .navigationBarItems(trailing:
                                 HStack {
                                     if spider.token != "" {
                                         if !isRoomDetailLoading {
                                             Button(action: {
+//                                                spider.getLibraryInfo()
+//                                                spider.getRoomDetail(libraryId: String(savedBuildingId))
+                                                
                                                 updateSeatInfo()
                                             }, label: {
-                                                Text("更新")
+                                                Text("更新座位信息")
                                             }
-                                            ).disabled(selectBuildingId == -1)
+                                            )
+                                                .disabled(selectBuildingId == -1)
                                         }
                                         else {
                                             ProgressView()
@@ -428,14 +525,14 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         print(json)
         
         if json["status"].string ?? "fail" != "success" {
-            self.alertInfo = AlertInfo(title: "登录失败", info: json["message"].string ?? "")
+            BannerService.getInstance().showBanner(title: "登录失败", content: json["message"].stringValue, type: .Error)
             return
         }
         spider.getUserInfo()
-        spider.getFreeRoom()
+        spider.getLibraryInfo()
     }
     
-    mutating func getFreeRoomDelegate(data: AFDataResponse<Any>) {
+    mutating func getLibraryInfoDelegate(data: AFDataResponse<Any>) {
         withAnimation {
             isBuildingInfoLoading = false
         }
@@ -444,6 +541,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         print(isBuildingInfoLoading)
         
         if json["status"] == "success" {
+            isNewRefresh = true
+            libraryInfoCache = json.rawString()!
             buildings = [:]
             buildingCount = 0
             withAnimation {
@@ -466,7 +565,11 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
             
         }
         else{
-            self.alertInfo = AlertInfo(title: "获取图书馆信息失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "获取图书馆信息失败", content: json["message"].stringValue, type: .Error)
+            
+            if json["message"].stringValue == "系统维护中" {
+                isBookViewActive = false
+            }
         }
         
         
@@ -481,6 +584,8 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         let json = JSON(data.data)
         print(json)
         if json["status"] == "success" {
+            isNewRefresh = true
+            roomInfoCache = json.rawString()!
             json["data"].forEach { (str: String, subJson: JSON) in
                 let roomId: Int = subJson["roomId"].intValue
                 if !rooms.keys.contains(subJson["roomId"].intValue){
@@ -492,8 +597,9 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
             }
         }
         else {
-            alertInfo = AlertInfo(title: "获取房间信息失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "获取房间信息失败", content: json["message"].stringValue, type: .Error)
         }
+        
     }
     
     func getIsValidTokenDelegate(data: AFDataResponse<Any>) {
@@ -506,6 +612,7 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
         }
         
         let json = JSON(data.data)
+        print(json)
         if json["status"] == "success" {
             self.seats = []
             displaySeatTotal = 0
@@ -557,28 +664,29 @@ struct BookView: View, LibrarySpiderDelegate, LoginDelegate {
             }
         }
         else {
-            alertInfo = AlertInfo(title: "搜索座位信息失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "搜索座位信息失败", content: json["message"].stringValue, type: .Error)
         }
         
     }
     
-    func bookDelegate(data: AFDataResponse<String>) {
+    func bookDelegate(data: AFDataResponse<String>, isFree: Bool) {
         print(data)
         isBookLoading = false
         let responseString = data.value ?? ""
         if responseString.prefix(1) != "{" {
-            self.alertInfo = AlertInfo(title: "预约失败", info: responseString)
+            BannerService.getInstance().showBanner(title: "预约失败", content: responseString, type: .Error)
             return
         }
         
         let json = JSON(data.data)
         
         if json["status"] == "success" {
-            alertInfo = AlertInfo(title: "预约成功", info: "")
+            BannerService.getInstance().showBanner(title: "预约成功", content: json["message"].stringValue, type: .Success)
+            lastBookSeatId = selectSeatId
             self.isBookViewActive = false
         }
         else {
-            alertInfo = AlertInfo(title: "预约失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "预约失败", content: json["message"].stringValue, type: .Error)
         }
         
     }

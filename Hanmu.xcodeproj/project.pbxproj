@@ -15,6 +15,7 @@
 		E82ECD2C80FE01A3E44EFBE6 /* Pods_Hanmu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB3E7D60BBFD3FEC57A7324 /* Pods_Hanmu.framework */; };
 		EA2F3A2125FB688000C145BA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2F3A2025FB688000C145BA /* NotificationService.swift */; };
 		EA2F3A2525FB688000C145BA /* XGExtensionService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EA2F3A1E25FB688000C145BA /* XGExtensionService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		EA31A775267E3A0500FFA633 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31A774267E3A0500FFA633 /* Banner.swift */; };
 		EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50376525F9334B00E233F4 /* HanmuApp.swift */; };
 		EA50376825F9334B00E233F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50376725F9334B00E233F4 /* ContentView.swift */; };
 		EA50376A25F9335100E233F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA50376925F9335100E233F4 /* Assets.xcassets */; };
@@ -24,6 +25,13 @@
 		EA50379425F9344800E233F4 /* HanmuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50379325F9344800E233F4 /* HanmuView.swift */; };
 		EA50379925F9A35100E233F4 /* My.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA50379825F9A35100E233F4 /* My.swift */; };
 		EA5037C625FA3D2200E233F4 /* HanmuSpider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5037C525FA3D2200E233F4 /* HanmuSpider.swift */; };
+		EA60AB5B267DD87100DBBC7F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA60AB5C267DD87200DBBC7F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA60AB5D267DD87200DBBC7F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA60AB5E267DD87300DBBC7F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA60AB5F267DD87300DBBC7F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA60AB60267DD87300DBBC7F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
+		EA60AB69267DE14000DBBC7F /* RebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60AB68267DE14000DBBC7F /* RebookView.swift */; };
 		EA685B9C25FC57F600D96223 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF7750925FBD18100D746C1 /* Intents.framework */; };
 		EA685B9D25FC57F600D96223 /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAF7751425FBD18100D746C1 /* IntentsUI.framework */; };
 		EA685C2925FC65FC00D96223 /* LibrarySpider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C2825FC65FC00D96223 /* LibrarySpider.swift */; };
@@ -57,7 +65,7 @@
 		EA92EA9925FE6FF900567D95 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EA9825FE6FF900567D95 /* Book.swift */; };
 		EA92EAA225FEF1C100567D95 /* MyLibraryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */; };
 		EA92EAA925FF15E400567D95 /* LibraryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EAA825FF15E400567D95 /* LibraryTime.swift */; };
-		EA92EABD25FF4A5500567D95 /* LibraryHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */; };
+		EA92EABD25FF4A5500567D95 /* LibraryHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA92EABC25FF4A5500567D95 /* LibraryHistoryView.swift */; };
 		EA9C27D125FCE3AE00B58FC8 /* HistoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */; };
 		EABA231F260499B9005EA26A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABA231E260499B9005EA26A /* WidgetKit.framework */; };
 		EABA2321260499B9005EA26A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABA2320260499B9005EA26A /* SwiftUI.framework */; };
@@ -69,6 +77,11 @@
 		EABA233E2604A373005EA26A /* LibrarySpider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA685C2825FC65FC00D96223 /* LibrarySpider.swift */; };
 		EAC2D16E266F8FA9001C74DA /* HanmuAccountHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2D16D266F8FA9001C74DA /* HanmuAccountHelpView.swift */; };
 		EAD50F182601C5E000B8614E /* HanmuInvalidHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD50F172601C5E000B8614E /* HanmuInvalidHistoryView.swift */; };
+		EADA4BE1267DCA2700F87912 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA4BE0267DCA2700F87912 /* LibraryService.swift */; };
+		EADA4BE2267DCA2700F87912 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA4BE0267DCA2700F87912 /* LibraryService.swift */; };
+		EADA4BE3267DCA2700F87912 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA4BE0267DCA2700F87912 /* LibraryService.swift */; };
+		EADA4BE4267DCA2700F87912 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA4BE0267DCA2700F87912 /* LibraryService.swift */; };
+		EADA4BE5267DCA2700F87912 /* LibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA4BE0267DCA2700F87912 /* LibraryService.swift */; };
 		F1C72298973B980BD0BC130F /* Pods_LibraryWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D5B55E76A7D4C7E836BCBF /* Pods_LibraryWidgetExtension.framework */; };
 /* End PBXBuildFile section */
 
@@ -208,6 +221,7 @@
 		EA2F3A2225FB688000C145BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA2F3A2C25FB68AE00C145BA /* XGExtensionService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGExtensionService-Bridging-Header.h"; sourceTree = "<group>"; };
 		EA2F3A4C25FB6C6100C145BA /* XGExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGExtension.h; sourceTree = "<group>"; };
+		EA31A774267E3A0500FFA633 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		EA50376225F9334B00E233F4 /* Hanmu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hanmu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50376525F9334B00E233F4 /* HanmuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuApp.swift; sourceTree = "<group>"; };
 		EA50376725F9334B00E233F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -224,6 +238,7 @@
 		EA50379825F9A35100E233F4 /* My.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = My.swift; sourceTree = "<group>"; };
 		EA5037C525FA3D2200E233F4 /* HanmuSpider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuSpider.swift; sourceTree = "<group>"; };
 		EA5037C925FA55DF00E233F4 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
+		EA60AB68267DE14000DBBC7F /* RebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RebookView.swift; sourceTree = "<group>"; };
 		EA685C2825FC65FC00D96223 /* LibrarySpider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySpider.swift; sourceTree = "<group>"; };
 		EA685C3B25FC81FF00D96223 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		EA685C4925FC868200D96223 /* LibraryAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAccountView.swift; sourceTree = "<group>"; };
@@ -294,7 +309,7 @@
 		EA92EA9825FE6FF900567D95 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLibraryInfoView.swift; sourceTree = "<group>"; };
 		EA92EAA825FF15E400567D95 /* LibraryTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTime.swift; sourceTree = "<group>"; };
-		EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHistory.swift; sourceTree = "<group>"; };
+		EA92EABC25FF4A5500567D95 /* LibraryHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHistoryView.swift; sourceTree = "<group>"; };
 		EA9BC3AD2600E6F200B71B53 /* URL.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = URL.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListItem.swift; sourceTree = "<group>"; };
 		EAB322DA25FB33D600DBECC9 /* Hanmu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hanmu-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -314,6 +329,7 @@
 		EAD3F11D25FB6CF2005D5265 /* XGExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XGExtension.h; path = TPNSService/TPNSExtensionLib/XGExtension.h; sourceTree = "<group>"; };
 		EAD3F12F25FB77DF005D5265 /* Hanmu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hanmu.entitlements; sourceTree = "<group>"; };
 		EAD50F172601C5E000B8614E /* HanmuInvalidHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuInvalidHistoryView.swift; sourceTree = "<group>"; };
+		EADA4BE0267DCA2700F87912 /* LibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryService.swift; sourceTree = "<group>"; };
 		EAF7750925FBD18100D746C1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		EAF7751425FBD18100D746C1 /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
 		EC49E023B30B4F553313803E /* Pods-Hanmu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hanmu.release.xcconfig"; path = "Target Support Files/Pods-Hanmu/Pods-Hanmu.release.xcconfig"; sourceTree = "<group>"; };
@@ -407,6 +423,14 @@
 			path = XGExtensionService;
 			sourceTree = "<group>";
 		};
+		EA31A773267E39F500FFA633 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EA31A774267E3A0500FFA633 /* Banner.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		EA50375925F9334B00E233F4 = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +467,7 @@
 		EA50376425F9334B00E233F4 /* Hanmu */ = {
 			isa = PBXGroup;
 			children = (
+				EADA4BDF267DCA1600F87912 /* Service */,
 				EA92EA6C25FE6EF500567D95 /* Model */,
 				EA685C2225FC651900D96223 /* View */,
 				EA685C1C25FC650000D96223 /* Spider */,
@@ -560,6 +585,67 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		EA60AB61267DE08E00DBBC7F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		EA60AB62267DE0A500DBBC7F /* LibraryAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				EA685C4925FC868200D96223 /* LibraryAccountView.swift */,
+			);
+			name = LibraryAccountView;
+			sourceTree = "<group>";
+		};
+		EA60AB63267DE0BE00DBBC7F /* BookView */ = {
+			isa = PBXGroup;
+			children = (
+				EA685C5025FC951D00D96223 /* BookView.swift */,
+			);
+			name = BookView;
+			sourceTree = "<group>";
+		};
+		EA60AB64267DE0D400DBBC7F /* LibraryHistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				EA60AB61267DE08E00DBBC7F /* Components */,
+				EA92EABC25FF4A5500567D95 /* LibraryHistoryView.swift */,
+			);
+			name = LibraryHistoryView;
+			sourceTree = "<group>";
+		};
+		EA60AB65267DE0EF00DBBC7F /* MyLibraryView */ = {
+			isa = PBXGroup;
+			children = (
+				EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */,
+			);
+			name = MyLibraryView;
+			sourceTree = "<group>";
+		};
+		EA60AB66267DE10800DBBC7F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA60AB67267DE13100DBBC7F /* RebookView */,
+				EA60AB65267DE0EF00DBBC7F /* MyLibraryView */,
+				EA60AB64267DE0D400DBBC7F /* LibraryHistoryView */,
+				EA60AB63267DE0BE00DBBC7F /* BookView */,
+				EA60AB62267DE0A500DBBC7F /* LibraryAccountView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EA60AB67267DE13100DBBC7F /* RebookView */ = {
+			isa = PBXGroup;
+			children = (
+				EA60AB68267DE14000DBBC7F /* RebookView.swift */,
+			);
+			name = RebookView;
+			sourceTree = "<group>";
+		};
 		EA685C1C25FC650000D96223 /* Spider */ = {
 			isa = PBXGroup;
 			children = (
@@ -573,6 +659,7 @@
 		EA685C2225FC651900D96223 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA31A773267E39F500FFA633 /* Components */,
 				EA50376725F9334B00E233F4 /* ContentView.swift */,
 				EA8D41872601821A0083B087 /* My */,
 				EA8D4186260182100083B087 /* Hanmu */,
@@ -584,12 +671,8 @@
 		EA685C4325FC829700D96223 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EA60AB66267DE10800DBBC7F /* Views */,
 				EA685C3B25FC81FF00D96223 /* LibraryView.swift */,
-				EA685C4925FC868200D96223 /* LibraryAccountView.swift */,
-				EA685C5025FC951D00D96223 /* BookView.swift */,
-				EA9C27D025FCE3AE00B58FC8 /* HistoryListItem.swift */,
-				EA92EAA125FEF1C100567D95 /* MyLibraryInfoView.swift */,
-				EA92EABC25FF4A5500567D95 /* LibraryHistory.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -677,6 +760,14 @@
 				EABA237C2604E73E005EA26A /* MyPlayground.playground */,
 			);
 			path = LibraryWidget;
+			sourceTree = "<group>";
+		};
+		EADA4BDF267DCA1600F87912 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EADA4BE0267DCA2700F87912 /* LibraryService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		F6923490C5908121E73CE669 /* Pods */ = {
@@ -1224,6 +1315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA60AB5D267DD87200DBBC7F /* Book.swift in Sources */,
+				EADA4BE4267DCA2700F87912 /* LibraryService.swift in Sources */,
 				EA8BA6FC2603B4BE00C9A13D /* SiriKitIntentDefinition.intentdefinition in Sources */,
 				EA2F3A2125FB688000C145BA /* NotificationService.swift in Sources */,
 			);
@@ -1239,7 +1332,7 @@
 				EAC2D16E266F8FA9001C74DA /* HanmuAccountHelpView.swift in Sources */,
 				EA92EAA225FEF1C100567D95 /* MyLibraryInfoView.swift in Sources */,
 				EA50379425F9344800E233F4 /* HanmuView.swift in Sources */,
-				EA92EABD25FF4A5500567D95 /* LibraryHistory.swift in Sources */,
+				EA92EABD25FF4A5500567D95 /* LibraryHistoryView.swift in Sources */,
 				EA50379925F9A35100E233F4 /* My.swift in Sources */,
 				EA8BA7312603B98C00C9A13D /* HanmuShortcutController.swift in Sources */,
 				EA92EA7C25FE6F4200567D95 /* Room.swift in Sources */,
@@ -1247,14 +1340,17 @@
 				EA92EA9925FE6FF900567D95 /* Book.swift in Sources */,
 				EA685C2925FC65FC00D96223 /* LibrarySpider.swift in Sources */,
 				EA685C3C25FC81FF00D96223 /* LibraryView.swift in Sources */,
+				EA60AB69267DE14000DBBC7F /* RebookView.swift in Sources */,
 				EA917C9326033F6D00CFDCEB /* AppDelegate.swift in Sources */,
 				EA917C562602EC1400CFDCEB /* HanmuRunView.swift in Sources */,
 				EA8BA60F2603B10E00C9A13D /* SiriKitIntentDefinition.intentdefinition in Sources */,
+				EA31A775267E3A0500FFA633 /* Banner.swift in Sources */,
 				EA92EAA925FF15E400567D95 /* LibraryTime.swift in Sources */,
 				EA8D41902601877A0083B087 /* HanmuUser.swift in Sources */,
 				EABA232A260499BA005EA26A /* LibraryWidget.intentdefinition in Sources */,
 				EA50376825F9334B00E233F4 /* ContentView.swift in Sources */,
 				EA8D4198260196B10083B087 /* HanmuResult.swift in Sources */,
+				EADA4BE1267DCA2700F87912 /* LibraryService.swift in Sources */,
 				EA917C822603157100CFDCEB /* HanmuAccountView.swift in Sources */,
 				EA685C5125FC951D00D96223 /* BookView.swift in Sources */,
 				EA50376625F9334B00E233F4 /* HanmuApp.swift in Sources */,
@@ -1268,6 +1364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA60AB5B267DD87100DBBC7F /* Book.swift in Sources */,
+				EADA4BE2267DCA2700F87912 /* LibraryService.swift in Sources */,
 				EA50377825F9335200E233F4 /* HanmuTests.swift in Sources */,
 				EA8BA6F42603B4BE00C9A13D /* SiriKitIntentDefinition.intentdefinition in Sources */,
 			);
@@ -1277,6 +1375,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA60AB5C267DD87200DBBC7F /* Book.swift in Sources */,
+				EADA4BE3267DCA2700F87912 /* LibraryService.swift in Sources */,
 				EA50378325F9335200E233F4 /* HanmuUITests.swift in Sources */,
 				EA8BA6F82603B4BE00C9A13D /* SiriKitIntentDefinition.intentdefinition in Sources */,
 			);
@@ -1288,7 +1388,9 @@
 			files = (
 				EA8BA71F2603B6F400C9A13D /* HanmuSpider.swift in Sources */,
 				EA8BA4C32603935A00C9A13D /* IntentHandler.swift in Sources */,
+				EA60AB5E267DD87300DBBC7F /* Book.swift in Sources */,
 				EA8BA7262603B71100C9A13D /* HanmuUser.swift in Sources */,
+				EADA4BE5267DCA2700F87912 /* LibraryService.swift in Sources */,
 				EA8BA6FD2603B4BF00C9A13D /* SiriKitIntentDefinition.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1297,6 +1399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA60AB5F267DD87300DBBC7F /* Book.swift in Sources */,
 				EA8BA7682604520B00C9A13D /* IntentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1305,6 +1408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA60AB60267DD87300DBBC7F /* Book.swift in Sources */,
 				EABA2329260499BA005EA26A /* LibraryWidget.intentdefinition in Sources */,
 				EABA233E2604A373005EA26A /* LibrarySpider.swift in Sources */,
 				EABA2324260499B9005EA26A /* LibraryWidget.swift in Sources */,

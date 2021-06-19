@@ -15,6 +15,13 @@ struct LibraryAccountView: View, LoginDelegate {
     @AppStorage("password", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedPassword: String = ""
     @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
     
+    @AppStorage("libraryInfoCache", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var libraryInfoCache = ""
+    
+    @AppStorage("roomInfoCache", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var roomInfoCache = ""
+    
+    @AppStorage("lastSelectedBuildingId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedBuildingId: Int = -1
+    @AppStorage("lastSelectedRoomId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedRoomId: Int = -1
+    
     //用户信息
     @State var userId: String = ""
     @State var password: String = ""
@@ -22,8 +29,6 @@ struct LibraryAccountView: View, LoginDelegate {
     //加载绑定
     @State var isLoginLoading: Bool = false
     
-    //弹窗绑定
-    @State var alertInfo: AlertInfo?
     
     //爬虫
     private var spider: LibrarySpider = LibrarySpider.getInstance()
@@ -38,8 +43,8 @@ struct LibraryAccountView: View, LoginDelegate {
                             Text("登录序列号：\(token)")
                         }
             }) {
-                TextField("学号", text: self.$userId)
-                SecureField("密码", text: self.$password)
+                TextField("学号", text: $userId)
+                SecureField("密码", text: $password)
             }
             if token != "" {
                 Section {
@@ -47,8 +52,12 @@ struct LibraryAccountView: View, LoginDelegate {
                     Button(action: {
                         withAnimation {
                             self.token = ""
+                            self.libraryInfoCache = ""
+                            self.roomInfoCache = ""
+                            self.savedBuildingId = -1
+                            self.savedRoomId = -1
                         }
-                        self.alertInfo = AlertInfo(title: "删除成功", info: "")
+                        BannerService.getInstance().showBanner(title: "删除成功", content: "", type: .Success)
                     }, label: {
                         Text("删除登录序列号").foregroundColor(.red)
                     })
@@ -78,9 +87,9 @@ struct LibraryAccountView: View, LoginDelegate {
             spider.loginDelegate = self
             self.userId = self.savedUserId
             self.password = self.savedPassword
-        }).alert(item: $alertInfo) { info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
+            
+            print("suid: \(self.savedUserId) spwd: \(self.savedPassword)")
+        })
     }
     
     mutating func loginDelegate(data: AFDataResponse<Any>) {
@@ -89,11 +98,11 @@ struct LibraryAccountView: View, LoginDelegate {
         print(json)
         
         if json["status"].string ?? "" == "" {
-            self.alertInfo = AlertInfo(title: "登录失败", info: "你可能被临时禁止登录，请稍后再试")
+            BannerService.getInstance().showBanner(title: "登录失败", content: "你可能被临时禁止登录，请稍后再试", type: .Error)
         }
         
         if json["status"] == "fail" {
-            self.alertInfo = AlertInfo(title: "登录失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "登录失败", content: json["message"].stringValue, type: .Error)
         }
         
         if json["status"] == "success" {
@@ -102,8 +111,7 @@ struct LibraryAccountView: View, LoginDelegate {
                 savedPassword = password
                 token = json["data"]["token"].stringValue
             }
-
-            self.alertInfo = AlertInfo(title: "登录成功", info: "")
+            BannerService.getInstance().showBanner(title: "登录成功", content: "", type: .Success)
         }
     }
 }

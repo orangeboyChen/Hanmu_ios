@@ -13,7 +13,6 @@ import WidgetKit
 
 struct HanmuView: View, HanmuUserInfoDelegate {
     @AppStorage("imeiCode", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var savedImeiCode: String = ""
-    @State private var alertInfo: AlertInfo?
     
     @AppStorage("lastDate", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastDate: String = "无"
     @AppStorage("lastSpeed", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var lastSpeed: String = "无"
@@ -94,9 +93,7 @@ struct HanmuView: View, HanmuUserInfoDelegate {
             
             initValidResult()
             
-        }).alert(item: $alertInfo){info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
+        })
     }
     
 
@@ -136,7 +133,7 @@ struct HanmuView: View, HanmuUserInfoDelegate {
             if message.contains("验证码") {
                 message = "请重新登录"
             }
-            alertInfo = AlertInfo(title: "获取信息失败", info: message)
+            BannerService.getInstance().showBanner(title: "获取信息失败", content: message, type: .Error)
         }
     }
     

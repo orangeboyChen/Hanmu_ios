@@ -25,7 +25,7 @@ struct HanmuAccountHelpView: View {
             }
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("汉姆帮助 - 跑步设备序列号")
+            .navigationTitle("汉姆帮助 - 跑步设备序列号")
 
         }
 

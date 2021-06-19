@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 struct MyLibraryInfoView: View, UserInfoDelegate {
+    @Binding var isActive: Bool
     
     ///加载绑定
     @State var isUserInfoLoading: Bool = false
@@ -22,15 +23,15 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
     @State var violationCount: Int = 1
     @State var lastInBuildingName: String = "无"
     
+   
+    
     //必要的存储信息
     @AppStorage("userId", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var userId: String = ""
     @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
     
     ///爬虫
-    private var spider: LibrarySpider = LibrarySpider.getInstance()
+    var spider: LibrarySpider = LibrarySpider.getInstance()
     
-    ///弹窗提醒
-    @State var alertInfo: AlertInfo?
     
     
     var body: some View {
@@ -93,7 +94,8 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
                 
             }
         }
-        .navigationBarTitle("个人信息", displayMode: .inline)
+        .navigationTitle("个人信息")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             spider.userInfoDelegate = self
             if token != "" {
@@ -101,9 +103,6 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
                 isUserInfoLoading = true
             }
         })
-        .alert(item: $alertInfo){item in
-            Alert(title: Text(item.title), message: Text(item.info), dismissButton: .none)
-        }
     }
     
     /**
@@ -172,14 +171,18 @@ struct MyLibraryInfoView: View, UserInfoDelegate {
             }
         }
         else{
-            alertInfo = AlertInfo(title: "获取失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "获取失败", content: json["message"].stringValue, type: .Error)
+            
+            if json["message"].stringValue == "系统维护中" {
+                isActive = false
+            }
         }
     }
 }
 
 struct MyLibraryInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        MyLibraryInfoView()
+        MyLibraryInfoView(isActive: .constant(true))
     }
 }
 

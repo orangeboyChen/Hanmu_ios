@@ -24,8 +24,7 @@ struct HanmuInvalidHistoryView: View, HanmuUserInfoDelegate {
     @State var invalidResultPageNum = 1
     @State var invalidResultStartPageSize = 10
     @State var invalidResultContinuePageSize = 10
-    
-    @State var alertInfo: AlertInfo?
+
     
     var body: some View {
         //        List {
@@ -96,14 +95,13 @@ struct HanmuInvalidHistoryView: View, HanmuUserInfoDelegate {
             }
             
         }
-        .navigationBarTitle("无效记录", displayMode: .inline)
+        .navigationTitle("无效记录")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             spider.userInfoDelegate = self
             initInvalidResult()
         })
-        .alert(item: $alertInfo){info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
+       
         
         
     }
@@ -158,7 +156,7 @@ struct HanmuInvalidHistoryView: View, HanmuUserInfoDelegate {
             if message.contains("验证码") {
                 message = "请重新登录"
             }
-            alertInfo = AlertInfo(title: "获取信息失败", info: message)
+            BannerService.getInstance().showBanner(title: "获取信息失败", content: message, type: .Error)
         }
         
     }

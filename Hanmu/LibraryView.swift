@@ -12,8 +12,6 @@ import WidgetKit
 
 struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
 
-    
-
     var spider: LibrarySpider = LibrarySpider.getInstance()
     
     @StateObject var displayBook: Book = Book()
@@ -21,11 +19,14 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
     @State var isDisplayBookLoading: Bool = false
     @State var isCancelOrStopLoading: Bool = false
     @State var isLoginLoading: Bool = false
-    
-    @State var alertInfo: AlertInfo?
+
     
     @State var isBookViewActive: Bool = false
+    @State var isRebookViewActive: Bool = false
 
+    @State var isHistoryViewActive: Bool = false
+    @State var isLibraryInfoViewActive: Bool = false
+    
     @AppStorage("libraryToken", store: UserDefaults(suiteName: "group.com.nowcent.hanmu.orangeboy")) var token: String = ""
     
 
@@ -52,7 +53,7 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
             if token != "" {
                 if isDisplayBookLoading || displayBook.id != -1 {
                     Section(header: HStack {
-                        Text("\(isLoginLoading ? "正在登录" : "当前预约")")
+//                        Text("\(isLoginLoading ? "正在登录" : "当前预约")")
                         if isDisplayBookLoading {
                             ProgressView()
                                 .padding(.leading, 2.0)
@@ -91,58 +92,67 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                             }
                             .padding(.vertical)
                             Group {
-                                if displayBook.stat == "RESERVE" {
-                                    Button(action: {
-                                        isCancelOrStopLoading = true
-                                        spider.cancel(id: String(self.displayBook.id))
-                                        WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
-                                    }, label: {
-                                        HStack {
-                                            Text("取消预约")
+//                                if displayBook.stat == "RESERVE" {
+//                                    Button(action: {
+//                                        isCancelOrStopLoading = true
+//                                        spider.cancel(id: String(self.displayBook.id))
+//                                        WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
+//                                    }, label: {
+//                                        HStack {
+//                                            Text("取消预约")
+//
+//
+//                                            Spacer()
+//                                            if isCancelOrStopLoading {
+//                                                ProgressView()
+//                                            }
+//                                        }
+//                                    }).disabled(isCancelOrStopLoading)
+//                                    .foregroundColor(isCancelOrStopLoading ? .gray : .red)
+//                                }
+//                                else if displayBook.stat == "CHECK_IN" {
+//                                    Button(action: {
+//
+//                                        spider.stop()
+//                                    }, label: {
+//                                        HStack {
+//                                            Text("结束使用")
+//
+//                                            Spacer()
+//                                            if isCancelOrStopLoading {
+//                                                ProgressView()
+//                                            }
+//                                        }
+//
+//                                    })
+//                                    .disabled(isCancelOrStopLoading)
+//                                }
+//                                else if displayBook.stat == "AWAY" {
+//                                    Button(action: {
+//                                        isCancelOrStopLoading = true
+//                                        spider.stop()
+//                                    }, label: {
+//                                        HStack {
+//                                            Text("结束使用")
+//
+//
+//                                            Spacer()
+//                                            if isCancelOrStopLoading {
+//                                                ProgressView()
+//                                            }
+//                                        }
+//                                    }).disabled(isCancelOrStopLoading)
+//                                }
+                                
+                                NavigationLink(destination: RebookView(currentBook: displayBook, isRebookViewActive: $isRebookViewActive), isActive: $isRebookViewActive) {
+                                    HStack {
+                                        Text("变更预约")
+                                            .foregroundColor(.blue)
+                                    }
+                                }
+                                
 
-                                            
-                                            Spacer()
-                                            if isCancelOrStopLoading {
-                                                ProgressView()
-                                            }
-                                        }
-                                    }).disabled(isCancelOrStopLoading)
-                                    .foregroundColor(isCancelOrStopLoading ? .gray : .red)
-                                }
-                                else if displayBook.stat == "CHECK_IN" {
-                                    Button(action: {
-                                        
-                                        spider.stop()
-                                    }, label: {
-                                        HStack {
-                                            Text("结束使用")
-                                            
-                                            Spacer()
-                                            if isCancelOrStopLoading {
-                                                ProgressView()
-                                            }
-                                        }
-                                        
-                                    })
-                                    .disabled(isCancelOrStopLoading)
-                                }
-                                else if displayBook.stat == "AWAY" {
-                                    Button(action: {
-                                        isCancelOrStopLoading = true
-                                        spider.stop()
-                                    }, label: {
-                                        HStack {
-                                            Text("结束使用")
-                                            
-                                            
-                                            Spacer()
-                                            if isCancelOrStopLoading {
-                                                ProgressView()
-                                            }
-                                        }
-                                    }).disabled(isCancelOrStopLoading)
-                                    
-                                }
+                                
                             }
                         }
                     }
@@ -159,14 +169,14 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                 }
                 
                 Section {
-                    NavigationLink(destination: LibraryHistory()) {
+                    NavigationLink(destination: LibraryHistory(isActive: $isHistoryViewActive), isActive: $isHistoryViewActive) {
                         Text("历史预约记录")
                     }
                 }
                 
                 Section {
                     NavigationLink(
-                        destination: MyLibraryInfoView()) {
+                        destination: MyLibraryInfoView(isActive: $isLibraryInfoViewActive), isActive: $isLibraryInfoViewActive) {
                         Text("个人信息")
                     }
                 }
@@ -198,13 +208,10 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                     isDisplayBookLoading = true
                 }
 
-                spider.history(pageNum: 1, pageSize: 5)
+                spider.history(pageNum: 1, pageSize: 10)
             }
             
         })
-        .alert(item: $alertInfo) { info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
         
     }
     
@@ -218,16 +225,16 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
         print(json)
         
         if json["status"].string ?? "" == "" {
-            self.alertInfo = AlertInfo(title: "登录失败", info: "你可能被临时禁止登录，请稍后再试")
+            BannerService.getInstance().showBanner(title: "登录失败", content: "你可能被临时禁止登录，请稍后再试", type: .Error)
         }
         
         if json["status"] == "fail" {
-            self.alertInfo = AlertInfo(title: "登录失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "登录失败", content: json["message"].stringValue, type: .Error)
         }
         
         if json["status"] == "success" {
             isDisplayBookLoading = true
-            spider.history(pageNum: 1, pageSize: 5)
+            spider.history(pageNum: 1, pageSize: 10)
         }
     }
     
@@ -275,11 +282,11 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
             isCancelOrStopLoading = false
             
             if json["status"] == "success" {
-//                alertInfo = AlertInfo(title: "已取消预约", info: "")
                 displayBook.clear()
             }
             else {
-                alertInfo = AlertInfo(title: "操作失败", info: json["message"].stringValue)
+                BannerService.getInstance().showBanner(title: "操作失败", content: json["message"].stringValue, type: .Error)
+
             }
         }
 
@@ -292,11 +299,11 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
             isCancelOrStopLoading = false
             
             if json["status"] == "success" {
-//                alertInfo = AlertInfo(title: "已释放座位", info: "")
+                BannerService.getInstance().showBanner(title: "已释放座位", content: "", type: .Success)
                 displayBook.clear()
             }
             else {
-                alertInfo = AlertInfo(title: "操作失败", info: json["message"].stringValue)
+                BannerService.getInstance().showBanner(title: "操作失败", content: json["message"].stringValue, type: .Error)
             }
         }
         

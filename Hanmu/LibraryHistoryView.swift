@@ -21,7 +21,8 @@ struct LibraryHistory: View, HistoryPageDelegate {
     @State var isHistoryLoading: Bool = false
     @State var isMoreHistory: Bool = true
     
-    @State var alertInfo: AlertInfo?
+    @Binding var isActive: Bool
+
     
     var spider: LibrarySpider = LibrarySpider.getInstance()
     var body: some View {
@@ -124,14 +125,12 @@ struct LibraryHistory: View, HistoryPageDelegate {
             
             
         }
-        .navigationBarTitle("历史记录", displayMode: .inline)
+        .navigationTitle("历史记录")
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: {
             spider.historyPageDelegate = self
             initBookView()
         })
-        .alert(item: $alertInfo) { info in
-            Alert(title: Text(info.title), message: Text(info.info), dismissButton: .none)
-        }
     }
     
     func initBookView() {
@@ -222,7 +221,11 @@ struct LibraryHistory: View, HistoryPageDelegate {
             pageNum += 1
         }
         else {
-            alertInfo = AlertInfo(title: "获取失败", info: json["message"].stringValue)
+            BannerService.getInstance().showBanner(title: "获取失败", content: json["message"].stringValue, type: .Error)
+            
+            if json["message"].stringValue == "系统维护中" {
+                isActive = false
+            }
             
         }
 
@@ -231,7 +234,7 @@ struct LibraryHistory: View, HistoryPageDelegate {
 
 struct LibraryHistory_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryHistory()
+        LibraryHistory(isActive: .constant(true))
     }
 }
 
