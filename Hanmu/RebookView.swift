@@ -138,7 +138,15 @@ struct RebookView: View, BookControlDelegate, RebookDelegate {
                     
                     let endTime = calendar.component(.hour, from: toTime) * 60 + calendar.component(.minute, from: toTime)
                     isRebookLoading = true
-                    spider.changeBookTime(t: "1", t2: "2", startTime: String(startTime), endTime: String(endTime), date: currentBook.date!)
+                    
+                    if currentBook.stat == "RESERVE" {
+                        spider.changeBookTime(t: "1", t2: "2", startTime: String(startTime), endTime: String(endTime), date: currentBook.date!)
+                    }
+                    
+                    if currentBook.stat == "CHECK_IN" || currentBook.stat == "AWAY" {
+                        spider.changeBookTimeOnStop(t: "1", t2: "2", startTime: String(startTime), endTime: String(endTime), date: currentBook.date!)
+                    }
+                    
                 }, label: {
                     HStack {
                         Text("修改时间")
@@ -147,6 +155,7 @@ struct RebookView: View, BookControlDelegate, RebookDelegate {
                         if isRebookLoading {
                             ProgressView()
                         }
+                        
                     }
 
                 }).disabled((currentFromTime == fromTime && currentToTime == toTime) || (isCancelLoading || isRebookLoading))
@@ -244,6 +253,36 @@ struct RebookView: View, BookControlDelegate, RebookDelegate {
             picker.timeZone = TimeZone.current
             picker.datePickerMode = .time
             
+            let calendar = Calendar.current
+            let now = Date()
+            
+            if getDateString(isTomorrow: false) == parent.currentBook.date {
+                var currentHour = calendar.component(.hour, from: now)
+                var currentMinute = calendar.component(.minute, from: now)
+                
+                var fromHour = calendar.component(.hour, from: currentFromTime)
+                var fromMinute = calendar.component(.minute, from: currentFromTime)
+                
+                if currentHour > fromHour || (currentHour == fromHour && currentHour > fromMinute) {
+                    var timeString: String
+                    
+                    if currentMinute > 30 {
+                        currentHour += 1
+                    }
+                    
+                    if currentHour > 10 {
+                        timeString = "\(currentHour):\(currentMinute > 30 ? 00 : 30)"
+                    }
+                    else {
+                        timeString = "0\(currentHour):\(currentMinute > 30 ? 00 : 30)"
+                    }
+                    
+                    currentFromTime = self.parent.string2Date(timeString)
+                }
+                
+            }
+            
+            
             if isFrom {
                 picker.minimumDate = currentFromTime
                 picker.maximumDate = toTime.addingTimeInterval(TimeInterval(-30 * 60))
@@ -265,6 +304,20 @@ struct RebookView: View, BookControlDelegate, RebookDelegate {
             @objc func dateChanged(_ sender: UIDatePicker) {
                 datePicker.selection = sender.date
             }
+        }
+        
+        func getDateString(isTomorrow: Bool) -> String{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-M-dd"
+            formatter.timeZone = TimeZone.init(secondsFromGMT: 0)
+            
+            var date: Date = Date()
+            if isTomorrow {
+                date.addTimeInterval(24 * 60 * 60)
+            }
+            let str = formatter.string(from: date)
+            print(str)
+            return str
         }
     }
 

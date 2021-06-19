@@ -354,6 +354,63 @@ class LibrarySpider {
         
     }
     
+    public func changeBookTimeOnStop(t: String, t2: String, startTime: String, endTime: String, date: String) {
+        let header: HTTPHeaders = ["token": token]
+        AF.request(BASE_URL + STOP_URI, method: .get, headers: header).responseJSON { (data) in
+            print("2 == \(data)")
+            let json = JSON(data.data)
+            if json["status"] != "success" {
+                //取消失败
+                self.changeTimeDelegate?.changeTimeDelegate(status: RebookStatus.cancelError, data: json["message"].stringValue)
+                return
+            }
+            
+            //3.重新预约
+            URLCache.shared.removeAllCachedResponses()
+            Alamofire.Session.default.sessionConfiguration.requestCachePolicy = .reloadIgnoringCacheData
+            
+            let header: HTTPHeaders = [
+                "token": self.token,
+                "Cache-Control": "no-cache",
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "User-Agent": ""
+            ]
+            
+            let parameters: Parameters = [
+                "t": t,
+                "startTime": startTime,
+                "endTime": endTime,
+                "seat": self.lastBookSeatId,
+                "date": date,
+                "t2": t2
+            ]
+            
+            AF.request(self.BASE_URL + self.BOOK_URI, method: .post, parameters: parameters, headers: header).responseString { (data) in
+                print("3 == \(data) \(header) \(parameters)")
+                let responseString = data.value ?? ""
+                if responseString.prefix(1) != "{" {
+                    //非JSON格式的预约失败
+                    self.changeTimeDelegate?.changeTimeDelegate(status: RebookStatus.bookError, data: responseString)
+                    return
+                }
+                
+                let json = JSON(data.data)
+                if json["status"] == "success" {
+                    //预约成功
+                    self.changeTimeDelegate?.changeTimeDelegate(status: RebookStatus.success, data: "")
+                }
+                else {
+                    //JSON格式的预约失败
+                    self.changeTimeDelegate?.changeTimeDelegate(status: RebookStatus.bookError, data: json["message"].stringValue)
+                }
+            }
+        }
+        
+        
+        
+        
+    }
+    
     
     
     

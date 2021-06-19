@@ -222,6 +222,7 @@
 		EA2F3A2C25FB68AE00C145BA /* XGExtensionService-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XGExtensionService-Bridging-Header.h"; sourceTree = "<group>"; };
 		EA2F3A4C25FB6C6100C145BA /* XGExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGExtension.h; sourceTree = "<group>"; };
 		EA31A774267E3A0500FFA633 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		EA31A777267E770700FFA633 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EA50376225F9334B00E233F4 /* Hanmu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hanmu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA50376525F9334B00E233F4 /* HanmuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HanmuApp.swift; sourceTree = "<group>"; };
 		EA50376725F9334B00E233F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -434,6 +435,7 @@
 		EA50375925F9334B00E233F4 = {
 			isa = PBXGroup;
 			children = (
+				EA31A777267E770700FFA633 /* MyPlayground.playground */,
 				EABA2337260499CF005EA26A /* LibraryWidgetExtension.entitlements */,
 				EA8BA60E2603B10E00C9A13D /* SiriKitIntentDefinition.intentdefinition */,
 				EA50376425F9334B00E233F4 /* Hanmu */,
