@@ -258,7 +258,7 @@ class LibrarySpider {
     public func changeBookTime(t: String, t2: String, startTime: String, endTime: String, date: String) {
         //1.获取预约内容
         let header: HTTPHeaders = ["token": self.token]
-        AF.request(BASE_URL + HISTORY_URI + "1/5", method: .get, headers: header).responseString { (data) in
+        AF.request(BASE_URL + HISTORY_URI + "1/15", method: .get, headers: header).responseString { (data) in
             //判断账号是否被系统锁了
             print("1 ==\(data)")
             if data.value == "ERROR: Abnormal using detected!!!" {
