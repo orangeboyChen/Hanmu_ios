@@ -37,7 +37,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
         }
         
         if json["status"] == "success" {
-            spider.history(pageNum: 1, pageSize: 5)
+            spider.history(pageNum: 1, pageSize: 10)
             return
         }
         group.leave()
@@ -116,7 +116,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
         
         group.enter()
         dispatchQueue.async {
-            self.spider.history(pageNum: 1, pageSize: 5)
+            self.spider.history(pageNum: 1, pageSize: 10)
         }
         
         group.notify(queue: dispatchQueue) {
@@ -150,7 +150,7 @@ struct Provider: IntentTimelineProvider, HistoryDelegate, LoginDelegate {
         
         group.enter()
         dispatchQueue.async {
-            self.spider.history(pageNum: 1, pageSize: 5)
+            self.spider.history(pageNum: 1, pageSize: 10)
         }
 
         group.notify(queue: dispatchQueue) {
@@ -225,7 +225,7 @@ struct LibraryWidgetEntryView : View {
                                         .font(.caption)
                                 }
                                 else if entry.stat == "AWAY" {
-                                    Text("暂离于\(entry.awayBegin)")
+                                    Text("\(entry.awayBegin)暂离")
                                         .foregroundColor(.orange)
                                         .font(.caption)
                                 }

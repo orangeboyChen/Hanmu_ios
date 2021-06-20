@@ -64,7 +64,7 @@ struct ContentView: View {
             }
             .onOpenURL(perform: { url in
                if url == URL(string: "hanmu://library") {
-                   tabIndex = 1
+//                   tabIndex = 1
                }
             })
             
