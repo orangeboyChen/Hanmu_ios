@@ -53,6 +53,7 @@ struct My: View {
                 }
             }
         }
+        .navigationTitle("我的")
         
     }
     

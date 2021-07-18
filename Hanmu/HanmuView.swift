@@ -85,7 +85,8 @@ struct HanmuView: View, HanmuUserInfoDelegate {
                 
                 
             }
-        }.onAppear(perform: {
+        }
+        .onAppear(perform: {
 //            WidgetCenter.shared.reloadAllTimelines()
             WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
             
@@ -94,6 +95,7 @@ struct HanmuView: View, HanmuUserInfoDelegate {
             initValidResult()
             
         })
+        .navigationTitle("跑步")
     }
     
 

@@ -14,6 +14,9 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
 
     var spider: LibrarySpider = LibrarySpider.getInstance()
     
+    
+    let watchConnection = ConnectionWatch.getInstance()
+    
     @StateObject var displayBook: Book = Book()
     
     @State var isDisplayBookLoading: Bool = false
@@ -196,7 +199,8 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
 
 
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+//        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationTitle("图书馆")
         .onAppear(perform: {
             WidgetCenter.shared.reloadTimelines(ofKind: "LibraryWidget")
             spider.historyDelegate = self
@@ -211,7 +215,17 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                 spider.history(pageNum: 1, pageSize: 10)
             }
             
+            
+            watchConnection.session.sendMessage(["libraryToken": spider.token], replyHandler: {
+                (r) in
+                BannerService.getInstance().showBanner(title: r.debugDescription, content: "", type: .Error)
+            }, errorHandler: {(error) in
+//                BannerService.getInstance().showBanner(title: error.localizedDescription, content: "", type: .Error)
+            })
+//            BannerService.getInstance().showBanner(title: "send", content: "123", type: .Info)
+            
         })
+
         
     }
     
@@ -267,6 +281,14 @@ struct LibraryView: View, HistoryDelegate, BookControlDelegate, LoginDelegate {
                         displayBook.loc = subJson["loc"].stringValue
                     }
                 }
+            }
+            else if json["message"] == "登录失败: 用户名或密码不正确" {
+//                token = ""
+//                isDisplayBookLoading = true
+//                spider.login()
+//                spider.history(pageNum: 1, pageSize: 10)
+//
+                BannerService.getInstance().showBanner(title: "登录失败", content: "请尝试重新登录", type: Banner.BannerType.Error)
             }
 
         }

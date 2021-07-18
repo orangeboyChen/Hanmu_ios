@@ -117,7 +117,7 @@ struct LibraryHistory: View, HistoryPageDelegate {
                 Section {
                     HStack {
                         Spacer()
-                        ProgressView()
+                        ProgressView("正在加载")
                         Spacer()
                     }
                 }
