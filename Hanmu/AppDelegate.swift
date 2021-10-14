@@ -10,9 +10,7 @@ import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate, XGPushDelegate, UNUserNotificationCenterDelegate {
     
-    /**
-     https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx668004190386482e&secret=28665697e6d04ac8c78332cfecbc91f5
-     */
+
     
     
     
@@ -22,7 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, XGPushDelegate, UNUserNotifi
         UIApplication.shared.registerForRemoteNotifications()
         
         XGPush.defaultManager().configureClusterDomainName("tpns.tencent.com")
-        XGPush.defaultManager().startXG(withAccessID: 1600017845, accessKey: "I6132G9TK5U1", delegate: self)
+        XGPush.defaultManager().startXG(withAccessID: 0, accessKey: "", delegate: self)
         XGPush.defaultManager().isEnableDebug = true
         return true
     }
